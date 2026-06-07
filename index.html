@@ -1931,9 +1931,13 @@ function quizSubmitThenOpen(url) {
     4: {'min':'Минимальный платёж (долгий срок)','parts':'Рассрочка без банка','calc':'Хочу разные варианты'}
   };
   let answers = '';
+  let answersObj = {};
   for(let i=1;i<=4;i++){
     const el = document.querySelector(`#qs-${i} .quiz-opt.selected`);
-    if(el) answers += `\n  ${i}. ${labels[i][el.dataset.val] || el.dataset.val}`;
+    if(el) {
+      answers += `\n  ${i}. ${labels[i][el.dataset.val] || el.dataset.val}`;
+      answersObj['q'+i] = labels[i][el.dataset.val] || el.dataset.val;
+    }
   }
   const msgr = window._quizMessenger || 'Telegram';
   const text = `🏠 Новая заявка с сайта!\n\n📱 Телефон: ${phone || 'не указан'}\n💬 Мессенджер: ${msgr}\n\n📋 Ответы теста:${answers || '\n  (ответы не выбраны)'}\n\n⏰ ${new Date().toLocaleString('ru-RU')}`;
@@ -1959,6 +1963,22 @@ function quizSubmitThenOpen(url) {
     // Даже при ошибке — всё равно открываем Telegram
     if (url) window.open(url, '_blank');
   });
+
+  // Отправляем на email через Make webhook
+  fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      phone: phone || 'не указан',
+      messenger: msgr,
+      q1: answersObj.q1 || 'не выбрано',
+      q2: answersObj.q2 || 'не выбрано',
+      q3: answersObj.q3 || 'не выбрано',
+      q4: answersObj.q4 || 'не выбрано',
+      source: 'Квиз на сайте',
+      date: new Date().toLocaleString('ru-RU')
+    })
+  }).catch(()=>{});
 }
 
 function quizSubmit() {
