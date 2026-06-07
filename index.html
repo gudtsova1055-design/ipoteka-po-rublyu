@@ -611,30 +611,30 @@ function sendCalcResult(messenger) {
   from { transform: translateY(0px); }
   to   { transform: translateY(-8px); }
 }
-#menuHint.visible { display: block; }
-#menuHint.hiding {
-  animation: hintFadeOut 1s ease forwards;
-}
-@keyframes hintFadeOut {
-  from { opacity: 1; }
-  to   { opacity: 0; }
-}
 </style>
 
 <script>
-(function() {
-  // Показываем только на мобильном и только при первом визите
-  function isMobile() { return window.innerWidth <= 900; }
-  if (!isMobile()) return;
-  if (sessionStorage.getItem('menuHintShown')) return;
-  sessionStorage.setItem('menuHintShown', '1');
+function dismissMenuHint() {
+  var hint = document.getElementById('menuHint');
+  if (!hint) return;
+  hint.style.transition = 'opacity 1s';
+  hint.style.opacity = '0';
+  setTimeout(function() {
+    hint.style.display = 'none';
+  }, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Только на мобильных устройствах (ширина экрана до 900px)
+  if (window.innerWidth > 900) return;
 
   var hint = document.getElementById('menuHint');
   if (!hint) return;
 
-  // Показываем через 1.5 секунды после загрузки
+  // Показываем через 2 секунды — страница точно загружена
   setTimeout(function() {
-    hint.classList.add('visible');
+    hint.style.display = 'block';
+    hint.style.opacity = '1';
 
     // Анимируем пункты меню один за другим
     var items = hint.querySelectorAll('.hint-item');
@@ -642,25 +642,15 @@ function sendCalcResult(messenger) {
       setTimeout(function() {
         item.style.opacity = '1';
         item.style.transform = 'translateX(0)';
-      }, 300 + i * 200);
+      }, 200 + i * 220);
     });
 
-    // Через 5 секунд плавно скрываем
+    // Через 6 секунд плавно скрываем
     setTimeout(function() {
       dismissMenuHint();
-    }, 5500);
-  }, 1500);
-})();
-
-function dismissMenuHint() {
-  var hint = document.getElementById('menuHint');
-  if (!hint || !hint.classList.contains('visible')) return;
-  hint.classList.add('hiding');
-  setTimeout(function() {
-    hint.style.display = 'none';
-    hint.classList.remove('visible', 'hiding');
-  }, 1000);
-}
+    }, 6000);
+  }, 2000);
+});
 </script>
 
 <!-- HERO -->
