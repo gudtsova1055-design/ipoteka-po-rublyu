@@ -576,6 +576,93 @@ function sendCalcResult(messenger) {
   <a href="https://gudtsova1055-design.github.io/ipoteka-po-rublyu/#contact" onclick="closeMobile()">Консультация</a>
 </div>
 
+<!-- ПОДСКАЗКА МЕНЮ (только мобильные, только первый визит) -->
+<div id="menuHint" style="display:none;position:fixed;top:0;inset-x:0;z-index:9997;pointer-events:none;">
+  <!-- Затемнение фона -->
+  <div id="menuHintOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.55);pointer-events:auto;" onclick="dismissMenuHint()"></div>
+
+  <!-- Стрелка к бургеру -->
+  <div style="position:fixed;top:14px;right:54px;z-index:9998;pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:2px;">
+    <!-- Анимированная стрелка вверх -->
+    <svg id="menuHintArrow" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+         style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));animation:arrowBounce 0.8s ease-in-out infinite alternate;">
+      <path d="M16 38 L16 6" stroke="#C5A880" stroke-width="3" stroke-linecap="round"/>
+      <path d="M6 16 L16 4 L26 16" stroke="#C5A880" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <!-- Подсказка-облачко -->
+  <div style="position:fixed;top:66px;right:8px;z-index:9998;background:#fff;border:2px solid var(--gold);border-radius:16px;padding:1rem 1.2rem;max-width:200px;box-shadow:0 8px 32px rgba(0,0,0,0.2);pointer-events:auto;" onclick="dismissMenuHint()">
+    <div style="font-size:0.9rem;font-weight:800;color:#2B2D35;line-height:1.4;margin-bottom:0.6rem;">👆 Здесь меню сайта</div>
+    <div style="display:flex;flex-direction:column;gap:4px;" id="menuHintItems">
+      <div class="hint-item" style="font-size:0.82rem;color:var(--gold);font-weight:700;opacity:0;transform:translateX(10px);transition:all 0.3s;">📋 Виды ипотеки</div>
+      <div class="hint-item" style="font-size:0.82rem;color:var(--gold);font-weight:700;opacity:0;transform:translateX(10px);transition:all 0.3s;">🧮 Калькулятор</div>
+      <div class="hint-item" style="font-size:0.82rem;color:var(--gold);font-weight:700;opacity:0;transform:translateX(10px);transition:all 0.3s;">💡 Лайфхаки</div>
+      <div class="hint-item" style="font-size:0.82rem;color:var(--gold);font-weight:700;opacity:0;transform:translateX(10px);transition:all 0.3s;">🏗️ Рассрочка</div>
+      <div class="hint-item" style="font-size:0.82rem;color:var(--gold);font-weight:700;opacity:0;transform:translateX(10px);transition:all 0.3s;">🏠 Квартиры</div>
+      <div class="hint-item" style="font-size:0.82rem;color:var(--gold);font-weight:700;opacity:0;transform:translateX(10px);transition:all 0.3s;">📞 Консультация</div>
+    </div>
+    <div style="font-size:0.75rem;color:#aaa;margin-top:0.6rem;text-align:center;">Нажмите, чтобы закрыть</div>
+  </div>
+</div>
+
+<style>
+@keyframes arrowBounce {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-8px); }
+}
+#menuHint.visible { display: block; }
+#menuHint.hiding {
+  animation: hintFadeOut 1s ease forwards;
+}
+@keyframes hintFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+</style>
+
+<script>
+(function() {
+  // Показываем только на мобильном и только при первом визите
+  function isMobile() { return window.innerWidth <= 900; }
+  if (!isMobile()) return;
+  if (sessionStorage.getItem('menuHintShown')) return;
+  sessionStorage.setItem('menuHintShown', '1');
+
+  var hint = document.getElementById('menuHint');
+  if (!hint) return;
+
+  // Показываем через 1.5 секунды после загрузки
+  setTimeout(function() {
+    hint.classList.add('visible');
+
+    // Анимируем пункты меню один за другим
+    var items = hint.querySelectorAll('.hint-item');
+    items.forEach(function(item, i) {
+      setTimeout(function() {
+        item.style.opacity = '1';
+        item.style.transform = 'translateX(0)';
+      }, 300 + i * 200);
+    });
+
+    // Через 5 секунд плавно скрываем
+    setTimeout(function() {
+      dismissMenuHint();
+    }, 5500);
+  }, 1500);
+})();
+
+function dismissMenuHint() {
+  var hint = document.getElementById('menuHint');
+  if (!hint || !hint.classList.contains('visible')) return;
+  hint.classList.add('hiding');
+  setTimeout(function() {
+    hint.style.display = 'none';
+    hint.classList.remove('visible', 'hiding');
+  }, 1000);
+}
+</script>
+
 <!-- HERO -->
 <section style="padding:0;background:var(--bg);">
   <div class="hero">
