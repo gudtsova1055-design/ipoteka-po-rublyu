@@ -1925,8 +1925,7 @@ function quizGo(step) {
 
   // Показываем statsCard только на финальном экране (шаг 5)
   var sc = document.getElementById('statsCard');
-  if (sc) sc.style.display = (step === 5) ? 'block' : 'none';
-
+ if (sc) sc.style.display = 'none';
   // Прогресс (только на вопросах 1-4)
   for (let i = 0; i < 4; i++) {
     const dot = document.getElementById('qp'+i);
