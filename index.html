@@ -555,14 +555,14 @@ function sendCalcResult(messenger) {
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(109675015, "init", {
+   ym(109774560, "init", {
         clickmap:true,
         trackLinks:true,
         accurateTrackBounce:true,
         webvisor:true
    });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/109675015" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/109774560" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 </head><body style=""><div class="cursor-glow" id="cursorGlow" style="left: 1036px; top: 79px;"></div>
 
@@ -1669,6 +1669,7 @@ if(cForm) cForm.addEventListener('submit', function(e) {
   this.style.display = 'none';
   const fs = document.getElementById('formSuccess');
   if(fs) fs.classList.add('show');
+  ym(109774560, 'reachGoal', 'form_sent');
 });
 
 // ── MODAL ──
@@ -1964,6 +1965,7 @@ function quizSubmitThenOpen(url) {
   // Показываем успех сразу
   setTimeout(() => {
     document.getElementById('quizSuccess').classList.add('show');
+    ym(109774560, 'reachGoal', 'quiz_sent');
   }, 300);
 
   // Отправляем в Telegram и ждём ответа перед открытием ссылки
@@ -2036,6 +2038,7 @@ function quizSubmit() {
 
   setTimeout(() => {
     document.getElementById('quizSuccess').classList.add('show');
+    ym(109774560, 'reachGoal', 'quiz_sent');
   }, 400);
 }
 
