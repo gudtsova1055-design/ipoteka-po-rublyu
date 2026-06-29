@@ -936,9 +936,32 @@ function downloadChecklist() {
 
   var w = window.open('', '_blank');
 
-  w.document.write('<html><head><title>Чек-лист</title><script src="https://www.google.com/recaptcha/api.js?render=6Ldj0zMtAAAAAG9BLYGeDOxqHfitLK8v39wM4024"></script>
-</head><body style="margin:0"><embed width="100%" height="100%" src="data:application/pdf;base64,' + b64 + '" type="application/pdf"><script>
+w.document.write(`
+<html>
+<head>
+<title>Чек-лист</title>
+<script src="https://www.google.com/recaptcha/api.js?render=..."></script>
+</head>
 
+<body style="margin:0">
+
+<div id="pdf-container" style="width:100vw; height:100vh;"></div>
+
+<script>
+let b64 = "ТВОЙ_BASE64_КОД_ЗДЕСЬ";
+
+let embed = document.createElement("embed");
+embed.width = "100%";
+embed.height = "100%";
+embed.type = "application/pdf";
+embed.src = "data:application/pdf;base64," + b64;
+
+document.getElementById("pdf-container").appendChild(embed);
+</script>
+
+</body>
+</html>
+`);
 // Дублируем toggleCalcForm для надёжности
 
 function toggleCalcForm() {
