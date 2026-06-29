@@ -1067,7 +1067,7 @@ function sendCalcResult(messenger) {
 
 <!-- /Yandex.Metrika counter -->
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6Ldj0zMtAAAAAG9BLYGeDOxqHfitLK8v39wM4024"></script>
 </head><body style=""><div class="cursor-glow" id="cursorGlow" style="left: 1036px; top: 79px;"></div>
 
 <!-- NAV -->
@@ -2875,7 +2875,7 @@ document.getElementById('installmentModal').addEventListener('click', function(e
             <textarea rows="3" placeholder="Ситуация, пожелания, вопросы..."></textarea>
 
           </div>
-<div class="g-recaptcha" data-sitekey="6LfJFjwtAAAAAHakrIzzODggvp4METMps_6qKyMh" style="margin-bottom:1rem;"></div>
+
           <button type="submit" class="btn-submit">Отправить заявку ✦</button>
 
         </form>
@@ -3096,11 +3096,17 @@ if(cForm) cForm.addEventListener('submit', function(e) {
 
   }
 
-  const captchaResponse = grecaptcha.getResponse();
-if (!captchaResponse) {
-  alert('Подтвердите, что вы не робот! ☝️');
-  return;
-}
+  grecaptcha.ready(function() {
+
+    grecaptcha.execute('6Ldj0zMtAAAAAG9BLYGeDOxqHfitLK8v39wM4024', {action: 'contact_form'}).then(function(token) {
+
+      if (!token) {
+
+        alert('Проверка безопасности не пройдена. Попробуйте ещё раз.');
+
+        return;
+
+      }
 
       const text = `📩 Заявка с формы на сайте!\n\n👤 Имя: ${name || 'не указано'}\n📱 Телефон: ${phone || 'не указан'}\n🎯 Цель: ${goal || 'не указана'}\n💬 Комментарий: ${comment || '—'}\n🤖 reCAPTCHA: ✅ проверено\n\n⏰ ${new Date().toLocaleString('ru-RU')}`;
 
@@ -3132,7 +3138,7 @@ if (!captchaResponse) {
 
           comment: comment,
 
-         recaptcha_token: captchaResponse,
+          recaptcha_token: token,
 
           date: new Date().toLocaleString('ru-RU')
 
@@ -3150,9 +3156,9 @@ if (!captchaResponse) {
 
     });
 
+  });
 
-
-
+});
 
 // ── MODAL ──
 
