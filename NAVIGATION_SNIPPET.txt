@@ -1,0 +1,10 @@
+<nav class="nav">
+<a href="/">Главная</a>
+<a href="/semejnaya-ipoteka.html">Семейная ипотека</a>
+<a href="/ipoteka-bez-pervonachalnogo-vznosa.html">Без первоначального взноса</a>
+<a href="/ipoteka-dlya-ip-i-samozanyatyh.html">Для ИП и самозанятых</a>
+<a href="/refinansirovanie-ipoteki.html">Рефинансирование</a>
+<a href="/ipoteka-s-plohoj-kreditnoj-istoriej.html">Плохая КИ</a>
+<a href="/podbor-kvartiry.html">Подбор квартиры</a>
+<a href="/rasschitat-ipoteku.html">Рассчитать ипотеку</a>
+</nav>
