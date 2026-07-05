@@ -885,4 +885,19 @@ footer a{color:var(--gold);text-decoration:none}
 .quiz-success{display:none;text-align:center;padding:1rem 0;}
 
 .quiz-success.show{display:block;}
+.tag-link {
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #e8b86d;
+  color: #7a5c2e;
+  padding: .5rem 1rem;
+  border-radius: 50px;
+  font-size: .9rem;
+  font-weight: 600;
+  transition: .2s;
+}
 
+.tag-link:hover {
+  background: #e8b86d;
+  color: #fff;
+}
