@@ -77,7 +77,7 @@ h1{font-size:52px;line-height:1.05;margin:0 0 18px;letter-spacing:-.03em}
   box-shadow:0 24px 70px rgba(0,0,0,.12);
   position:relative;
 }
-.hero-picture svg{width:100%;height:100%;display:block}
+.hero-photo{width:100%;height:100%;display:block;object-fit:cover}
 .rate-badge{
   position:absolute;right:24px;bottom:24px;
   background:#fff;border-radius:22px;
@@ -256,52 +256,12 @@ h1{font-size:52px;line-height:1.05;margin:0 0 18px;letter-spacing:-.03em}
     </div>
 
     <div class="hero-picture" aria-label="Семья в светлой гостиной">
-      <svg viewBox="0 0 760 520" role="img" aria-hidden="true">
-        <defs>
-          <linearGradient id="wall" x1="0" x2="1">
-            <stop offset="0" stop-color="#fff8ee"/>
-            <stop offset="1" stop-color="#eef8f1"/>
-          </linearGradient>
-          <linearGradient id="sofa" x1="0" x2="1">
-            <stop offset="0" stop-color="#e8d2b5"/>
-            <stop offset="1" stop-color="#d9bd94"/>
-          </linearGradient>
-        </defs>
-        <rect width="760" height="520" fill="url(#wall)"/>
-        <rect x="35" y="48" width="360" height="210" rx="14" fill="#dff0f4"/>
-        <line x1="155" y1="48" x2="155" y2="258" stroke="#fff" stroke-width="9"/>
-        <line x1="275" y1="48" x2="275" y2="258" stroke="#fff" stroke-width="9"/>
-        <line x1="35" y1="150" x2="395" y2="150" stroke="#fff" stroke-width="9"/>
-        <rect x="0" y="352" width="760" height="168" fill="#efdcc5"/>
-        <ellipse cx="365" cy="405" rx="290" ry="64" fill="#f7eee2"/>
-        <rect x="218" y="212" width="420" height="142" rx="38" fill="url(#sofa)"/>
-        <rect x="174" y="252" width="96" height="92" rx="26" fill="#c7a77b"/>
-        <rect x="590" y="250" width="110" height="96" rx="26" fill="#c7a77b"/>
-        <circle cx="372" cy="166" r="34" fill="#f4c7a4"/>
-        <path d="M332 160c16-44 74-38 82 4-12-13-48-20-82-4z" fill="#5e3d28"/>
-        <path d="M328 246c14-48 73-50 91 0v72h-91z" fill="#f3eadf"/>
-        <circle cx="472" cy="158" r="36" fill="#f0bd92"/>
-        <path d="M438 153c10-46 73-43 84 2-28-15-57-12-84-2z" fill="#3c2d24"/>
-        <path d="M426 248c17-56 82-55 101 0v70H426z" fill="#d9eadc"/>
-        <circle cx="546" cy="196" r="27" fill="#f3c09a"/>
-        <path d="M520 193c8-34 55-30 62 1-18-13-42-12-62-1z" fill="#6a452b"/>
-        <path d="M516 260c12-40 60-42 75 0v58h-75z" fill="#fff"/>
-        <circle cx="265" cy="342" r="28" fill="#f5c49c"/>
-        <path d="M238 337c8-35 57-31 63 0-20-14-41-12-63 0z" fill="#c2884c"/>
-        <path d="M230 408c10-46 62-47 78 0v44h-78z" fill="#f2f1ed"/>
-        <rect x="362" y="225" width="95" height="58" rx="8" fill="#9f7945"/>
-        <rect x="373" y="236" width="73" height="36" rx="5" fill="#f5efe5"/>
-        <rect x="340" y="420" width="42" height="34" fill="#bf8f52"/>
-        <rect x="402" y="396" width="48" height="58" fill="#d0a76b"/>
-        <path d="M402 396l24-22 24 22" fill="#a87943"/>
-        <rect x="510" y="420" width="70" height="34" rx="5" fill="#c79758"/>
-        <circle cx="530" cy="454" r="10" fill="#805b32"/>
-        <circle cx="565" cy="454" r="10" fill="#805b32"/>
-      </svg>
+      <img src="images/family-hero.png" alt="Семья в новой квартире" class="hero-photo">
       <div class="rate-badge">
         <strong>до 6%</strong>
         <span>льготная ставка</span>
       </div>
+    </div>
     </div>
   </div>
 </section>
