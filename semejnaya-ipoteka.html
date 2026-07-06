@@ -12,277 +12,212 @@
 :root{
   --bg:#F9F9FB;
   --surface:#ffffff;
-  --text:#2B2D35;
-  --muted:#666;
-  --gold:#C5A880;
+  --text:#232631;
+  --muted:#5f6470;
+  --gold:#B58A45;
+  --gold-soft:#D4B584;
   --dark:#171820;
   --green:#237a4b;
-  --green-light:#e4f6ec;
+  --green-light:#e8f5ed;
+  --line:rgba(0,0,0,.08);
 }
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto}
+.header{background:var(--dark);color:#fff;padding:18px 22px}
+.logo{font-weight:800}
+.nav{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.nav a{color:#fff;text-decoration:none;font-size:14px;opacity:.9}
+.nav a:hover{opacity:1}
 
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.55;
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  border:0;cursor:pointer;text-decoration:none;
+  padding:14px 22px;border-radius:999px;
+  font-weight:800;font-size:15px;
+  background:var(--gold-soft);color:#171820;
 }
+.btn-green{background:var(--green);color:#fff}
+.btn-light{background:#fff;border:1px solid rgba(0,0,0,.12);color:#171820}
 
-.wrap{
-  max-width:1100px;
-  margin:0 auto;
+.hero{
+  padding:58px 22px 64px;
+  background:linear-gradient(135deg,#fffaf2 0%,#f3fbf6 100%);
 }
-
-.header{
-  background:var(--dark);
-  color:#fff;
-  padding:18px 22px;
-}
-
-.logo{
-  font-weight:800;
-}
-
-.nav{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-
-.nav a{
-  color:#fff;
-  text-decoration:none;
-  font-size:14px;
-  opacity:.9;
-}
-
-.program-hero{
-  padding:70px 22px;
-  background:linear-gradient(135deg,#f2fbf6,#ffffff);
-}
-
-.program-hero__inner{
+.hero-inner{
   display:grid;
-  grid-template-columns:1.5fr 1fr;
-  gap:40px;
+  grid-template-columns:1.03fr .97fr;
+  gap:36px;
   align-items:center;
 }
-
-.program-label{
+.breadcrumbs{font-size:13px;color:var(--muted);margin-bottom:24px}
+.breadcrumbs a{color:var(--muted);text-decoration:none}
+.label{
   display:inline-block;
-  margin-bottom:16px;
   padding:8px 14px;
   border-radius:999px;
   background:var(--green-light);
   color:var(--green);
-  font-weight:700;
-  font-size:14px;
-}
-
-h1{
-  font-size:42px;
-  line-height:1.15;
-  margin:0 0 20px;
-}
-
-.program-hero__text{
-  font-size:20px;
-  line-height:1.5;
-  margin-bottom:28px;
-  color:#444;
-}
-
-.btn{
-  display:inline-block;
-  background:var(--gold);
-  color:#171820;
-  text-decoration:none;
-  padding:14px 22px;
-  border-radius:999px;
   font-weight:800;
+  font-size:13px;
+  margin-bottom:14px;
 }
-
-.btn-secondary{
-  background:#ffffff;
-  border:1px solid rgba(0,0,0,.12);
+h1{font-size:52px;line-height:1.05;margin:0 0 18px;letter-spacing:-.03em}
+.hero-text{font-size:21px;line-height:1.48;color:#3c414c;max-width:560px;margin:0 0 26px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.hero-picture{
+  min-height:390px;
+  border-radius:34px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 70% 20%,rgba(255,255,255,.78),transparent 35%),
+    linear-gradient(135deg,#fbf0df,#f7fbf8);
+  box-shadow:0 24px 70px rgba(0,0,0,.12);
+  position:relative;
 }
-
-.program-hero__buttons{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
+.hero-picture svg{width:100%;height:100%;display:block}
+.rate-badge{
+  position:absolute;right:24px;bottom:24px;
+  background:#fff;border-radius:22px;
+  padding:18px 22px;box-shadow:0 12px 36px rgba(0,0,0,.12);
 }
+.rate-badge strong{display:block;color:var(--green);font-size:36px;line-height:1}
+.rate-badge span{font-size:13px;color:var(--muted)}
 
-.program-hero__card{
-  padding:36px;
-  border-radius:28px;
-  background:#ffffff;
-  box-shadow:0 20px 50px rgba(0,0,0,.08);
-  text-align:center;
-}
-
-.program-rate{
-  font-size:64px;
-  font-weight:800;
-  color:var(--green);
-}
-
-.program-section{
-  padding:60px 22px;
-}
-
-.program-section-light{
-  background:#f7faf8;
-}
-
-.program-section h2{
-  font-size:32px;
-  margin:0 0 28px;
-}
-
-.program-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.program-grid.three{
-  grid-template-columns:repeat(3,1fr);
-}
-
-.program-card{
-  padding:26px;
-  border-radius:22px;
-  background:#ffffff;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
-}
-
-.program-card span{
-  display:block;
+.section{padding:36px 22px}
+.section-title{
   font-size:34px;
-  margin-bottom:14px;
+  line-height:1.15;
+  color:var(--gold);
+  margin:0 0 24px;
+  letter-spacing:-.02em;
 }
-
-.program-card h3{
-  font-size:20px;
-  margin:0 0 10px;
+.big-card{
+  background:#fff;border:1px solid var(--line);border-radius:26px;
+  padding:30px;box-shadow:0 14px 40px rgba(0,0,0,.055);
 }
-
-.program-card p{
-  color:#555;
-  margin:0;
+.conditions-list{display:grid;gap:0}
+.info-row{
+  display:grid;
+  grid-template-columns:62px minmax(150px,.7fr) 1.3fr;
+  gap:18px;align-items:center;
+  padding:18px 0;border-bottom:1px solid var(--line);
 }
+.info-row:last-child{border-bottom:0}
+.icon{
+  width:46px;height:46px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--green-light);color:var(--green);
+}
+.icon svg{width:27px;height:27px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.info-name{font-size:18px;font-weight:800}
+.info-text{font-size:18px;color:#333846}
 
-.program-test{
-  padding:40px 22px;
+.two-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.card-head .icon{background:transparent;width:38px;height:38px}
+.card-head h2{margin:0;color:var(--gold);font-size:30px;line-height:1.15}
+.list{display:grid;gap:20px}
+.list-item{display:grid;grid-template-columns:54px 1fr;gap:16px;align-items:start}
+.list-item h3{margin:0 0 5px;font-size:19px}
+.list-item p{margin:0;color:var(--muted);font-size:16px}
+
+.quiz-strip{
+  margin:10px 0 0;
   background:var(--green);
-  color:#ffffff;
-}
-
-.program-test__inner{
-  display:flex;
-  justify-content:space-between;
-  gap:24px;
-  align-items:center;
-}
-
-.program-test h2{
-  margin:0;
-  font-size:30px;
-}
-
-.program-test p{
-  margin:8px 0 0;
-}
-
-.program-content{
-  max-width:850px;
-}
-
-.program-content p{
-  font-size:18px;
-  line-height:1.7;
-  margin-bottom:18px;
-}
-
-.program-content h3{
-  margin-top:30px;
-  margin-bottom:12px;
-  font-size:24px;
-}
-
-.faq-item{
-  background:#ffffff;
-  border-radius:18px;
-  padding:22px;
-  margin-bottom:14px;
-  box-shadow:0 8px 24px rgba(0,0,0,.05);
-}
-
-.faq-item h3{
-  margin:0 0 8px;
-  font-size:20px;
-}
-
-.consultation-block{
-  display:flex;
-  justify-content:space-between;
-  gap:30px;
-  align-items:center;
-  padding:36px;
-  border-radius:28px;
-  background:#ffffff;
-  box-shadow:0 15px 40px rgba(0,0,0,.07);
-}
-
-.footer{
-  padding:30px 22px;
-  background:#171820;
   color:#fff;
-  text-align:center;
+  padding:34px 22px;
 }
+.quiz-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.quiz-inner h2{margin:0 0 6px;font-size:30px}
+.quiz-inner p{margin:0;font-size:18px;opacity:.95}
+
+.faq-list{display:grid;gap:12px}
+.faq-item{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:0;box-shadow:0 8px 25px rgba(0,0,0,.04);overflow:hidden;
+}
+.faq-item summary{
+  list-style:none;cursor:pointer;
+  padding:18px 22px;font-weight:800;font-size:17px;
+  display:flex;justify-content:space-between;gap:16px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:"⌄";color:var(--gold);font-size:22px;line-height:1}
+.faq-item[open] summary:after{content:"⌃"}
+.faq-item p{margin:0;padding:0 22px 20px;color:var(--muted);font-size:16px}
+
+.consult-card{
+  display:flex;justify-content:space-between;align-items:center;gap:26px;
+  background:linear-gradient(135deg,#ffffff,#fbf3e7);
+  border:1px solid var(--line);border-radius:28px;
+  padding:34px;box-shadow:0 14px 40px rgba(0,0,0,.055);
+}
+.consult-card h2{margin:0 0 8px;color:var(--gold);font-size:30px}
+.consult-card p{margin:0;color:var(--muted);font-size:17px}
+.footer{padding:30px 22px;background:#171820;color:#fff;text-align:center}
+
+.quiz-modal{
+  position:fixed;inset:0;background:rgba(23,24,32,.68);
+  display:none;align-items:center;justify-content:center;
+  padding:18px;z-index:50;
+}
+.quiz-modal.is-open{display:flex}
+.quiz-box{
+  width:min(620px,100%);
+  background:#fff;border-radius:26px;padding:28px;
+  box-shadow:0 30px 80px rgba(0,0,0,.28);
+}
+.quiz-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+.quiz-top h2{margin:0;color:var(--gold);font-size:28px}
+.quiz-close{border:0;background:#f0f0f0;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:20px}
+.quiz-question{margin-top:18px;font-weight:800;font-size:20px}
+.quiz-options{display:grid;gap:10px;margin-top:16px}
+.quiz-options button{
+  border:1px solid var(--line);background:#fff;border-radius:16px;
+  padding:14px;text-align:left;cursor:pointer;font-size:16px;
+}
+.quiz-options button:hover{border-color:var(--green);background:var(--green-light)}
+.quiz-result{display:none;margin-top:18px;padding:18px;border-radius:18px;background:var(--green-light)}
+.quiz-result h3{margin:0 0 8px;color:var(--green)}
+.quiz-result p{margin:0 0 14px;color:#3c414c}
 
 @media(max-width:900px){
-  .program-hero__inner{
-    grid-template-columns:1fr;
-  }
-
-  .program-grid,
-  .program-grid.three{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .program-test__inner,
-  .consultation-block{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  h1{
-    font-size:34px;
-  }
+  .hero-inner,.two-cards{grid-template-columns:1fr}
+  h1{font-size:42px}
+  .hero-picture{min-height:330px}
+  .quiz-inner,.consult-card{flex-direction:column;align-items:flex-start}
 }
 
-@media(max-width:600px){
-  .program-grid,
-  .program-grid.three{
-    grid-template-columns:1fr;
-  }
-
-  .program-hero{
-    padding:45px 22px;
-  }
-
-  h1{
-    font-size:30px;
-  }
-
-  .program-rate{
-    font-size:48px;
-  }
+@media(max-width:640px){
+  .header{padding:14px 16px}
+  .nav{gap:8px}
+  .nav a{font-size:13px}
+  .hero{padding:34px 16px 42px}
+  h1{font-size:36px}
+  .hero-text{font-size:18px}
+  .hero-picture{min-height:260px;border-radius:24px}
+  .section{padding:28px 16px}
+  .section-title{font-size:28px}
+  .big-card{padding:22px;border-radius:22px}
+  .info-row{grid-template-columns:46px 1fr;gap:12px;padding:16px 0}
+  .info-text{grid-column:2;font-size:16px}
+  .info-name{font-size:17px}
+  .icon{width:42px;height:42px}
+  .two-cards{gap:16px}
+  .card-head h2{font-size:25px}
+  .list-item{grid-template-columns:46px 1fr;gap:12px}
+  .list-item h3{font-size:17px}
+  .list-item p{font-size:15px}
+  .quiz-strip{padding:28px 16px}
+  .quiz-inner h2{font-size:25px}
+  .consult-card{padding:24px}
 }
 </style>
 </head>
@@ -300,187 +235,278 @@ h1{
       <a href="/ipoteka-dlya-ip-i-samozanyatyh.html">Для ИП и самозанятых</a>
       <a href="/refinansirovanie-ipoteki.html">Рефинансирование</a>
       <a href="/podbor-kvartiry.html">Подбор квартиры</a>
-      <a href="/#calculator">Рассчитать ипотеку</a>
+      <a href="/rasschitat-ipoteku.html">Рассчитать ипотеку</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-<section class="program-hero">
-  <div class="wrap program-hero__inner">
+<section class="hero">
+  <div class="wrap hero-inner">
     <div>
-      <div class="program-label">Льготная ипотека</div>
-
-      <h1>Семейная ипотека в 2026 году: кто может получить ипотеку под 6%</h1>
-
-      <p class="program-hero__text">
-        Помогу проверить, подходите ли вы под программу, подобрать банк и сопроводить сделку от одобрения до получения ключей.
-      </p>
-
-      <div class="program-hero__buttons">
-        <a href="/#contact" class="btn">Получить консультацию</a>
-        <a href="/#calculator" class="btn btn-secondary">Рассчитать ипотеку</a>
+      <div class="breadcrumbs"><a href="/">Главная</a> › <a href="/lgotnaya-ipoteka.html">Льготная ипотека</a> › Семейная ипотека</div>
+      <span class="label">Льготная ипотека</span>
+      <h1>Семейная ипотека под 6%</h1>
+      <p class="hero-text">Помогу проверить, подходите ли вы под программу, подобрать банк и сопроводить сделку от одобрения до получения ключей.</p>
+      <div class="hero-buttons">
+        <a class="btn btn-green" href="/#calculator">Рассчитать ипотеку</a>
+        <button class="btn" type="button" data-open-quiz>Проверить бесплатно</button>
       </div>
     </div>
 
-    <div class="program-hero__card">
-      <div class="program-rate">до 6%</div>
-      <p>льготная ставка по семейной ипотеке</p>
+    <div class="hero-picture" aria-label="Семья в светлой гостиной">
+      <svg viewBox="0 0 760 520" role="img" aria-hidden="true">
+        <defs>
+          <linearGradient id="wall" x1="0" x2="1">
+            <stop offset="0" stop-color="#fff8ee"/>
+            <stop offset="1" stop-color="#eef8f1"/>
+          </linearGradient>
+          <linearGradient id="sofa" x1="0" x2="1">
+            <stop offset="0" stop-color="#e8d2b5"/>
+            <stop offset="1" stop-color="#d9bd94"/>
+          </linearGradient>
+        </defs>
+        <rect width="760" height="520" fill="url(#wall)"/>
+        <rect x="35" y="48" width="360" height="210" rx="14" fill="#dff0f4"/>
+        <line x1="155" y1="48" x2="155" y2="258" stroke="#fff" stroke-width="9"/>
+        <line x1="275" y1="48" x2="275" y2="258" stroke="#fff" stroke-width="9"/>
+        <line x1="35" y1="150" x2="395" y2="150" stroke="#fff" stroke-width="9"/>
+        <rect x="0" y="352" width="760" height="168" fill="#efdcc5"/>
+        <ellipse cx="365" cy="405" rx="290" ry="64" fill="#f7eee2"/>
+        <rect x="218" y="212" width="420" height="142" rx="38" fill="url(#sofa)"/>
+        <rect x="174" y="252" width="96" height="92" rx="26" fill="#c7a77b"/>
+        <rect x="590" y="250" width="110" height="96" rx="26" fill="#c7a77b"/>
+        <circle cx="372" cy="166" r="34" fill="#f4c7a4"/>
+        <path d="M332 160c16-44 74-38 82 4-12-13-48-20-82-4z" fill="#5e3d28"/>
+        <path d="M328 246c14-48 73-50 91 0v72h-91z" fill="#f3eadf"/>
+        <circle cx="472" cy="158" r="36" fill="#f0bd92"/>
+        <path d="M438 153c10-46 73-43 84 2-28-15-57-12-84-2z" fill="#3c2d24"/>
+        <path d="M426 248c17-56 82-55 101 0v70H426z" fill="#d9eadc"/>
+        <circle cx="546" cy="196" r="27" fill="#f3c09a"/>
+        <path d="M520 193c8-34 55-30 62 1-18-13-42-12-62-1z" fill="#6a452b"/>
+        <path d="M516 260c12-40 60-42 75 0v58h-75z" fill="#fff"/>
+        <circle cx="265" cy="342" r="28" fill="#f5c49c"/>
+        <path d="M238 337c8-35 57-31 63 0-20-14-41-12-63 0z" fill="#c2884c"/>
+        <path d="M230 408c10-46 62-47 78 0v44h-78z" fill="#f2f1ed"/>
+        <rect x="362" y="225" width="95" height="58" rx="8" fill="#9f7945"/>
+        <rect x="373" y="236" width="73" height="36" rx="5" fill="#f5efe5"/>
+        <rect x="340" y="420" width="42" height="34" fill="#bf8f52"/>
+        <rect x="402" y="396" width="48" height="58" fill="#d0a76b"/>
+        <path d="M402 396l24-22 24 22" fill="#a87943"/>
+        <rect x="510" y="420" width="70" height="34" rx="5" fill="#c79758"/>
+        <circle cx="530" cy="454" r="10" fill="#805b32"/>
+        <circle cx="565" cy="454" r="10" fill="#805b32"/>
+      </svg>
+      <div class="rate-badge">
+        <strong>до 6%</strong>
+        <span>льготная ставка</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="program-section">
+<section class="section">
   <div class="wrap">
-    <h2>Основные условия</h2>
+    <div class="big-card">
+      <h2 class="section-title">Основные условия</h2>
 
-    <div class="program-grid">
-      <div class="program-card">
-        <span>💰</span>
-        <h3>Ставка</h3>
-        <p>до 6% годовых</p>
-      </div>
+      <div class="conditions-list">
+        <div class="info-row">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 16L16 8M8.5 8.5h.01M15.5 15.5h.01"/></svg></div>
+          <div class="info-name">Ставка</div>
+          <div class="info-text">до 6% годовых</div>
+        </div>
 
-      <div class="program-card">
-        <span>🏦</span>
-        <h3>Первый взнос</h3>
-        <p>от 20,1%</p>
-      </div>
+        <div class="info-row">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 8c0 1.7 3.6 3 8 3s8-1.3 8-3-3.6-3-8-3-8 1.3-8 3z"/><path d="M4 8v8c0 1.7 3.6 3 8 3s8-1.3 8-3V8"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+          <div class="info-name">Первый взнос</div>
+          <div class="info-text">от 20,1%</div>
+        </div>
 
-      <div class="program-card">
-        <span>📅</span>
-        <h3>Срок</h3>
-        <p>до 30 лет</p>
-      </div>
+        <div class="info-row">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div>
+          <div class="info-name">Срок кредита</div>
+          <div class="info-text">до 30 лет</div>
+        </div>
 
-      <div class="program-card">
-        <span>🏠</span>
-        <h3>Лимит</h3>
-        <p>до 6 млн ₽ для большинства регионов</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="program-section program-section-light">
-  <div class="wrap">
-    <h2>Кто может получить</h2>
-
-    <div class="program-grid three">
-      <div class="program-card">
-        <span>👶</span>
-        <h3>Семьи с ребенком до 7 лет</h3>
-        <p>Если в семье есть хотя бы один ребенок младше 7 лет.</p>
-      </div>
-
-      <div class="program-card">
-        <span>🩺</span>
-        <h3>Ребенок с инвалидностью</h3>
-        <p>Семьи, которые воспитывают ребенка с инвалидностью.</p>
-      </div>
-
-      <div class="program-card">
-        <span>👨‍👩‍👧‍👦</span>
-        <h3>Двое и более детей</h3>
-        <p>Для отдельных условий, категорий семей и регионов.</p>
+        <div class="info-row">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
+          <div class="info-name">Лимит кредита</div>
+          <div class="info-text">до 6 млн ₽ для большинства регионов; до 12 млн ₽ для Москвы, Московской области, Санкт-Петербурга и Ленинградской области</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="program-section">
-  <div class="wrap">
-    <h2>Что можно купить</h2>
+<section class="section">
+  <div class="wrap two-cards">
+    <div class="big-card">
+      <div class="card-head">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M7 20v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M4 20v-1a3 3 0 0 1 3-3M20 20v-1a3 3 0 0 0-3-3"/></svg></div>
+        <h2>Кто может получить</h2>
+      </div>
 
-    <div class="program-grid">
-      <div class="program-card"><span>🏢</span><h3>Квартиру в новостройке</h3></div>
-      <div class="program-card"><span>🏡</span><h3>Готовый дом от застройщика</h3></div>
-      <div class="program-card"><span>🛠</span><h3>Строительство дома</h3></div>
-      <div class="program-card"><span>🌳</span><h3>Участок со строительством</h3></div>
+      <div class="list">
+        <div class="list-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M9 13h.01M15 13h.01M10 16c1.2 1 2.8 1 4 0"/></svg></div>
+          <div><h3>Семьи с ребенком до 7 лет</h3><p>Если в семье есть хотя бы один ребенок младше 7 лет.</p></div>
+        </div>
+
+        <div class="list-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><path d="M8 11v5h4l2 4"/><path d="M7 16a5 5 0 1 0 5 5"/><circle cx="18" cy="7" r="2"/><path d="M18 9v5"/></svg></div>
+          <div><h3>Ребенок с инвалидностью</h3><p>Семьи, которые воспитывают ребенка с инвалидностью.</p></div>
+        </div>
+
+        <div class="list-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M12 20a5 5 0 0 1 9 0"/></svg></div>
+          <div><h3>Двое и более детей</h3><p>Для отдельных условий, категорий семей и регионов.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-card">
+      <div class="card-head">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
+        <h2>Что можно купить</h2>
+      </div>
+
+      <div class="list">
+        <div class="list-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 8h.01M15 8h.01M9 12h.01M15 12h.01M9 16h.01M15 16h.01"/></svg></div>
+          <div><h3>Квартиру в новостройке</h3><p>Покупка квартиры у застройщика.</p></div>
+        </div>
+
+        <div class="list-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 12l8-7 8 7"/><path d="M6 11v9h12v-9"/></svg></div>
+          <div><h3>Готовый дом</h3><p>Покупка готового жилого дома от застройщика.</p></div>
+        </div>
+
+        <div class="list-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 20V10l5-5 5 5v10"/><path d="M10 20v-6h4v6"/></svg></div>
+          <div><h3>Строительство дома</h3><p>Строительство жилого дома по договору подряда.</p></div>
+        </div>
+
+        <div class="list-item">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M12 20V8"/><path d="M8 12c0-3 2-6 4-8 2 2 4 5 4 8a4 4 0 0 1-8 0z"/></svg></div>
+          <div><h3>Участок со строительством</h3><p>Земельный участок вместе со строительством дома.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="program-test">
-  <div class="wrap program-test__inner">
+<section class="quiz-strip">
+  <div class="wrap quiz-inner">
     <div>
       <h2>Не уверены, подходите ли под семейную ипотеку?</h2>
       <p>Пройдите короткий тест — это займет около 2 минут.</p>
     </div>
-
-    <a href="/#scratch" class="btn">Проверить бесплатно</a>
+    <button class="btn" type="button" data-open-quiz>Проверить бесплатно</button>
   </div>
 </section>
 
-<section class="program-section">
-  <div class="wrap program-content">
-    <h2>Подробные условия семейной ипотеки</h2>
+<section class="section">
+  <div class="wrap big-card">
+    <h2 class="section-title">Частые вопросы</h2>
 
-    <p>
-      Семейная ипотека — одна из самых выгодных государственных программ. Она позволяет приобрести квартиру или построить дом по льготной ставке до 6% годовых.
-    </p>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Можно ли использовать материнский капитал?</summary>
+        <p>Да. Материнский капитал можно направить на первоначальный взнос, частичное досрочное погашение ипотеки или уменьшение ежемесячного платежа.</p>
+      </details>
 
-    <p>
-      В 2026 году программа продолжает действовать, но воспользоваться ею могут только семьи, соответствующие установленным условиям.
-    </p>
+      <details class="faq-item">
+        <summary>Какие документы понадобятся?</summary>
+        <p>Обычно банк запрашивает паспорт, СНИЛС, свидетельства о рождении детей, документы, подтверждающие доход, и документы на приобретаемую недвижимость.</p>
+      </details>
 
-    <h3>Максимальная сумма кредита</h3>
-    <p>
-      Для большинства регионов России лимит составляет до 6 млн рублей. Для Москвы, Московской области, Санкт-Петербурга и Ленинградской области — до 12 млн рублей.
-    </p>
+      <details class="faq-item">
+        <summary>Можно ли купить вторичное жилье?</summary>
+        <p>В большинстве случаев программа действует на новостройки и строительство дома. Исключения возможны только для отдельных территорий.</p>
+      </details>
 
-    <h3>Можно ли использовать материнский капитал?</h3>
-    <p>
-      Да. Материнский капитал можно направить на первоначальный взнос, частичное досрочное погашение ипотеки или уменьшение ежемесячного платежа.
-    </p>
-
-    <h3>Какие документы понадобятся?</h3>
-    <p>
-      Обычно банк запрашивает паспорт, СНИЛС, свидетельства о рождении детей, документы, подтверждающие доход, и документы на приобретаемую недвижимость.
-    </p>
-  </div>
-</section>
-
-<section class="program-section program-section-light">
-  <div class="wrap">
-    <h2>Частые вопросы</h2>
-
-    <div class="faq-item">
-      <h3>Можно ли купить вторичку по семейной ипотеке?</h3>
-      <p>В большинстве случаев — нет. Обычно программа действует на новостройки и строительство дома. Исключения возможны только для отдельных территорий.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Можно ли оформить семейную ипотеку, если уже есть ипотека?</h3>
-      <p>В некоторых случаях можно. Всё зависит от условий программы, банка и вашей финансовой нагрузки.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Можно ли использовать материнский капитал?</h3>
-      <p>Да, его можно направить на первоначальный взнос или частичное погашение кредита.</p>
+      <details class="faq-item">
+        <summary>Можно ли оформить, если уже есть ипотека?</summary>
+        <p>В некоторых случаях можно. Всё зависит от условий программы, требований банка и вашей финансовой нагрузки.</p>
+      </details>
     </div>
   </div>
 </section>
 
-<section class="program-section" id="consultation">
-  <div class="wrap consultation-block">
+<section class="section" id="consultation">
+  <div class="wrap consult-card">
     <div>
       <h2>Помогу разобраться и выбрать лучший вариант</h2>
-      <p>
-        Проверю, подходите ли вы под программу, помогу подобрать банк, рассчитать платеж и сопроводить сделку до получения ключей.
-      </p>
+      <p>Проверю, подходите ли вы под программу, помогу подобрать банк, рассчитать платеж и сопроводить сделку до получения ключей.</p>
     </div>
-
-    <a href="/#contact" class="btn">Получить консультацию</a>
+    <a href="/#contact" class="btn btn-green">Получить консультацию</a>
   </div>
 </section>
 
 </main>
 
+<div class="quiz-modal" id="quizModal" aria-hidden="true">
+  <div class="quiz-box">
+    <div class="quiz-top">
+      <h2>Мини-тест по семейной ипотеке</h2>
+      <button class="quiz-close" type="button" data-close-quiz>×</button>
+    </div>
+
+    <div class="quiz-question">В вашей семье есть ребенок младше 7 лет?</div>
+
+    <div class="quiz-options">
+      <button type="button" data-result="yes">Да, есть ребенок младше 7 лет</button>
+      <button type="button" data-result="maybe">Есть ребенок с инвалидностью</button>
+      <button type="button" data-result="maybe">Двое и более детей</button>
+      <button type="button" data-result="no">Пока не уверена / хочу проверить условия</button>
+    </div>
+
+    <div class="quiz-result" id="quizResult">
+      <h3>Предварительно стоит проверить программу</h3>
+      <p>Напишите мне — я уточню вашу ситуацию, банк, объект покупки и скажу, какие варианты реально рассматривать.</p>
+      <a class="btn btn-green" href="/#contact">Получить консультацию</a>
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="wrap">Олеся Юминова · помощь с ипотекой и подбором недвижимости</div>
 </footer>
+
+<script>
+const quizModal = document.getElementById('quizModal');
+const quizResult = document.getElementById('quizResult');
+
+document.querySelectorAll('[data-open-quiz]').forEach(button => {
+  button.addEventListener('click', () => {
+    quizModal.classList.add('is-open');
+    quizModal.setAttribute('aria-hidden', 'false');
+  });
+});
+
+document.querySelectorAll('[data-close-quiz]').forEach(button => {
+  button.addEventListener('click', () => {
+    quizModal.classList.remove('is-open');
+    quizModal.setAttribute('aria-hidden', 'true');
+  });
+});
+
+document.querySelectorAll('[data-result]').forEach(button => {
+  button.addEventListener('click', () => {
+    quizResult.style.display = 'block';
+    quizResult.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+});
+
+quizModal.addEventListener('click', event => {
+  if (event.target === quizModal) {
+    quizModal.classList.remove('is-open');
+    quizModal.setAttribute('aria-hidden', 'true');
+  }
+});
+</script>
 
 </body>
 </html>
