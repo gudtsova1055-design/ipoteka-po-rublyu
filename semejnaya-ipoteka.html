@@ -219,6 +219,122 @@ h1{font-size:52px;line-height:1.05;margin:0 0 18px;letter-spacing:-.03em}
   .quiz-inner h2{font-size:25px}
   .consult-card{padding:24px}
 }
+
+/* === ЕДИНЫЙ ВИЗУАЛЬНЫЙ СТИЛЬ СТРАНИЦ === */
+:root{
+  --bg:#F8F6F1;
+  --surface:#FFFDF8;
+  --text:#18202C;
+  --muted:#374151;
+  --gold:#9B681D;
+  --gold-soft:#D9B875;
+  --dark:#171820;
+  --green:#137246;
+  --green-light:#E4F4EA;
+  --line:rgba(155,104,29,.24);
+}
+body{
+  font-family:Inter,Arial,"Helvetica Neue",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  font-weight:500;
+}
+.hero{
+  background:linear-gradient(135deg,#fff7e8 0%,#eefaf3 100%);
+}
+.section-title,
+.card h2,.card h3,
+.program-card h2,.program-card h3,
+.big-card h2,.big-card h3,
+.consult-card h2,.consult-card h3,
+.steps-card h2,.steps-card h3{
+  color:var(--gold);
+  font-weight:850;
+  letter-spacing:-.02em;
+}
+.section-lead,
+.hero-text,
+.card p,
+.program-card p,
+.big-card p,
+.consult-card p,
+.steps-card p,
+.faq-item p,
+.faq p{
+  color:var(--muted);
+}
+.big-card,
+.program-card,
+.card,
+.consult-card,
+.steps-card,
+.faq-item,
+.cta-inner{
+  position:relative;
+  background:linear-gradient(180deg,#fff 0%,#fffdf8 100%);
+  border:1px solid var(--line);
+  box-shadow:0 20px 55px rgba(24,32,44,.12);
+}
+.big-card::before,
+.program-card::before,
+.card::before,
+.consult-card::before,
+.steps-card::before,
+.faq-item::before{
+  content:"";
+  position:absolute;
+  inset:10px 18px -12px;
+  border-radius:inherit;
+  background:radial-gradient(ellipse at center,rgba(217,184,117,.28),rgba(217,184,117,0) 68%);
+  z-index:-1;
+  pointer-events:none;
+}
+.big-card,
+.program-card,
+.card,
+.consult-card,
+.steps-card,
+.faq-item{
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.big-card:hover,
+.program-card:hover,
+.card:hover,
+.consult-card:hover,
+.steps-card:hover,
+.faq-item:hover{
+  transform:translateY(-3px);
+  box-shadow:0 26px 70px rgba(24,32,44,.16);
+  border-color:rgba(155,104,29,.38);
+}
+.btn{
+  box-shadow:0 10px 24px rgba(24,32,44,.10);
+}
+.btn-green{
+  background:var(--green);
+  color:#fff;
+}
+.btn-light{
+  background:#fff;
+  border:1px solid var(--line);
+  color:var(--text);
+}
+.program-list li::before,
+.list-item::before{
+  box-shadow:0 0 0 4px rgba(19,114,70,.10);
+}
+.rate,
+.rate-badge{
+  border:1px solid rgba(155,104,29,.24);
+  box-shadow:0 14px 34px rgba(24,32,44,.10);
+}
+.rate strong,
+.rate-badge strong{
+  color:var(--green);
+  font-weight:900;
+}
+
 </style>
 </head>
 

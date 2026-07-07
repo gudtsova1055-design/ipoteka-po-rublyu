@@ -192,6 +192,25 @@ function sendCalcResult(messenger) {
 
 }
 
+
+/* === МЯГКОЕ ЕДИНСТВО С ВНУТРЕННИМИ СТРАНИЦАМИ === */
+:root{
+  --brand-text:#18202C;
+  --brand-muted:#374151;
+  --brand-gold:#9B681D;
+  --brand-green:#137246;
+  --brand-card:#FFFDF8;
+  --brand-line:rgba(155,104,29,.24);
+}
+body{color:var(--brand-text);}
+.m-card,.hint-item,.apt-card,.contact-item,.quiz-box,.calc-wrap{
+  border-color:var(--brand-line)!important;
+  box-shadow:0 20px 55px rgba(24,32,44,.12)!important;
+}
+.m-card,.hint-item,.apt-card,.contact-item{
+  background:linear-gradient(180deg,#fff 0%,#fffdf8 100%)!important;
+}
+
 </style>
 <script>
 
