@@ -211,6 +211,19 @@ body{color:var(--brand-text);}
   background:linear-gradient(180deg,#fff 0%,#fffdf8 100%)!important;
 }
 
+
+/* === БЛОК ПОСЛЕДНИХ СТАТЕЙ === */
+.materials{display:grid;gap:24px}
+.category{position:relative;background:linear-gradient(180deg,#fff 0%,#fffdf8 100%);border:1px solid rgba(155,104,29,.24);border-radius:28px;padding:28px;box-shadow:0 20px 55px rgba(24,32,44,.12)}
+.article-list{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.article-item{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:16px 0;border-top:1px solid rgba(155,104,29,.16)}
+.article-item:first-child{border-top:0}
+.article-item h3{margin:0 0 4px;font-size:20px;line-height:1.22;color:#18202C}
+.article-item p{margin:0;color:#374151;font-size:15px}
+.read-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;padding:10px 16px;background:#137246;color:#fff;font-weight:900;white-space:nowrap;box-shadow:0 10px 24px rgba(24,32,44,.10)}
+.soon{display:inline-flex;border-radius:999px;padding:8px 13px;background:#fff;border:1px solid rgba(155,104,29,.24);color:#374151;font-weight:850;font-size:13px;white-space:nowrap}
+@media(max-width:820px){.article-item{grid-template-columns:1fr}.read-link,.soon{justify-self:start}}
+
 </style>
 <script>
 
@@ -1027,6 +1040,41 @@ document.getElementById('installmentModal').addEventListener('click', function(e
 </div>
 </section>
 <!-- КОНТАКТЫ -->
+
+<section id="latest-articles" class="section">
+  <div class="container">
+    <h2 class="section-title">Последние публикации</h2>
+    <div class="materials">
+      <div class="category">
+        <ul class="article-list">
+          <li class="article-item">
+            <div>
+              <h3>Почему не стоит подавать заявки на ипотеку сразу в несколько банков</h3>
+              <p>5 минут чтения · ипотека</p>
+            </div>
+            <a class="read-link" href="/zayavki-v-banki.html">Читать</a>
+          </li>
+          <li class="article-item">
+            <div>
+              <h3>Как проверить кредитную историю бесплатно</h3>
+              <p>Скоро</p>
+            </div>
+            <span class="soon">Скоро</span>
+          </li>
+          <li class="article-item">
+            <div>
+              <h3>Что проверить перед покупкой квартиры</h3>
+              <p>Скоро</p>
+            </div>
+            <span class="soon">Скоро</span>
+          </li>
+        </ul>
+        <p style="margin-top:22px"><a class="btn" href="/articles.html">Все статьи →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
 <div class="container">
 <div class="s-label fade-up visible">Консультация</div>
