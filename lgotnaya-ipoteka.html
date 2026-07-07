@@ -1,138 +1,323 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Льготная ипотека в Ижевске — подбор программы и квартиры</title>
-  <meta name="description" content="Подбор льготной ипотеки в Ижевске: семейная ипотека, IT-ипотека, скидки отдельным категориям граждан. Помощь с одобрением и подбором квартиры.">
-  <link rel="stylesheet" href="css/style.css">
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Льготная ипотека | Семейная, IT и военная ипотека — Олеся Юминова</title>
+<meta name="description" content="Помогу подобрать льготную ипотечную программу: семейную, IT-ипотеку, военную ипотеку или льготы для отдельных категорий граждан. Работаю с клиентами из Ижевска, Удмуртии и дистанционно по всей России.">
+<link rel="canonical" href="https://ipoteka-prosto.ru/lgotnaya-ipoteka.html">
+<link rel="icon" type="image/png" href="/favicon.png">
 
+<style>
+:root{
+  --bg:#F9F9FB;
+  --surface:#ffffff;
+  --text:#232631;
+  --muted:#5f6470;
+  --gold:#B58A45;
+  --gold-soft:#D4B584;
+  --dark:#171820;
+  --green:#237a4b;
+  --green-light:#e8f5ed;
+  --line:rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto}
+.header{background:var(--dark);color:#fff;padding:18px 22px}
+.logo{font-weight:800}
+.nav{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.nav a{color:#fff;text-decoration:none;font-size:14px;opacity:.9}
+.nav a:hover{opacity:1}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  border:0;cursor:pointer;text-decoration:none;
+  padding:14px 22px;border-radius:999px;
+  font-weight:800;font-size:15px;
+  background:var(--gold-soft);color:#171820;
+}
+.btn-green{background:var(--green);color:#fff}
+.btn-light{background:#fff;border:1px solid rgba(0,0,0,.12);color:#171820}
+
+.hero{
+  padding:58px 22px 64px;
+  background:linear-gradient(135deg,#fffaf2 0%,#f3fbf6 100%);
+}
+.hero-inner{display:grid;grid-template-columns:1.03fr .97fr;gap:36px;align-items:center}
+.breadcrumbs{font-size:13px;color:var(--muted);margin-bottom:24px}
+.breadcrumbs a{color:var(--muted);text-decoration:none}
+.label{display:inline-block;padding:8px 14px;border-radius:999px;background:var(--green-light);color:var(--green);font-weight:800;font-size:13px;margin-bottom:14px}
+h1{font-size:52px;line-height:1.05;margin:0 0 18px;letter-spacing:-.03em}
+.hero-text{font-size:21px;line-height:1.48;color:#3c414c;max-width:580px;margin:0 0 26px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.hero-picture{min-height:390px;border-radius:34px;overflow:hidden;background:linear-gradient(135deg,#fbf0df,#f7fbf8);box-shadow:0 24px 70px rgba(0,0,0,.12);position:relative}
+.hero-photo{width:100%;height:100%;display:block;object-fit:cover}
+.hero-picture::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0) 45%);pointer-events:none}
+.rate-badge{position:absolute;right:24px;bottom:24px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-radius:22px;padding:18px 24px;box-shadow:0 12px 34px rgba(0,0,0,.12)}
+.rate-badge strong{display:block;font-size:38px;line-height:1;color:var(--green)}
+.rate-badge span{display:block;margin-top:6px;color:#4b4f59;font-size:14px}
+
+.section{padding:56px 22px}
+.section-title{font-size:34px;line-height:1.12;margin:0 0 26px;color:var(--gold);letter-spacing:-.02em}
+.section-lead{font-size:18px;color:var(--muted);max-width:760px;margin:-12px 0 26px}
+
+.big-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:0 18px 55px rgba(0,0,0,.06)}
+.programs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.program-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 16px 48px rgba(0,0,0,.055);display:flex;flex-direction:column;gap:16px}
+.program-card__top{display:flex;gap:16px;align-items:flex-start}
+.icon{width:54px;height:54px;min-width:54px;border-radius:18px;background:var(--green-light);display:flex;align-items:center;justify-content:center;color:var(--green)}
+.icon svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.program-card h2{margin:0;color:var(--gold);font-size:26px;line-height:1.1}
+.program-card p{margin:8px 0 0;color:var(--muted);font-size:16px}
+.program-list{display:grid;gap:11px;margin:0;padding:0;list-style:none;color:#343944}
+.program-list li{display:flex;gap:10px;align-items:flex-start}
+.program-list li::before{content:"";width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--green);flex:0 0 auto}
+.card-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:auto}
+.card-actions .btn{padding:12px 18px;font-size:14px}
+
+.steps-card{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{padding:22px;border-radius:22px;background:#fbfaf7;border:1px solid var(--line)}
+.step-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--green);color:#fff;font-weight:800;margin-bottom:12px}
+.step h3{margin:0 0 8px;font-size:19px;color:#222734}
+.step p{margin:0;color:var(--muted)}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.info-list{display:grid;gap:18px}
+.info-row{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.info-row:last-child{padding-bottom:0;border-bottom:0}
+.info-row h3{margin:0 0 5px;font-size:19px}
+.info-row p{margin:0;color:var(--muted)}
+
+.faq{display:grid;gap:12px}
+details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:0 10px 30px rgba(0,0,0,.035)}
+summary{cursor:pointer;font-weight:800;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--green);line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin:12px 0 0;color:var(--muted)}
+
+.cta{padding:56px 22px;background:var(--green);color:#fff}
+.cta-inner{display:flex;justify-content:space-between;gap:30px;align-items:center}
+.cta h2{margin:0 0 8px;font-size:32px;line-height:1.15;color:#fff}
+.cta p{margin:0;color:rgba(255,255,255,.88);font-size:18px;max-width:720px}
+.footer{padding:30px 22px;background:#171820;color:#fff;text-align:center}
+
+@media(max-width:900px){
+  .hero-inner,.programs-grid,.compare-grid{grid-template-columns:1fr}
+  h1{font-size:42px}
+  .hero-picture{min-height:320px}
+  .steps-card{grid-template-columns:1fr}
+  .cta-inner{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:600px){
+  .header{padding:16px}
+  .hero{padding:36px 16px 44px}
+  .section{padding:42px 16px}
+  h1{font-size:34px}
+  .hero-text{font-size:18px}
+  .hero-buttons .btn{width:100%}
+  .hero-picture{min-height:260px;border-radius:24px}
+  .rate-badge{right:14px;bottom:14px;padding:14px 18px;border-radius:18px}
+  .rate-badge strong{font-size:30px}
+  .section-title{font-size:28px}
+  .program-card,.big-card{padding:22px;border-radius:22px}
+  .program-card__top{gap:12px}
+  .icon{width:46px;height:46px;min-width:46px;border-radius:16px}
+  .program-card h2{font-size:23px}
+  .info-row{grid-template-columns:48px 1fr;gap:12px}
+}
+</style>
+</head>
 <body>
 
-<header class="page-header">
-  <div class="container">
-    <a href="/" class="logo-wrap">
-      <div class="logo-name">
-        <div class="logo-title">Олеся Юминова</div>
-        <div class="logo-sub">Полезный риэлтор</div>
-      </div>
-    </a>
-
-    <nav>
+<header class="header">
+  <div class="wrap">
+    <div class="logo">Олеся Юминова · ипотечный брокер</div>
+    <nav class="nav">
+      <a href="/">Главная</a>
       <a href="/lgotnaya-ipoteka.html">Льготная ипотека</a>
-      <a href="/#calculator">Калькулятор</a>
-      <a href="/#scratch">Лайфхаки</a>
-      <a href="/#installment">Рассрочка</a>
-      <a href="/#apartments">Квартиры</a>
-      <a href="/#contact" class="nav-cta">Консультация</a>
+      <a href="/semejnaya-ipoteka.html">Семейная ипотека</a>
+      <a href="/ipoteka-bez-pervonachalnogo-vznosa.html">Без первоначального взноса</a>
+      <a href="/ipoteka-dlya-ip-i-samozanyatyh.html">Для ИП и самозанятых</a>
+      <a href="/refinansirovanie-ipoteki.html">Рефинансирование</a>
+      <a href="/podbor-kvartiry.html">Подбор квартиры</a>
+      <a href="/#calculator">Рассчитать ипотеку</a>
     </nav>
   </div>
 </header>
 
 <main>
-
-<section class="service-hero">
-  <div class="container">
-    <div class="eyebrow">ИПОТЕКА В ИЖЕВСКЕ</div>
-    <h1>Льготная ипотека в Ижевске</h1>
-    <p>
-      Помогу разобраться, на какую льготную программу вы можете претендовать,
-      проверить шансы на одобрение и подобрать квартиру под условия банка.
-    </p>
-    <a href="/#contact" class="hero-btn">Получить консультацию</a>
-  </div>
-</section>
-
-<section class="service-section">
-  <div class="container">
-    <h2>Какие льготные программы можно рассмотреть</h2>
-
-    <div class="program-grid">
-
-      <div class="program-card">
-        <div class="program-icon">👨‍👩‍👧‍👦</div>
-        <div class="program-label green">СЕМЬЯМ С ДЕТЬМИ</div>
-        <h3>Семейная ипотека</h3>
-        <p>
-          Для семей с детьми. Помогу проверить условия, подобрать банк
-          и квартиру, которая подходит под программу.
-        </p>
-        <div class="program-rate">от 2,2%</div>
-        <a href="/semejnaya-ipoteka.html" class="card-link">Подробнее →</a>
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="breadcrumbs"><a href="/">Главная</a> › Льготная ипотека</div>
+      <div class="label">Господдержка</div>
+      <h1>Льготная ипотека</h1>
+      <p class="hero-text">Помогу разобраться, какая программа подходит именно вам: семейная, IT-ипотека, военная ипотека или льготы для отдельных категорий граждан.</p>
+      <div class="hero-buttons">
+        <a href="/#calculator" class="btn btn-green">Рассчитать ипотеку</a>
+        <a href="#programs" class="btn">Выбрать программу</a>
       </div>
+    </div>
 
-      <div class="program-card">
-        <div class="program-icon">💻</div>
-        <div class="program-label blue">IT-СПЕЦИАЛИСТАМ</div>
-        <h3>IT-ипотека</h3>
-        <p>
-          Для сотрудников аккредитованных IT-компаний. Проверим,
-          проходите ли вы по требованиям и какие банки подходят.
-        </p>
-        <div class="program-rate">от 3,5%</div>
-        <a href="/#contact" class="card-link">Проверить условия →</a>
+    <div class="hero-picture">
+      <img src="images/lgotnaya-hero.png" alt="Семья у собственного дома" class="hero-photo">
+      <div class="rate-badge">
+        <strong>господдержка</strong>
+        <span>льготные программы</span>
       </div>
-
-      <div class="program-card">
-        <div class="program-icon">🎁</div>
-        <div class="program-label gold">ОТДЕЛЬНЫМ КАТЕГОРИЯМ</div>
-        <h3>Скидки и субсидии</h3>
-        <p>
-          Возможны скидки для отдельных категорий граждан: сотрудников
-          медицины, образования и других сфер.
-        </p>
-        <div class="program-rate">до −12%</div>
-        <a href="/#contact" class="card-link">Узнать подробнее →</a>
-      </div>
-
     </div>
   </div>
 </section>
 
-<section class="service-section light">
-  <div class="container narrow">
-    <h2>Как понять, какая программа подходит именно вам?</h2>
-    <p>
-      Условия льготной ипотеки зависят от состава семьи, места работы,
-      типа объекта, первоначального взноса, дохода и требований конкретного банка.
-    </p>
-    <p>
-      Я помогу не просто выбрать программу, а проверить реальную возможность
-      одобрения и подобрать квартиру, которую банк сможет принять.
-    </p>
+<section class="section" id="programs">
+  <div class="wrap">
+    <h2 class="section-title">Выберите подходящую программу</h2>
+    <p class="section-lead">Льготная ипотека — это не одна программа, а несколько разных вариантов. У каждой свои условия, требования к заемщику и объекту покупки.</p>
 
-    <div class="action-buttons">
-      <a href="/#calculator" class="hero-btn">📊 Рассчитать ипотеку</a>
-      <a href="/#contact" class="hero-btn secondary">✅ Пройти тест / оставить заявку</a>
-      <a href="/podbor-kvartiry.html" class="hero-btn secondary">🏡 Подобрать квартиру</a>
+    <div class="programs-grid">
+      <article class="program-card">
+        <div class="program-card__top">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21v-8l9-7 9 7v8"/><path d="M9 21v-6h6v6"/><path d="M7 10V5h3"/></svg></div>
+          <div>
+            <h2>Семейная ипотека</h2>
+            <p>Для семей с детьми, которые подходят под условия программы.</p>
+          </div>
+        </div>
+        <ul class="program-list">
+          <li>ставка — до 6% годовых;</li>
+          <li>первоначальный взнос — от 20,1%;</li>
+          <li>можно использовать материнский капитал;</li>
+          <li>подходит для новостроек и строительства дома.</li>
+        </ul>
+        <div class="card-actions">
+          <a class="btn btn-green" href="/semejnaya-ipoteka.html">Подробнее</a>
+          <a class="btn btn-light" href="/#calculator">Рассчитать</a>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-card__top">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M8 9h8"/></svg></div>
+          <div>
+            <h2>IT-ипотека</h2>
+            <p>Для сотрудников аккредитованных IT-компаний.</p>
+          </div>
+        </div>
+        <ul class="program-list">
+          <li>льготная ставка по действующим условиям программы;</li>
+          <li>важны работодатель, доход и стаж;</li>
+          <li>можно покупать жилье у застройщика;</li>
+          <li>условия банков могут отличаться.</li>
+        </ul>
+        <div class="card-actions">
+          <a class="btn btn-green" href="/#contact">Проверить условия</a>
+          <a class="btn btn-light" href="/#calculator">Рассчитать</a>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-card__top">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-5"/></svg></div>
+          <div>
+            <h2>Военная ипотека</h2>
+            <p>Для участников накопительно-ипотечной системы.</p>
+          </div>
+        </div>
+        <ul class="program-list">
+          <li>покупка жилья с использованием средств НИС;</li>
+          <li>важно правильно подобрать объект и банк;</li>
+          <li>можно совмещать с собственными средствами;</li>
+          <li>сделка требует внимательной проверки документов.</li>
+        </ul>
+        <div class="card-actions">
+          <a class="btn btn-green" href="/#contact">Получить консультацию</a>
+          <a class="btn btn-light" href="/podbor-kvartiry.html">Подобрать квартиру</a>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-card__top">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 20V8l6-4 6 4v12"/><path d="M9 20v-6h6v6"/><path d="M9 10h.01M15 10h.01"/></svg></div>
+          <div>
+            <h2>Льготы отдельным категориям</h2>
+            <p>Меры поддержки, выплаты и региональные программы.</p>
+          </div>
+        </div>
+        <ul class="program-list">
+          <li>поддержка многодетных семей;</li>
+          <li>использование материнского капитала;</li>
+          <li>региональные выплаты и субсидии;</li>
+          <li>помощь с подбором подходящего варианта.</li>
+        </ul>
+        <div class="card-actions">
+          <a class="btn btn-green" href="/#contact">Разобрать ситуацию</a>
+          <a class="btn btn-light" href="/podbor-kvartiry.html">Подбор квартиры</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="service-section">
-  <div class="container narrow">
-    <h2>Что я помогу сделать</h2>
-
-    <ul class="service-list">
-      <li>Проверить, подходите ли вы под льготную программу.</li>
-      <li>Подобрать банк под вашу ситуацию.</li>
-      <li>Посчитать комфортный платёж и бюджет покупки.</li>
-      <li>Понять, какие квартиры подходят под условия программы.</li>
-      <li>Подготовить заявку без хаотичной отправки документов во все банки подряд.</li>
-    </ul>
-
-    <a href="/#contact" class="hero-btn">Получить консультацию</a>
+<section class="section">
+  <div class="wrap big-card">
+    <h2 class="section-title">Как понять, какая льгота подойдет</h2>
+    <div class="steps-card">
+      <div class="step"><div class="step-num">1</div><h3>Разбираем вашу ситуацию</h3><p>Состав семьи, доход, первый взнос, объект покупки и текущие обязательства.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Проверяем программы</h3><p>Сравниваем льготные условия, требования банков и возможные ограничения.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Выбираем безопасный путь</h3><p>Подаем заявку точечно, подбираем объект и сопровождаем сделку до ключей.</p></div>
+    </div>
   </div>
 </section>
 
+<section class="section">
+  <div class="wrap compare-grid">
+    <div class="big-card">
+      <h2 class="section-title">Когда льготная ипотека особенно выгодна</h2>
+      <div class="info-list">
+        <div class="info-row"><div class="icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8 10-4-4-4 5"/><path d="M14 7h6v6"/></svg></div><div><h3>Нужен меньший платеж</h3><p>Льготная ставка может заметно снизить ежемесячную нагрузку.</p></div></div>
+        <div class="info-row"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 21V9l6-5 6 5v12"/></svg></div><div><h3>Покупаете новостройку</h3><p>Многие программы работают именно с первичным рынком и застройщиками.</p></div></div>
+        <div class="info-row"><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 14.5-4 16 0"/></svg></div><div><h3>Есть право на господдержку</h3><p>Дети, работа в IT, военная служба или региональные льготы могут открыть доступ к программе.</p></div></div>
+      </div>
+    </div>
+
+    <div class="big-card">
+      <h2 class="section-title">Где чаще всего ошибаются</h2>
+      <div class="info-list">
+        <div class="info-row"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10 3h4l7 18H3L10 3z"/></svg></div><div><h3>Смотрят только ставку</h3><p>Важно учитывать страховки, требования банка, лимиты и объект покупки.</p></div></div>
+        <div class="info-row"><div class="icon"><svg viewBox="0 0 24 24"><path d="M7 3h10v18H7z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div><div><h3>Подают заявки вслепую</h3><p>Массовые заявки могут испортить картину по кредитной истории.</p></div></div>
+        <div class="info-row"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><div><h3>Не проверяют объект</h3><p>Даже одобренная ипотека не поможет, если квартира не подходит под программу.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title">Частые вопросы</h2>
+    <div class="faq">
+      <details><summary>Можно ли выбрать программу самостоятельно?</summary><p>Можно, но важно проверить не только ставку, а все условия: требования к заемщику, объекту, первому взносу, лимиту и документам.</p></details>
+      <details><summary>Если я подхожу под несколько программ, что выбрать?</summary><p>Лучше сравнить платеж, лимит, требования банков и доступные объекты. Иногда самая известная программа не самая удобная именно для вашей ситуации.</p></details>
+      <details><summary>Можно ли использовать материнский капитал?</summary><p>Да, во многих случаях материнский капитал можно направить на первоначальный взнос или частичное погашение ипотеки.</p></details>
+      <details><summary>Вы помогаете подобрать квартиру под программу?</summary><p>Да. Можно сначала проверить ипотеку, а затем подобрать квартиру, которая подходит под условия банка и программы.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="consultation">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>Не знаете, какая льготная ипотека вам подходит?</h2>
+      <p>Разберу вашу ситуацию, проверю доступные программы и помогу выбрать банк без лишней путаницы.</p>
+    </div>
+    <a href="/#contact" class="btn">Получить консультацию</a>
+  </div>
+</section>
 </main>
 
-<footer>
-  <div class="container">
-    <p>© Олеся Юминова — ипотечный брокер в Ижевске</p>
-  </div>
-</footer>
-
+<footer class="footer"><div class="wrap">Олеся Юминова · помощь с ипотекой и подбором недвижимости</div></footer>
 </body>
 </html>
