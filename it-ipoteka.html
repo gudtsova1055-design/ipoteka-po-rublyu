@@ -314,6 +314,51 @@ summary::after{content:"+";font-size:22px;color:var(--green);line-height:1}
 details[open] summary::after{content:"−"}
 details p{margin:12px 0 0;color:var(--muted)}
 
+
+.related-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.related-card{
+  display:block;
+  padding:24px;
+  border-radius:22px;
+  background:#fff;
+  border:1px solid var(--line);
+  color:var(--text);
+  text-decoration:none;
+  box-shadow:0 14px 40px rgba(0,0,0,.045);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.related-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+.related-icon{
+  width:46px;
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:15px;
+  margin-bottom:14px;
+  background:var(--green-light);
+  font-size:23px;
+}
+.related-card strong{
+  display:block;
+  margin-bottom:7px;
+  color:var(--gold);
+  font-size:19px;
+  line-height:1.25;
+}
+.related-card span{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.45;
+}
+
 .cta{padding:56px 22px;background:var(--green);color:#fff}
 .cta-inner{
   display:flex;
@@ -341,7 +386,7 @@ details p{margin:12px 0 0;color:var(--muted)}
 
 @media(max-width:900px){
   .hero-inner,.two-col{grid-template-columns:1fr}
-  .conditions-grid,.steps{grid-template-columns:1fr 1fr}
+  .conditions-grid,.steps,.related-grid{grid-template-columns:1fr 1fr}
   h1{font-size:42px}
   .hero-picture{min-height:320px}
   .hero-photo{min-height:320px}
@@ -359,7 +404,7 @@ details p{margin:12px 0 0;color:var(--muted)}
   .rate-badge{right:14px;bottom:14px;padding:14px 18px;border-radius:18px}
   .rate-badge strong{font-size:30px}
   .section-title{font-size:28px}
-  .conditions-grid,.steps{grid-template-columns:1fr}
+  .conditions-grid,.steps,.related-grid{grid-template-columns:1fr}
   .big-card,.practice,.answer-box{padding:22px;border-radius:22px}
 }
 </style>
@@ -413,7 +458,7 @@ details p{margin:12px 0 0;color:var(--muted)}
         Кто может получить льготную ипотеку, какие требования предъявляются к работодателю и доходу и какое жилье разрешено купить по программе.
       </p>
       <div class="hero-buttons">
-        <a href="/#calculator" class="btn btn-green">Рассчитать ипотеку</a>
+        <a href="/rasschitat-ipoteku.html" class="btn btn-green">Рассчитать ипотеку</a>
         <a href="#requirements" class="btn">Проверить условия</a>
       </div>
     </div>
@@ -692,7 +737,7 @@ details p{margin:12px 0 0;color:var(--muted)}
       <details>
         <summary>Можно ли использовать материнский капитал?</summary>
         <p>
-          Да, материнский капитал можно использовать в качестве первоначального взноса, если банк допускает такую схему. После использования средств детям необходимо выделить доли.
+          Да, материнский капитал можно использовать в качестве первоначального взноса, если банк допускает такую схему. После использования средств детям необходимо выделить доли. Подробнее — в статье <a href="/materinskiy-kapital-pervonachalnyy-vznos.html">о материнском капитале как первоначальном взносе</a>.
         </p>
       </details>
 
@@ -737,6 +782,42 @@ details p{margin:12px 0 0;color:var(--muted)}
       <p>
         Но начинать лучше не с выбора квартиры. Сначала необходимо проверить работодателя, доход, стаж, кредитную историю и требования конкретного банка. Это помогает избежать отказа после внесения аванса и подобрать объект, который действительно подходит под программу.
       </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title">Может быть полезно</h2>
+    <p class="section-lead">
+      Следующие страницы помогут рассчитать бюджет, сравнить программы и подобрать подходящий объект.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/lgotnaya-ipoteka.html">
+        <div class="related-icon">🏦</div>
+        <strong>Льготная ипотека</strong>
+        <span>Сравнить IT-ипотеку с другими программами господдержки.</span>
+      </a>
+
+      <a class="related-card" href="/semejnaya-ipoteka.html">
+        <div class="related-icon">🏠</div>
+        <strong>Семейная ипотека</strong>
+        <span>Проверить, подходит ли вашей семье другая льготная программа.</span>
+      </a>
+
+      <a class="related-card" href="/rasschitat-ipoteku.html">
+        <div class="related-icon">📊</div>
+        <strong>Рассчитать ипотеку</strong>
+        <span>Оценить ежемесячный платеж и комфортную сумму кредита.</span>
+      </a>
+
+      <a class="related-card" href="/podbor-kvartiry.html">
+        <div class="related-icon">🔑</div>
+        <strong>Подбор квартиры</strong>
+        <span>Найти объект, который соответствует требованиям программы и банка.</span>
+      </a>
     </div>
   </div>
 </section>
