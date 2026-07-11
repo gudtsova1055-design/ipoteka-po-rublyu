@@ -160,6 +160,64 @@ h1{
 .answer-box h2{margin:0 0 10px;color:var(--gold);font-size:25px}
 .answer-box p{margin:0;font-size:18px}
 
+
+.conditions-block,
+.check-block{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:10px 30px;
+  box-shadow:0 18px 55px rgba(0,0,0,.055);
+}
+.condition-row,
+.check-row{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:24px;
+  align-items:start;
+  padding:21px 0;
+  border-bottom:1px solid var(--line);
+}
+.condition-row:last-child,
+.check-row:last-child{
+  border-bottom:0;
+}
+.condition-row strong{
+  color:var(--green);
+  font-size:23px;
+  line-height:1.25;
+}
+.condition-row span{
+  color:var(--muted);
+  font-size:17px;
+}
+.check-row strong{
+  color:var(--text);
+  font-size:18px;
+  line-height:1.35;
+}
+.check-row p{
+  margin:0;
+  color:var(--muted);
+}
+.check-label{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.check-number{
+  flex:0 0 36px;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--green);
+  color:#fff;
+  font-weight:800;
+}
+
 .conditions-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -393,6 +451,14 @@ details p{margin:12px 0 0;color:var(--muted)}
   .cta-inner{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:650px){
+  .conditions-block,.check-block{padding:4px 20px}
+  .condition-row,.check-row{
+    grid-template-columns:1fr;
+    gap:7px;
+    padding:18px 0;
+  }
+  .condition-row strong{font-size:21px}
+
   .header{padding:16px}
   .hero{padding:36px 16px 44px}
   .section{padding:42px 16px}
@@ -437,7 +503,7 @@ details p{margin:12px 0 0;color:var(--muted)}
       <a href="/semejnaya-ipoteka.html">Семейная ипотека</a>
       <a href="/ipoteka.html">Ипотека для всех</a>
       <a href="/ipoteka-bez-pervonachalnogo-vznosa.html">Без первоначального взноса</a>
-      <a href="/podbor-kvartiry.html">Подбор квартиры</a>
+      <a href="/#apartments">Подбор квартиры</a>
       <a href="/articles.html">Полезные материалы</a>
       <a href="/#contact">Контакты</a>
     </nav>
@@ -458,7 +524,7 @@ details p{margin:12px 0 0;color:var(--muted)}
         Кто может получить льготную ипотеку, какие требования предъявляются к работодателю и доходу и какое жилье разрешено купить по программе.
       </p>
       <div class="hero-buttons">
-        <a href="/rasschitat-ipoteku.html" class="btn btn-green">Рассчитать ипотеку</a>
+        <a href="/#calculator" class="btn btn-green">Рассчитать ипотеку</a>
         <a href="#requirements" class="btn">Проверить условия</a>
       </div>
     </div>
@@ -497,41 +563,30 @@ details p{margin:12px 0 0;color:var(--muted)}
       Это параметры государственной программы. Конкретный банк может предъявлять дополнительные требования к заемщику и объекту.
     </p>
 
-    <div class="conditions-grid">
-      <div class="condition">
-        <div class="condition-icon">%</div>
-        <strong>до 6%</strong>
-        <span>льготная ставка по программе</span>
+    <div class="conditions-block">
+      <div class="condition-row">
+        <strong>Ставка — до 6%</strong>
+        <span>Льготная ставка по государственной программе.</span>
       </div>
-
-      <div class="condition">
-        <div class="condition-icon">₽</div>
-        <strong>от 20%</strong>
-        <span>минимальный первоначальный взнос</span>
+      <div class="condition-row">
+        <strong>Первоначальный взнос — от 20%</strong>
+        <span>Банк может установить более высокий взнос с учетом объекта и ситуации заемщика.</span>
       </div>
-
-      <div class="condition">
-        <div class="condition-icon">🏦</div>
-        <strong>до 9 млн ₽</strong>
-        <span>сумма кредита по льготной ставке</span>
+      <div class="condition-row">
+        <strong>Кредит — до 9 млн ₽</strong>
+        <span>Сумма, которая выдается по льготной ставке.</span>
       </div>
-
-      <div class="condition">
-        <div class="condition-icon">👤</div>
-        <strong>до 50 лет</strong>
-        <span>возраст заемщика включительно</span>
+      <div class="condition-row">
+        <strong>Возраст — до 50 лет</strong>
+        <span>На дату оформления кредита заемщику должно быть не более 50 лет включительно.</span>
       </div>
-
-      <div class="condition">
-        <div class="condition-icon">💼</div>
-        <strong>от 3 месяцев</strong>
-        <span>стаж в подходящей IT-компании</span>
+      <div class="condition-row">
+        <strong>Стаж — от 3 месяцев</strong>
+        <span>Необходимо работать в подходящей IT-компании не менее трех месяцев.</span>
       </div>
-
-      <div class="condition">
-        <div class="condition-icon">📅</div>
-        <strong>до 2030 года</strong>
-        <span>заявку можно подать до 31 декабря 2030 года</span>
+      <div class="condition-row">
+        <strong>Программа — до 2030 года</strong>
+        <span>Заявку можно подать до 31 декабря 2030 года.</span>
       </div>
     </div>
 
@@ -643,40 +698,29 @@ details p{margin:12px 0 0;color:var(--muted)}
   <div class="wrap">
     <h2 class="section-title">Что проверить перед подачей заявки</h2>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Работодателя</h3>
+    <div class="check-block">
+      <div class="check-row">
+        <div class="check-label"><span class="check-number">1</span><strong>Работодателя</strong></div>
         <p>Проверить аккредитацию и соответствие компании требованиям программы.</p>
       </div>
-
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Доход и стаж</h3>
+      <div class="check-row">
+        <div class="check-label"><span class="check-number">2</span><strong>Доход и стаж</strong></div>
         <p>Убедиться, что доход за последние три месяца и стаж подходят под установленные критерии.</p>
       </div>
-
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Кредитную историю</h3>
+      <div class="check-row">
+        <div class="check-label"><span class="check-number">3</span><strong>Кредитную историю</strong></div>
         <p>Льготная программа не отменяет стандартную банковскую проверку заемщика.</p>
       </div>
-
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>Первоначальный взнос</h3>
+      <div class="check-row">
+        <div class="check-label"><span class="check-number">4</span><strong>Первоначальный взнос</strong></div>
         <p>Подготовить не менее 20% стоимости объекта и уточнить требования выбранного банка.</p>
       </div>
-
-      <div class="step">
-        <div class="step-num">5</div>
-        <h3>Объект покупки</h3>
+      <div class="check-row">
+        <div class="check-label"><span class="check-number">5</span><strong>Объект покупки</strong></div>
         <p>Заранее убедиться, что квартира, дом или строительство подходят под условия IT-ипотеки.</p>
       </div>
-
-      <div class="step">
-        <div class="step-num">6</div>
-        <h3>Документы</h3>
+      <div class="check-row">
+        <div class="check-label"><span class="check-number">6</span><strong>Документы</strong></div>
         <p>Подготовить паспорт, СНИЛС, подтверждение дохода и документы о трудоустройстве.</p>
       </div>
     </div>
@@ -807,16 +851,16 @@ details p{margin:12px 0 0;color:var(--muted)}
         <span>Проверить, подходит ли вашей семье другая льготная программа.</span>
       </a>
 
-      <a class="related-card" href="/rasschitat-ipoteku.html">
+      <a class="related-card" href="/#calculator">
         <div class="related-icon">📊</div>
         <strong>Рассчитать ипотеку</strong>
-        <span>Оценить ежемесячный платеж и комфортную сумму кредита.</span>
+        <span>Перейти к калькулятору на главной странице и оценить ежемесячный платеж.</span>
       </a>
 
-      <a class="related-card" href="/podbor-kvartiry.html">
+      <a class="related-card" href="/#apartments">
         <div class="related-icon">🔑</div>
         <strong>Подбор квартиры</strong>
-        <span>Найти объект, который соответствует требованиям программы и банка.</span>
+        <span>Перейти к подбору квартир на главной странице.</span>
       </a>
     </div>
   </div>
