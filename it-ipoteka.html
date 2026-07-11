@@ -473,6 +473,188 @@ details p{margin:12px 0 0;color:var(--muted)}
   .conditions-grid,.steps,.related-grid{grid-template-columns:1fr}
   .big-card,.practice,.answer-box{padding:22px;border-radius:22px}
 }
+
+
+/* ===== ТИПОГРАФИКА «ИПОТЕКА-ПРОСТО»: тестовый стандарт ===== */
+:root{
+  --text:#252b35;
+  --muted:#454d59;
+}
+
+body{
+  color:var(--text);
+  font-size:20px;
+  line-height:1.72;
+}
+
+h1{
+  font-size:60px;
+  line-height:1.08;
+  font-weight:800;
+  color:#1d2430;
+}
+
+.section-title{
+  font-size:44px;
+  line-height:1.18;
+  font-weight:800;
+  color:var(--gold);
+}
+
+.hero-text,
+.section-lead,
+.answer-box p,
+.big-card p,
+.practice p,
+details p,
+.check-list li,
+.no-list li,
+.note,
+.warning,
+.check-row p,
+.condition-row span{
+  font-size:20px;
+  line-height:1.72;
+  color:var(--muted);
+}
+
+.hero-text{
+  color:#38414d;
+}
+
+.answer-box h2,
+.big-card h3,
+.practice h3{
+  font-size:28px;
+  line-height:1.28;
+  font-weight:800;
+}
+
+.condition-row{
+  grid-template-columns:270px 1fr;
+}
+
+.condition-row strong{
+  font-size:27px;
+  line-height:1.3;
+  font-weight:800;
+}
+
+.check-row strong{
+  font-size:22px;
+  line-height:1.4;
+  font-weight:800;
+}
+
+summary{
+  font-size:20px;
+  line-height:1.45;
+}
+
+.related-card strong{
+  font-size:23px;
+  line-height:1.3;
+}
+
+.related-card span{
+  font-size:18px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.cta h2{
+  font-size:38px;
+}
+
+.cta p{
+  font-size:20px;
+  line-height:1.65;
+  color:rgba(255,255,255,.94);
+}
+
+.source-note{
+  font-size:15px;
+  line-height:1.65;
+  color:#555d68;
+}
+
+@media(max-width:900px){
+  h1{font-size:50px}
+  .section-title{font-size:38px}
+  .condition-row{grid-template-columns:230px 1fr}
+}
+
+@media(max-width:650px){
+  body{
+    font-size:19px;
+    line-height:1.68;
+  }
+
+  h1{
+    font-size:40px;
+    line-height:1.12;
+  }
+
+  .section-title{
+    font-size:34px;
+    line-height:1.2;
+  }
+
+  .hero-text,
+  .section-lead,
+  .answer-box p,
+  .big-card p,
+  .practice p,
+  details p,
+  .check-list li,
+  .no-list li,
+  .note,
+  .warning,
+  .check-row p,
+  .condition-row span{
+    font-size:19px;
+    line-height:1.68;
+  }
+
+  .answer-box h2,
+  .big-card h3,
+  .practice h3{
+    font-size:25px;
+  }
+
+  .condition-row{
+    grid-template-columns:1fr;
+  }
+
+  .condition-row strong{
+    font-size:24px;
+  }
+
+  .check-row strong{
+    font-size:21px;
+  }
+
+  summary{
+    font-size:19px;
+  }
+
+  .related-card strong{
+    font-size:22px;
+  }
+
+  .related-card span{
+    font-size:18px;
+  }
+
+  .cta h2{
+    font-size:31px;
+  }
+
+  .cta p{
+    font-size:19px;
+  }
+}
+
 </style>
 
 <script type="application/ld+json">
