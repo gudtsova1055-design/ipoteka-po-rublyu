@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="meet-popup" onmouseenter="cancelMeetHide()" onmouseleave="scheduleMeetHide()" style="display: none; position: absolute; top: calc(100% + 10px); left: 0px; z-index: 9000; background: rgb(255, 255, 255); border: 1px solid rgba(197, 168, 128, 0.35); border-radius: 16px; padding: 1.2rem 1.4rem; box-shadow: rgba(43, 45, 53, 0.18) 0px 16px 48px; min-width: 280px; max-width: 320px;">
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.8rem;">
 <div style="width:42px;height:42px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);flex-shrink:0;">
-<img #"="" alt="Олеся" id="popupAvatarImg" onerror="this.style.display='none'" src="./Одобрение ипотеки в Ижевске _ Ипотечный брокер Олеся Юминова 07.06.2026_files/saved_resource" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: none;"/>
+<img #"="" alt="Олеся" id="popupAvatarImg" onerror="this.style.display='none'" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: none;"/>
 </div>
 <div>
 <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1rem;color:var(--text);">Олеся Юминова</div>
@@ -1195,7 +1195,7 @@ document.getElementById('installmentModal').addEventListener('click', function(e
 <!-- МОДАЛКА ПЛАНИРОВОК -->
 <div class="plan-modal-overlay" id="planModal" onclick="closePlanModal(event)">
 <button aria-label="Закрыть" class="plan-modal-close" onclick="document.getElementById('planModal').classList.remove('open')">✕</button>
-<img #"="" alt="Планировка" class="plan-modal-img" id="planModalImg" src="./Одобрение ипотеки в Ижевске _ Ипотечный брокер Олеся Юминова 07.06.2026_files/saved_resource"/>
+<img #"="" alt="Планировка" class="plan-modal-img" id="planModalImg"/>
 </div>
 <script>
 
