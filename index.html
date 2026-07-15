@@ -415,7 +415,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="f-group">
 <label>Первоначальный взнос — <span id="downVal" style="color:var(--gold)">20%</span></label>
 <div class="range-wrap">
-<input id="down" max="80" min="10" oninput="calcMortgage()" style="--pct: 14.285714285714285%;" type="range" value="20"/>
+<input id="down" max="80" min="0" oninput="calcMortgage()" style="--pct: 25%;" type="range" value="10"/>
+</div>
+
+<p id="downPaymentHint"
+   style="display:none;margin-top:10px;font-size:14px;color:#777;line-height:1.5;">
+    ℹ️ Первоначальный взнос 0% возможен только по отдельным программам и доступен не для всех объектов недвижимости.
+</p>
+
+</div>
 </div>
 </div>
 <div class="f-group">
@@ -1264,6 +1272,11 @@ function calcMortgage() {
   const price = +document.getElementById('price').value;
 
   const downPct = +document.getElementById('down').value;
+  const downPaymentHint = document.getElementById('downPaymentHint');
+
+if (downPaymentHint) {
+    downPaymentHint.style.display = downPct === 0 ? 'block' : 'none';
+}
 
   const term = +document.getElementById('term').value;
 
