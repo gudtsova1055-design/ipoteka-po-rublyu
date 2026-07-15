@@ -413,24 +413,46 @@ document.addEventListener('DOMContentLoaded', function() {
 <input id="price" max="50000000" min="500000" oninput="calcMortgage()" step="100000" type="number" value="5000000"/>
 </div>
 <div class="f-group">
-<label>Первоначальный взнос — <span id="downVal" style="color:var(--gold)">20%</span></label>
-<div class="range-wrap">
-<input id="down" max="80" min="0" oninput="calcMortgage()" style="--pct: 25%;" type="range" value="10"/>
+    <label>
+        Первоначальный взнос —
+        <span id="downVal" style="color:var(--gold)">20%</span>
+    </label>
+
+    <div class="range-wrap">
+        <input
+            id="down"
+            max="80"
+            min="0"
+            oninput="calcMortgage()"
+            style="--pct:25%;"
+            type="range"
+            value="10"
+        />
+    </div>
+
+    <p id="downPaymentHint"
+       style="display:none;margin-top:10px;font-size:14px;color:#777;line-height:1.5;">
+        ℹ️ Первоначальный взнос 0% возможен только по отдельным программам и доступен не для всех объектов недвижимости.
+    </p>
 </div>
 
-<p id="downPaymentHint"
-   style="display:none;margin-top:10px;font-size:14px;color:#777;line-height:1.5;">
-    ℹ️ Первоначальный взнос 0% возможен только по отдельным программам и доступен не для всех объектов недвижимости.
-</p>
-
-</div>
-</div>
-</div>
 <div class="f-group">
-<label>Срок ипотеки — <span id="termVal" style="color:var(--gold)">30 лет</span></label>
-<div class="range-wrap">
-<input id="term" max="30" min="5" oninput="calcMortgage()" style="--pct: 100%;" type="range" value="30"/>
-</div>
+    <label>
+        Срок ипотеки —
+        <span id="termVal" style="color:var(--gold)">30 лет</span>
+    </label>
+
+    <div class="range-wrap">
+        <input
+            id="term"
+            max="30"
+            min="5"
+            oninput="calcMortgage()"
+            style="--pct:100%;"
+            type="range"
+            value="30"
+        />
+    </div>
 </div>
 <div class="f-group">
 <label>Программа</label>
