@@ -73,13 +73,27 @@ function sendCalcResult(messenger) {
 
     '⏰ ' + new Date().toLocaleString('ru-RU');
 
-  fetch('https://api.telegram.org/bot8682533832:AAHJXruF9hqsc3ntx_UaSGcxG9j3ma03Pmg/sendMessage', {
+  fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
 
     method: 'POST',
 
     headers: {'Content-Type': 'application/json'},
 
-    body: JSON.stringify({chat_id: '255978641', text: text})
+    body: JSON.stringify({
+
+      name: 'не указано',
+
+      phone: phone,
+
+      goal: 'Расчёт ипотеки',
+
+      comment: text,
+
+      source: 'Калькулятор на сайте',
+
+      date: new Date().toLocaleString('ru-RU')
+
+    })
 
   }).catch(function(){});
 
@@ -795,16 +809,6 @@ function submitInstallmentRequest() {
 
     '⏰ ' + new Date().toLocaleString('ru-RU');
 
-  fetch('https://api.telegram.org/bot8682533832:AAHJXruF9hqsc3ntx_UaSGcxG9j3ma03Pmg/sendMessage', {
-
-    method: 'POST',
-
-    headers: {'Content-Type': 'application/json'},
-
-    body: JSON.stringify({chat_id: '255978641', text: botText})
-
-  }).catch(function(){});
-
   fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
 
     method: 'POST',
@@ -1434,16 +1438,6 @@ if(cForm) cForm.addEventListener('submit', function(e) {
 
       const text = `📩 Заявка с формы на сайте!\n\n👤 Имя: ${name || 'не указано'}\n📱 Телефон: ${phone || 'не указан'}\n🎯 Цель: ${goal || 'не указана'}\n💬 Комментарий: ${comment || '—'}\n🤖 reCAPTCHA: ✅ проверено\n\n⏰ ${new Date().toLocaleString('ru-RU')}`;
 
-      fetch('https://api.telegram.org/bot8682533832:AAHJXruF9hqsc3ntx_UaSGcxG9j3ma03Pmg/sendMessage', {
-
-        method: 'POST',
-
-        headers: {'Content-Type': 'application/json'},
-
-        body: JSON.stringify({chat_id: '255978641', text: text})
-
-      }).catch(()=>{});
-
       // Отправка на email через Make (Integromat) webhook
 
       fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
@@ -2002,37 +1996,9 @@ function quizSubmitThenOpen(url) {
 
   }, 300);
 
-  // Отправляем в Telegram и ждём ответа перед открытием ссылки
+  // После отправки заявки открываем выбранный мессенджер
 
-  fetch('https://api.telegram.org/bot8682533832:AAHJXruF9hqsc3ntx_UaSGcxG9j3ma03Pmg/sendMessage', {
-
-    method: 'POST',
-
-    headers: {'Content-Type': 'application/json'},
-
-    body: JSON.stringify({
-
-      chat_id: '255978641',
-
-      text: text,
-
-      parse_mode: 'HTML'
-
-    })
-
-  }).then(function() {
-
-    // Данные отправлены — теперь открываем Telegram
-
-    if (url) window.open(url, '_blank');
-
-  }).catch(function() {
-
-    // Даже при ошибке — всё равно открываем Telegram
-
-    if (url) window.open(url, '_blank');
-
-  });
+  if (url) window.open(url, '_blank');
 
   // Отправляем на email через Make webhook
 
@@ -2108,9 +2074,9 @@ function quizSubmit() {
 
   const text = `🏠 Новая заявка с сайта!\n\n📱 Телефон: ${phone || 'не указан'}\n💬 Мессенджер: ${msgr}\n\n📋 Ответы теста:${answers || '\n  (ответы не выбраны)'}\n\n⏰ ${new Date().toLocaleString('ru-RU')}`;
 
-  // Отправляем в Telegram
+  // Отправляем заявку через Make webhook
 
-  fetch('https://api.telegram.org/bot8682533832:AAHJXruF9hqsc3ntx_UaSGcxG9j3ma03Pmg/sendMessage', {
+  fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
 
     method: 'POST',
 
@@ -2118,11 +2084,17 @@ function quizSubmit() {
 
     body: JSON.stringify({
 
-      chat_id: '255978641',
+      name: 'не указано',
 
-      text: text,
+      phone: phone || 'не указан',
 
-      parse_mode: 'HTML'
+      goal: 'Квиз на сайте',
+
+      comment: text,
+
+      source: 'Квиз на сайте',
+
+      date: new Date().toLocaleString('ru-RU')
 
     })
 
@@ -2659,16 +2631,6 @@ function submitHelpRequest() {
   var messenger = _helpMessenger === 'max' ? 'Макс' : 'Telegram';
 
   var botText = '📞 Заявка — Помощь с подбором ипотеки!\n\n📱 Телефон: +' + phone + '\n💬 Мессенджер: ' + messenger + '\n⏰ ' + new Date().toLocaleString('ru-RU');
-
-  // В Telegram бот
-
-  fetch('https://api.telegram.org/bot8682533832:AAHJXruF9hqsc3ntx_UaSGcxG9j3ma03Pmg/sendMessage', {
-
-    method:'POST', headers:{'Content-Type':'application/json'},
-
-    body: JSON.stringify({chat_id:'255978641', text: botText})
-
-  }).catch(function(){});
 
   // В Make → почта
 
