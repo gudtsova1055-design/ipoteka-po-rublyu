@@ -14,6 +14,117 @@
 <link href="https://fonts.googleapis.com/" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
 <link href="css/style.css" rel="stylesheet"/>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<script>
+(function () {
+  'use strict';
+
+  const FORM_PROXY_URL = 'https://form-proxy.gudtsova1055.workers.dev/';
+  const TURNSTILE_SITE_KEY = '0x4AAAAAAAD49AF1yVcIeZ4hZ';
+  const OLD_MAKE_WEBHOOK_PREFIX = 'https://hook.us2.make.com/';
+  const nativeFetch = window.fetch.bind(window);
+  let activeChallenge = null;
+
+  function removeChallenge() {
+    if (!activeChallenge) return;
+    try {
+      if (activeChallenge.widgetId !== null && window.turnstile) {
+        window.turnstile.remove(activeChallenge.widgetId);
+      }
+    } catch (_) {}
+    activeChallenge.overlay.remove();
+    activeChallenge = null;
+  }
+
+  function getTurnstileToken() {
+    return new Promise(function (resolve, reject) {
+      if (!window.turnstile) {
+        reject(new Error('Защита Turnstile ещё загружается. Подождите несколько секунд и повторите отправку.'));
+        return;
+      }
+      if (activeChallenge) {
+        reject(new Error('Проверка уже выполняется.'));
+        return;
+      }
+
+      const overlay = document.createElement('div');
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.style.cssText = 'position:fixed;inset:0;z-index:999999;background:rgba(16,24,20,.58);display:flex;align-items:center;justify-content:center;padding:20px;';
+      overlay.innerHTML = '<div style="width:min(430px,100%);background:#fff;border-radius:20px;padding:24px;box-shadow:0 24px 70px rgba(0,0,0,.28);text-align:center;font-family:Arial,sans-serif"><div style="font-size:20px;font-weight:800;color:#244b3c;margin-bottom:8px">Проверяем, что вы не робот</div><div style="font-size:14px;color:#66736d;margin-bottom:18px">Обычно это занимает несколько секунд.</div><div id="turnstile-challenge-slot" style="display:flex;justify-content:center;min-height:65px"></div></div>';
+      document.body.appendChild(overlay);
+
+      activeChallenge = { overlay: overlay, widgetId: null };
+      const timeout = setTimeout(function () {
+        removeChallenge();
+        reject(new Error('Проверка заняла слишком много времени. Попробуйте ещё раз.'));
+      }, 120000);
+
+      try {
+        activeChallenge.widgetId = window.turnstile.render('#turnstile-challenge-slot', {
+          sitekey: TURNSTILE_SITE_KEY,
+          action: 'form_submit',
+          theme: 'light',
+          size: 'normal',
+          callback: function (token) {
+            clearTimeout(timeout);
+            removeChallenge();
+            resolve(token);
+          },
+          'error-callback': function () {
+            clearTimeout(timeout);
+            removeChallenge();
+            reject(new Error('Не удалось пройти проверку безопасности. Обновите страницу и повторите.'));
+          },
+          'expired-callback': function () {
+            clearTimeout(timeout);
+            removeChallenge();
+            reject(new Error('Время проверки истекло. Повторите отправку.'));
+          }
+        });
+      } catch (error) {
+        clearTimeout(timeout);
+        removeChallenge();
+        reject(error);
+      }
+    });
+  }
+
+  async function protectedSubmit(payload) {
+    const token = await getTurnstileToken();
+    const response = await nativeFetch(FORM_PROXY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.assign({}, payload, {
+        turnstile_token: token,
+        page_url: window.location.href
+      }))
+    });
+    let result = {};
+    try { result = await response.json(); } catch (_) {}
+    if (!response.ok || result.success !== true) {
+      throw new Error(result.message || 'Не удалось отправить заявку. Попробуйте ещё раз.');
+    }
+    return result;
+  }
+
+  // Перехватываем старые вызовы Make и отправляем их только через защищённый Worker.
+  window.fetch = function (resource, options) {
+    const url = typeof resource === 'string' ? resource : (resource && resource.url) || '';
+    if (url.indexOf(OLD_MAKE_WEBHOOK_PREFIX) === 0) {
+      let payload = {};
+      try { payload = JSON.parse((options && options.body) || '{}'); }
+      catch (_) { return Promise.reject(new Error('Некорректные данные формы.')); }
+      return protectedSubmit(payload).catch(function (error) {
+        alert(error.message || 'Не удалось отправить заявку.');
+        throw error;
+      });
+    }
+    return nativeFetch(resource, options);
+  };
+})();
+</script>
+
 <script>
 
 function toggleCalcForm() {
@@ -73,7 +184,7 @@ function sendCalcResult(messenger) {
 
     '⏰ ' + new Date().toLocaleString('ru-RU');
 
-  fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
+  fetch('https://hook.us2.make.com/protected-by-cloudflare', {
 
     method: 'POST',
 
@@ -142,7 +253,6 @@ function sendCalcResult(messenger) {
 </script>
 <noscript><div><img alt="" src="https://mc.yandex.ru/watch/109774560" style="position:absolute; left:-9999px;"/></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<script src="https://www.google.com/recaptcha/api.js?render=6Ldj0zMtAAAAAG9BLYGeDOxqHfitLK8v39wM4024"></script>
 </head><body style=""><div class="cursor-glow" id="cursorGlow" style="left: 1036px; top: 79px;"></div>
 <!-- NAV -->
 <header>
@@ -809,7 +919,7 @@ function submitInstallmentRequest() {
 
     '⏰ ' + new Date().toLocaleString('ru-RU');
 
-  fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
+  fetch('https://hook.us2.make.com/protected-by-cloudflare', {
 
     method: 'POST',
 
@@ -1414,68 +1524,23 @@ if(cForm) cForm.addEventListener('submit', function(e) {
 
   const comment = (formEl.querySelector('[name="comment"], textarea')?.value || '').trim();
 
-  // Проверка reCAPTCHA v3
-
-  if (typeof grecaptcha === 'undefined') {
-
-    alert('Ошибка загрузки защиты от ботов. Перезагрузите страницу.');
-
-    return;
-
-  }
-
-  grecaptcha.ready(function() {
-
-    grecaptcha.execute('6Ldj0zMtAAAAAG9BLYGeDOxqHfitLK8v39wM4024', {action: 'contact_form'}).then(function(token) {
-
-      if (!token) {
-
-        alert('Проверка безопасности не пройдена. Попробуйте ещё раз.');
-
-        return;
-
-      }
-
-      const text = `📩 Заявка с формы на сайте!\n\n👤 Имя: ${name || 'не указано'}\n📱 Телефон: ${phone || 'не указан'}\n🎯 Цель: ${goal || 'не указана'}\n💬 Комментарий: ${comment || '—'}\n🤖 reCAPTCHA: ✅ проверено\n\n⏰ ${new Date().toLocaleString('ru-RU')}`;
-
-      // Отправка на email через Make (Integromat) webhook
-
-      fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
-
-        method: 'POST',
-
-        headers: {'Content-Type': 'application/json'},
-
-        body: JSON.stringify({
-
-          name: name,
-
-          phone: phone,
-
-          goal: goal,
-
-          comment: comment,
-
-          recaptcha_token: token,
-
-          date: new Date().toLocaleString('ru-RU')
-
-        })
-
-      }).catch(()=>{});
-
-      formEl.style.display = 'none';
-
-      const fs = document.getElementById('formSuccess');
-
-      if(fs) fs.classList.add('show');
-
-      ym(109774560, 'reachGoal', 'form_sent');
-
-    });
-
-  });
-
+  fetch('https://hook.us2.make.com/protected-by-cloudflare', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      name: name,
+      phone: phone,
+      goal: goal,
+      comment: comment,
+      source: 'Форма консультации на сайте',
+      date: new Date().toLocaleString('ru-RU')
+    })
+  }).then(function() {
+    formEl.style.display = 'none';
+    const fs = document.getElementById('formSuccess');
+    if(fs) fs.classList.add('show');
+    if (typeof ym === 'function') ym(109774560, 'reachGoal', 'form_sent');
+  }).catch(function() {});
 });
 
 // ── MODAL ──
@@ -2002,7 +2067,7 @@ function quizSubmitThenOpen(url) {
 
   // Отправляем на email через Make webhook
 
-  fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
+  fetch('https://hook.us2.make.com/protected-by-cloudflare', {
 
     method: 'POST',
 
@@ -2076,7 +2141,7 @@ function quizSubmit() {
 
   // Отправляем заявку через Make webhook
 
-  fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
+  fetch('https://hook.us2.make.com/protected-by-cloudflare', {
 
     method: 'POST',
 
@@ -2634,7 +2699,7 @@ function submitHelpRequest() {
 
   // В Make → почта
 
-  fetch('https://hook.us2.make.com/llznvo3x66m3605tl5bjvn2bp48i0h68', {
+  fetch('https://hook.us2.make.com/protected-by-cloudflare', {
 
     method:'POST', headers:{'Content-Type':'application/json'},
 
