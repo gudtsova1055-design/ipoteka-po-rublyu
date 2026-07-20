@@ -71,10 +71,11 @@
             removeChallenge();
             resolve(token);
           },
-          'error-callback': function () {
+          'error-callback': function (errorCode) {
             clearTimeout(timeout);
             removeChallenge();
-            reject(new Error('Не удалось пройти проверку безопасности. Обновите страницу и повторите.'));
+            var suffix = errorCode ? ' Код: ' + errorCode + '.' : '';
+            reject(new Error('Не удалось пройти проверку безопасности.' + suffix + ' Обновите страницу или попробуйте режим инкогнито.'));
           },
           'expired-callback': function () {
             clearTimeout(timeout);
@@ -206,21 +207,23 @@ function sendCalcResult(messenger) {
 
     })
 
-  }).catch(function(){});
+  }).then(function(){
 
-  document.getElementById('calcFormSuccess').style.display = 'block';
+    document.getElementById('calcFormSuccess').style.display = 'block';
 
-  document.getElementById('calcPhone').style.display = 'none';
+    document.getElementById('calcPhone').style.display = 'none';
 
-  if (messenger === 'Telegram') {
+    if (messenger === 'Telegram') {
 
-    setTimeout(function(){ window.open('https://t.me/RublikRealEstate_bot?start=checklist', '_blank'); }, 1000);
+      setTimeout(function(){ window.open('https://t.me/RublikRealEstate_bot?start=checklist', '_blank'); }, 1000);
 
-  } else if (messenger === 'Мессенджер Макс') {
+    }
 
-    setTimeout(function(){ ; }, 500);
+  }).catch(function(error){
 
-  }
+    console.error('Ошибка отправки формы:', error);
+
+  });
 
 }
 
@@ -939,23 +942,29 @@ function submitInstallmentRequest() {
 
     })
 
-  }).catch(function(){});
+  }).then(function(){
 
-  var inner = document.querySelector('#installmentModal > div');
+    var inner = document.querySelector('#installmentModal > div');
 
-  inner.innerHTML =
+    inner.innerHTML =
 
-    '<div style="padding:1rem 0;">' +
+      '<div style="padding:1rem 0;">' +
 
-    '<div style="font-size:3rem;margin-bottom:1rem;">✅</div>' +
+      '<div style="font-size:3rem;margin-bottom:1rem;">✅</div>' +
 
-    '<h3 style="font-size:1.3rem;font-weight:800;color:#1a1a1a;margin-bottom:0.8rem;">Заявка принята!</h3>' +
+      '<h3 style="font-size:1.3rem;font-weight:800;color:#1a1a1a;margin-bottom:0.8rem;">Заявка принята!</h3>' +
 
-    '<p style="color:#555;line-height:1.6;">Подборку квартир в рассрочку от <strong style="color:var(--gold)">15 000 ₽/мес.</strong> отправим Вам в ближайшее время в <strong>' + messenger + '</strong> 🏠</p>' +
+      '<p style="color:#555;line-height:1.6;">Подборку квартир в рассрочку от <strong style="color:var(--gold)">15 000 ₽/мес.</strong> отправим Вам в ближайшее время в <strong>' + messenger + '</strong> 🏠</p>' +
 
-    '<button onclick="closeInstallmentModal()" style="margin-top:1.5rem;background:var(--gold);color:#fff;border:none;border-radius:12px;padding:0.9rem 2rem;font-size:1rem;font-weight:700;cursor:pointer;">Закрыть</button>' +
+      '<button onclick="closeInstallmentModal()" style="margin-top:1.5rem;background:var(--gold);color:#fff;border:none;border-radius:12px;padding:0.9rem 2rem;font-size:1rem;font-weight:700;cursor:pointer;">Закрыть</button>' +
 
-    '</div>';
+      '</div>';
+
+  }).catch(function(error){
+
+    console.error('Ошибка отправки формы:', error);
+
+  });
 
 }
 
@@ -1540,7 +1549,9 @@ if(cForm) cForm.addEventListener('submit', function(e) {
     const fs = document.getElementById('formSuccess');
     if(fs) fs.classList.add('show');
     if (typeof ym === 'function') ym(109774560, 'reachGoal', 'form_sent');
-  }).catch(function() {});
+  }).catch(function(error) {
+    console.error('Ошибка отправки формы:', error);
+  });
 });
 
 // ── MODAL ──
@@ -2053,18 +2064,6 @@ function quizSubmitThenOpen(url) {
 
   // Показываем успех сразу
 
-  setTimeout(() => {
-
-    document.getElementById('quizSuccess').classList.add('show');
-
-    ym(109774560, 'reachGoal', 'quiz_sent');
-
-  }, 300);
-
-  // После отправки заявки открываем выбранный мессенджер
-
-  if (url) window.open(url, '_blank');
-
   // Отправляем на email через Make webhook
 
   fetch('https://hook.us2.make.com/protected-by-cloudflare', {
@@ -2093,7 +2092,19 @@ function quizSubmitThenOpen(url) {
 
     })
 
-  }).catch(()=>{});
+  }).then(function(){
+
+    document.getElementById('quizSuccess').classList.add('show');
+
+    if (typeof ym === 'function') ym(109774560, 'reachGoal', 'quiz_sent');
+
+    if (url) window.open(url, '_blank');
+
+  }).catch(function(error){
+
+    console.error('Ошибка отправки формы:', error);
+
+  });
 
 }
 
@@ -2163,15 +2174,17 @@ function quizSubmit() {
 
     })
 
-  }).catch(()=>{});
-
-  setTimeout(() => {
+  }).then(function(){
 
     document.getElementById('quizSuccess').classList.add('show');
 
-    ym(109774560, 'reachGoal', 'quiz_sent');
+    if (typeof ym === 'function') ym(109774560, 'reachGoal', 'quiz_sent');
 
-  }, 400);
+  }).catch(function(error){
+
+    console.error('Ошибка отправки формы:', error);
+
+  });
 
 }
 
@@ -2705,23 +2718,29 @@ function submitHelpRequest() {
 
     body: JSON.stringify({name:'не указано', phone:'+'+phone, goal:'Помощь с подбором ипотеки', comment:'Мессенджер: '+messenger, date: new Date().toLocaleString('ru-RU')})
 
-  }).catch(function(){});
+  }).then(function(){
 
-  // Показываем подтверждение
+    // Показываем подтверждение только после успешной отправки
 
-  document.getElementById('helpModalInner').innerHTML =
+    document.getElementById('helpModalInner').innerHTML =
 
-    '<div style="padding:1rem 0;">' +
+      '<div style="padding:1rem 0;">' +
 
-    '<div style="font-size:3rem;margin-bottom:1rem;">✅</div>' +
+      '<div style="font-size:3rem;margin-bottom:1rem;">✅</div>' +
 
-    '<h3 style="font-size:1.3rem;font-weight:800;color:#1a1a1a;margin-bottom:0.8rem;">Заявка принята!</h3>' +
+      '<h3 style="font-size:1.3rem;font-weight:800;color:#1a1a1a;margin-bottom:0.8rem;">Заявка принята!</h3>' +
 
-    '<p style="color:#555;line-height:1.6;">Свяжусь с вами в ближайшее время в <strong>' + messenger + '</strong> и подберу лучшую ипотечную программу 🏠</p>' +
+      '<p style="color:#555;line-height:1.6;">Свяжусь с вами в ближайшее время в <strong>' + messenger + '</strong> и подберу лучшую ипотечную программу 🏠</p>' +
 
-    '<button onclick="closeHelpModal()" style="margin-top:1.5rem;background:var(--gold);color:#fff;border:none;border-radius:12px;padding:0.9rem 2rem;font-size:1rem;font-weight:700;cursor:pointer;">Закрыть</button>' +
+      '<button onclick="closeHelpModal()" style="margin-top:1.5rem;background:var(--gold);color:#fff;border:none;border-radius:12px;padding:0.9rem 2rem;font-size:1rem;font-weight:700;cursor:pointer;">Закрыть</button>' +
 
-    '</div>';
+      '</div>';
+
+  }).catch(function(error){
+
+    console.error('Ошибка отправки формы:', error);
+
+  });
 
 }
 
