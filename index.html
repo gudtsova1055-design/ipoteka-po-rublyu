@@ -2080,25 +2080,31 @@ function quizSubmitThenOpen(url) {
     headers: {'Content-Type': 'application/json'},
 
     body: JSON.stringify({
+  name: 'Не указано',
 
-      phone: phone || 'не указан',
+  phone: phone || 'не указан',
 
-      messenger: msgr,
+  messenger: msgr || 'не выбран',
 
-      q1: answersObj.q1 || 'не выбрано',
+  goal: 'Подбор квартиры по результатам теста',
 
-      q2: answersObj.q2 || 'не выбрано',
+  q1: answersObj.q1 || 'не выбрано',
+  q2: answersObj.q2 || 'не выбрано',
+  q3: answersObj.q3 || 'не выбрано',
+  q4: answersObj.q4 || 'не выбрано',
 
-      q3: answersObj.q3 || 'не выбрано',
+  comment:
+    'Предпочтительный мессенджер: ' + (msgr || 'не выбран') + '\n\n' +
+    'Ответы клиента:\n' +
+    '1. ' + (answersObj.q1 || 'не выбрано') + '\n' +
+    '2. ' + (answersObj.q2 || 'не выбрано') + '\n' +
+    '3. ' + (answersObj.q3 || 'не выбрано') + '\n' +
+    '4. ' + (answersObj.q4 || 'не выбрано'),
 
-      q4: answersObj.q4 || 'не выбрано',
+  source: 'Квиз на сайте',
 
-      source: 'Квиз на сайте',
-
-      date: new Date().toLocaleString('ru-RU')
-
-    })
-
+  date: new Date().toLocaleString('ru-RU')
+})
   }).then(function(){
 
     document.getElementById('quizSuccess').classList.add('show');
