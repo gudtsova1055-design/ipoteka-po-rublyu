@@ -192,20 +192,27 @@ function sendCalcResult(messenger) {
     headers: {'Content-Type': 'application/json'},
 
     body: JSON.stringify({
+  name: 'не указано',
+  phone: phone || 'не указан',
+  goal: 'Подбор квартиры по ответам теста',
+  messenger: msgr,
 
-      name: 'не указано',
+  q1: answersObj.q1 || 'не выбрано',
+  q2: answersObj.q2 || 'не выбрано',
+  q3: answersObj.q3 || 'не выбрано',
+  q4: answersObj.q4 || 'не выбрано',
 
-      phone: phone,
+  comment:
+    'Предпочтительный мессенджер: ' + msgr + '\n\n' +
+    'Ответы клиента:\n' +
+    '1. Какая квартира нужна: ' + (answersObj.q1 || 'не выбрано') + '\n' +
+    '2. Бюджет покупки: ' + (answersObj.q2 || 'не выбрано') + '\n' +
+    '3. Когда планирует покупать: ' + (answersObj.q3 || 'не выбрано') + '\n' +
+    '4. Какой вариант интересует: ' + (answersObj.q4 || 'не выбрано'),
 
-      goal: 'Расчёт ипотеки',
-
-      comment: text,
-
-      source: 'Калькулятор на сайте',
-
-      date: new Date().toLocaleString('ru-RU')
-
-    })
+  source: 'Квиз на сайте',
+  date: new Date().toLocaleString('ru-RU')
+})
 
   }).then(function(){
 
