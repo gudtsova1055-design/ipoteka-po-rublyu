@@ -6,7 +6,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 
 .planning-copy{max-width:930px;line-height:1.7}.planning-copy p{margin:0 0 12px}.planning-copy ul{margin:12px 0 16px;padding-left:0;list-style:none}.planning-copy li{margin:9px 0}.calc-page-wrap{margin:34px 0 44px}.calc-page-wrap .old-calculator-section{padding:34px 0}.calc-page-wrap .section-head{margin-bottom:22px}.calc-page-wrap .calc-wrap{margin-top:0}.apt-calc-hint{background:#eef7f1;border:1px solid #cfe3d5;border-radius:14px;padding:14px 18px;margin:0 0 24px;font-weight:700;line-height:1.5}
 @media(max-width:700px){.calc-page-wrap .old-calculator-section{padding:24px 0}.planning-copy{font-size:.98rem}}
-</style></head><body><header class="apt-header"><div class="apt-header-inner"><a class="apt-logo" href="/">Ипотека-Просто</a><nav class="apt-nav"><a class="apt-btn" href="/">На главную</a><a class="apt-btn red" href="/#contact">Получить консультацию</a></nav></div></header><main><section id="apartments">
+
+/* Дополнительные блоки страницы подбора квартир */
+.apt-hero{max-width:1180px;margin:28px auto 0;padding:0 20px}.apt-hero-card{min-height:430px;border-radius:28px;overflow:hidden;position:relative;background:linear-gradient(90deg,rgba(20,45,37,.88),rgba(20,45,37,.38)),url("images/family-hero.png") center/cover no-repeat;box-shadow:0 18px 50px rgba(30,48,40,.16);display:flex;align-items:center}.apt-hero-content{max-width:690px;padding:54px;color:#fff}.apt-hero-kicker{font-size:.82rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#d8eadf}.apt-hero h1{font-family:Georgia,serif;font-size:clamp(2.25rem,5vw,4rem);line-height:1.05;margin:12px 0 18px}.apt-hero p{font-size:1.12rem;line-height:1.6;margin:0 0 24px}.apt-hero-actions{display:flex;gap:12px;flex-wrap:wrap}.apt-hero-link{display:inline-flex;padding:13px 19px;border-radius:999px;background:#fff;color:#254d3f;text-decoration:none;font-weight:800}.apt-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.apt-benefit{background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px 18px;font-weight:800;box-shadow:0 8px 24px rgba(32,49,41,.05)}
+.apt-price-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:14px 0 6px}.apt-price{margin:0;white-space:nowrap;flex:0 0 auto}.apt-payment{white-space:nowrap;flex:0 0 auto;text-align:right;padding:12px 14px;border:1px solid #c99542;border-radius:13px;background:#fffaf1}.apt-price,.apt-payment{font-variant-numeric:tabular-nums}
+.apt-end{max-width:1180px;margin:0 auto;padding:12px 20px 54px}.apt-help,.apt-about,.apt-resources{background:#fff;border:1px solid var(--border);border-radius:24px;padding:30px;box-shadow:0 12px 34px rgba(32,49,41,.07);margin-top:24px}.apt-help{background:linear-gradient(135deg,#eef7f1,#fff)}.apt-help h2,.apt-about h2,.apt-resources h2{font-family:Georgia,serif;font-size:clamp(1.8rem,4vw,2.65rem);margin:0 0 14px}.apt-help p,.apt-about p,.apt-resources p{line-height:1.65}.apt-checks{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;margin:20px 0}.apt-check{font-weight:700}.apt-consult-btn{display:inline-flex;padding:13px 20px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:900}.apt-about{display:grid;grid-template-columns:230px 1fr;gap:28px;align-items:center}.apt-about-photo{width:100%;max-width:230px;aspect-ratio:4/5;object-fit:cover;border-radius:22px}.apt-about-list{display:grid;gap:10px;margin:18px 0}.apt-about-role{font-weight:800;color:#2f684f}.resource-title{font-size:1.2rem;font-weight:900;margin:22px 0 12px}.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.resource-card{display:block;text-decoration:none;color:var(--text);border:1px solid var(--border);border-radius:17px;padding:18px;background:#fbfcfb;transition:.2s ease}.resource-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(32,49,41,.09)}.resource-card strong{display:block;margin-bottom:7px}.resource-card span{color:var(--muted);line-height:1.45}.apt-up-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.apt-up-links a{color:#2f684f;font-weight:800}.apt-footer{margin-top:0}
+@media(max-width:1050px){.apt-price-row{align-items:flex-start;flex-direction:column}.apt-payment{text-align:left}.resource-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.apt-hero{padding:0 14px}.apt-hero-card{min-height:470px;background-position:62% center}.apt-hero-content{padding:34px 24px;background:linear-gradient(90deg,rgba(20,45,37,.92),rgba(20,45,37,.52))}.apt-benefits{grid-template-columns:1fr}.apt-end{padding:8px 14px 40px}.apt-help,.apt-about,.apt-resources{padding:22px}.apt-checks{grid-template-columns:1fr}.apt-about{grid-template-columns:1fr}.apt-about-photo{max-width:180px}.resource-grid{grid-template-columns:1fr}}
+</style></head><body><header class="apt-header"><div class="apt-header-inner"><a class="apt-logo" href="/">Ипотека-Просто</a><nav class="apt-nav"><a class="apt-btn" href="/">На главную</a><a class="apt-btn red" href="/#contact">Получить консультацию</a></nav></div></header><main><section class="apt-hero" aria-label="Подбор квартир в Ижевске"><div class="apt-hero-card"><div class="apt-hero-content"><div class="apt-hero-kicker">Квартиры в новостройках Ижевска</div><h1>Подбор квартир с актуальными ценами</h1><p>Реальные планировки, расчёт ипотеки и помощь в подборе подходящего варианта под ваш бюджет.</p><div class="apt-hero-actions"><a class="apt-hero-link" href="#calculator">Рассчитать ипотеку</a><a class="apt-hero-link" href="#aptGrid">Смотреть квартиры</a></div></div></div><div class="apt-benefits"><div class="apt-benefit">✓ Актуальные цены</div><div class="apt-benefit">✓ Расчёт ипотеки за 1 минуту</div><div class="apt-benefit">✓ Помощь в одобрении</div></div></section><section id="apartments">
 <div class="container">
 <div class="s-label">Подбор квартир</div>
 <div class="s-title">Подбор квартир с актуальными ценами и расчётом ипотеки</div>
@@ -79,8 +86,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">Студия</div>
 <div class="apt-area">25,90 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">4 796 075 ₽</div>
-<div class="apt-payment">платёж от 19 276 ₽/мес</div>
+<div class="apt-price">4&nbsp;796&nbsp;075&nbsp;₽</div>
+<div class="apt-payment">платёж от&nbsp;19&nbsp;276&nbsp;₽/мес</div>
 </div>
 <div class="apt-tags">
 <span class="apt-tag tag-green">Льготная программа</span>
@@ -99,8 +106,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">Студия</div>
 <div class="apt-area">31,2 м² · Предчистовая · Срок сдачи: 3 кв. 2027</div>
 <div class="apt-price-row">
-<div class="apt-price">4 352 400 ₽</div>
-<div class="apt-payment">платёж от 17 493 ₽/мес</div>
+<div class="apt-price">4&nbsp;352&nbsp;400&nbsp;₽</div>
+<div class="apt-payment">платёж от&nbsp;17&nbsp;493&nbsp;₽/мес</div>
 </div>
 <div class="apt-tags">
 <span class="apt-tag tag-green">Льготная программа</span>
@@ -119,8 +126,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">1-комнатная квартира</div>
 <div class="apt-area">35,2 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">4 949 500 ₽</div>
-<div class="apt-payment">платёж от 19 893 ₽/мес</div>
+<div class="apt-price">4&nbsp;949&nbsp;500&nbsp;₽</div>
+<div class="apt-payment">платёж от&nbsp;19&nbsp;893&nbsp;₽/мес</div>
 </div>
 <div class="apt-tags">
 <span class="apt-tag tag-green">Льготная программа</span>
@@ -139,8 +146,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">1-комнатная квартира</div>
 <div class="apt-area">40,3 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">5 521 100 ₽</div>
-<div class="apt-payment">платёж от 22 190 ₽/мес</div>
+<div class="apt-price">5&nbsp;521&nbsp;100&nbsp;₽</div>
+<div class="apt-payment">платёж от&nbsp;22&nbsp;190&nbsp;₽/мес</div>
 </div>
 <div class="apt-tags">
 <span class="apt-tag tag-green">Льготная программа</span>
@@ -159,8 +166,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">1-комнатная квартира</div>
 <div class="apt-area">42,9 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">6 006 000 ₽</div>
-<div class="apt-payment">платёж от 24 139 ₽/мес</div>
+<div class="apt-price">6&nbsp;006&nbsp;000&nbsp;₽</div>
+<div class="apt-payment">платёж от&nbsp;24&nbsp;139&nbsp;₽/мес</div>
 </div>
 <div class="apt-tags">
 <span class="apt-tag tag-green">Льготная программа</span>
@@ -179,8 +186,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">2-комнатная квартира</div>
 <div class="apt-area">54,2 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">7 248 500 ₽</div>
-<div class="apt-payment">платёж от 29 133 ₽/мес</div>
+<div class="apt-price">7&nbsp;248&nbsp;500&nbsp;₽</div>
+<div class="apt-payment">платёж от&nbsp;29&nbsp;133&nbsp;₽/мес</div>
 </div>
 <div class="apt-tags">
 <span class="apt-tag tag-green">Льготная программа</span>
@@ -199,8 +206,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">2-комнатная квартира</div>
 <div class="apt-area">57,5 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">7 404 700 ₽</div>
-<div class="apt-payment">платёж от 29 760 ₽/мес</div>
+<div class="apt-price">7&nbsp;404&nbsp;700&nbsp;₽</div>
+<div class="apt-payment">платёж от&nbsp;29&nbsp;760&nbsp;₽/мес</div>
 </div>
 <div class="apt-tags">
 <span class="apt-tag tag-green">Льготная программа</span>
@@ -219,8 +226,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">2-комнатная квартира</div>
 <div class="apt-area">62,9 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">8 237 900 ₽</div>
-<div class="apt-payment">платёж от 33 109 ₽/мес</div>
+<div class="apt-price">8&nbsp;237&nbsp;900&nbsp;₽</div>
+<div class="apt-payment">платёж от&nbsp;33&nbsp;109&nbsp;₽/мес</div>
 </div>
 <div class="apt-tags">
 <span class="apt-tag tag-green">Льготная программа</span>
@@ -239,8 +246,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">2-комнатная квартира</div>
 <div class="apt-area">65,8 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">8 146 800 ₽</div>
-<div class="apt-payment">платёж от 32 743 ₽/мес</div>
+<div class="apt-price">8&nbsp;146&nbsp;800&nbsp;₽</div>
+<div class="apt-payment">платёж от&nbsp;32&nbsp;743&nbsp;₽/мес</div>
 </div>
 <div class="apt-tags">
 <span class="apt-tag tag-green">Льготная программа</span>
@@ -259,8 +266,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">3-комнатная квартира</div>
 <div class="apt-area">71,6 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">9 451 200 ₽</div>
-<div class="apt-payment">платёж от 37 986 ₽/мес</div>
+<div class="apt-price">9&nbsp;451&nbsp;200&nbsp;₽</div>
+<div class="apt-payment">платёж от&nbsp;37&nbsp;986&nbsp;₽/мес</div>
 </div>
 <div class="apt-tags">
 <span class="apt-tag tag-green">Льготная программа</span>
@@ -272,9 +279,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 </div>
 </div>
 </div>
+</section>
+<section class="apt-end">
+<div class="apt-help" id="free-consultation"><h2>Не нашли подходящую квартиру?</h2><p>На странице представлена только часть актуальных предложений. Помогу подобрать квартиру в любом районе Ижевска и Удмуртской Республики — на любой вкус и бюджет.</p><div class="apt-checks"><div class="apt-check">✓ Подберу варианты у разных застройщиков</div><div class="apt-check">✓ Сравню цены, планировки и акции</div><div class="apt-check">✓ Рассчитаю несколько вариантов ипотеки</div><div class="apt-check">✓ Подберу выгодные условия покупки</div></div><p><strong>Консультация бесплатная.</strong> Сотрудничаю со всеми ведущими банками и застройщиками Ижевска и Удмуртской Республики.</p><a class="apt-consult-btn" href="/#contact">Получить бесплатную консультацию</a></div>
+<div class="apt-about"><img class="apt-about-photo" src="images/olesya-about.png" alt="Олеся Юминова — риелтор и ипотечный брокер"/><div><div class="apt-about-role">Риелтор • Ипотечный брокер • Юрист</div><h2>Олеся Юминова</h2><p>Более 11 лет помогаю подобрать и продать квартиру, разобраться в ипотечных программах и пройти сделку спокойно — от первой консультации до регистрации права собственности.</p><div class="apt-about-list"><div>✓ Работаю со всеми ведущими банками и застройщиками региона</div><div>✓ Подбираю решение под конкретную ситуацию и бюджет</div><div>✓ Сопровождаю сделку до получения ключей</div></div><a class="apt-consult-btn" href="/#contact">Связаться со мной</a></div></div>
+<div class="apt-resources"><h2>Полезные материалы проекта «Ипотека-Просто»</h2><p>Изучите программы и инструкции, которые помогут подготовиться к покупке квартиры.</p><div class="resource-title">Ипотечные программы</div><div class="resource-grid"><a class="resource-card" href="semejnaya-ipoteka.html"><strong>Семейная ипотека</strong><span>Условия программы, требования и расчёты.</span></a><a class="resource-card" href="lgotnaya-ipoteka.html"><strong>Льготная ипотека</strong><span>Доступные программы и варианты покупки.</span></a><a class="resource-card" href="it-ipoteka.html"><strong>Ипотека для IT</strong><span>Требования к специалистам и работодателям.</span></a><a class="resource-card" href="ipoteka.html"><strong>Ипотека для всех</strong><span>Варианты, если льготные программы не подходят.</span></a></div><div class="resource-title">Полезные статьи</div><div class="resource-grid"><a class="resource-card" href="ipoteka-bez-pervonachalnogo-vznosa.html"><strong>Ипотека без первоначального взноса</strong><span>Какие варианты покупки действительно существуют.</span></a><a class="resource-card" href="ipoteka-dlya-ip-i-samozanyatyh.html"><strong>Ипотека для ИП и самозанятых</strong><span>Какие документы нужны и как подтвердить доход.</span></a><a class="resource-card" href="kak-proverit-kreditnuyu-istoriyu-besplatno.html"><strong>Как проверить кредитную историю</strong><span>Пошаговая бесплатная инструкция.</span></a><a class="resource-card" href="plohaya-kreditnaya-istoriya.html"><strong>Плохая кредитная история</strong><span>Что мешает одобрению и что можно исправить.</span></a><a class="resource-card" href="refinansirovanie-ipoteki.html"><strong>Рефинансирование ипотеки</strong><span>Как заранее рассчитать реальную выгоду.</span></a><a class="resource-card" href="materinskiy-kapital-pervonachalnyy-vznos.html"><strong>Материнский капитал как первый взнос</strong><span>Условия использования при покупке жилья.</span></a></div><div class="apt-up-links"><a href="#aptGrid">↑ Вернуться к квартирам</a><a href="#calculator">↑ К ипотечному калькулятору</a></div></div>
 </section></main><div class="apt-footer">Информация и расчёты на странице носят справочный характер и не являются публичной офертой. Наличие квартир, цена, скидка, ставка и условия программы уточняются перед бронированием.</div><div class="plan-modal" id="planModal" onclick="if(event.target===this)closePlanModal()"><button class="plan-close" onclick="closePlanModal()">×</button><img alt="Увеличенная планировка" id="planModalImage"/></div><script>
 function filterApt(btn,type){document.querySelectorAll('.apt-filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.apt-card').forEach(c=>c.style.display=(type==='all'||c.dataset.type===type)?'block':'none');}
-function openPlanModal(img){document.getElementById('planModalImg').src=img.src;document.getElementById('planModal').classList.add('open');document.body.style.overflow='hidden';}
+function openPlanModal(img){document.getElementById('planModalImage').src=img.src;document.getElementById('planModal').classList.add('open');document.body.style.overflow='hidden';}
 function closePlanModal(){document.getElementById('planModal').classList.remove('open');document.body.style.overflow='';}
 function updateRange(input){const min=Number(input.min||0),max=Number(input.max||100),value=Number(input.value||0);const pct=max===min?0:((value-min)/(max-min))*100;input.style.setProperty('--pct',pct+'%');}
 function fmt(n){return Math.round(n).toLocaleString('ru-RU')+' ₽';}
