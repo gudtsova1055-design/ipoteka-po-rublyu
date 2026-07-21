@@ -314,16 +314,53 @@ function sendCalcResult(messenger) {
     <article class="journey-card"><span class="journey-number">4</span><div><h3>Получите консультацию</h3><p>Расскажите о своей ситуации — я помогу определить следующий шаг.</p><button class="journey-link" type="button" onclick="openContactModal('Консультация по недвижимости и ипотеке')">Оставить заявку</button></div></article>
   </div>
 </section>
-<section class="section calculator-section" id="calculator">
+<section class="section old-calculator-section" id="calculator">
 <div class="section-head left"><p class="eyebrow">Ипотечный калькулятор</p><h2>Рассчитайте примерные параметры ипотеки</h2></div>
-<div class="calculator-card">
-<div class="calc-fields">
-<label>Стоимость недвижимости<input id="price" min="500000" step="100000" type="number" value="5000000"/></label>
-<label>Первоначальный взнос, %<input id="down" max="80" min="0" type="number" value="20"/></label>
-<label>Срок, лет<input id="term" max="30" min="5" type="number" value="30"/></label>
-<label>Процентная ставка, %<input id="rate" max="40" min="0.1" step="0.1" type="number" value="18.2"/></label>
-</div>
-<div class="calc-output"><span>Примерный ежемесячный платёж</span><strong id="monthlyPayment">—</strong><button class="btn btn-red" id="calcButton" type="button">Рассчитать</button></div>
+<div class="calc-wrap">
+  <div class="calc-form">
+    <div class="f-group">
+      <label>Стоимость квартиры, ₽</label>
+      <input id="price" max="50000000" min="500000" oninput="calcMortgage()" step="100000" type="number" value="5000000"/>
+    </div>
+    <div class="f-group">
+      <label>Первоначальный взнос — <span id="downVal" style="color:var(--gold)">20%</span></label>
+      <div class="range-wrap"><input id="down" max="80" min="0" oninput="calcMortgage();updateRange(this)" type="range" value="20"/></div>
+      <p id="downPaymentHint" class="down-payment-hint">ℹ️ Первоначальный взнос 0% возможен только по отдельным программам и доступен не для всех объектов недвижимости.</p>
+    </div>
+    <div class="f-group">
+      <label>Срок ипотеки — <span id="termVal" style="color:var(--gold)">30 лет</span></label>
+      <div class="range-wrap"><input id="term" max="30" min="5" oninput="calcMortgage();updateRange(this)" type="range" value="30"/></div>
+    </div>
+    <div class="f-group">
+      <label>Программа</label>
+      <select id="program" onchange="calcMortgage()">
+        <option value="2.2">Семейная ипотека — 2,2% (для отдельных объектов)</option>
+        <option value="3.5">Семейная ипотека — 3,5%</option>
+        <option value="4.5">Вторичное жильё — 4,5% (для отдельных объектов)</option>
+        <option value="4.6">Семейная / IT — 4,6%</option>
+        <option value="6">Семейная / IT — 6%</option>
+        <option value="11.9">Ипотека — 11,9%</option>
+        <option value="13.9">Ипотека — 13,9%</option>
+        <option value="17.89">Ипотека — 17,89%</option>
+        <option value="18.2">Ипотека — 18,2%</option>
+      </select>
+    </div>
+  </div>
+  <div class="calc-result">
+    <div class="result-hero">
+      <div class="result-lbl">Ежемесячный платёж</div>
+      <div class="result-num" id="monthlyPayment">—</div>
+      <div class="result-sub" id="rateInfo">—</div>
+    </div>
+    <div class="result-rows">
+      <div class="result-row"><span class="result-row-lbl">Стоимость квартиры</span><span class="result-row-val" id="priceVal">—</span></div>
+      <div class="result-row"><span class="result-row-lbl">Первоначальный взнос</span><span class="result-row-val" id="downValFull">—</span></div>
+      <div class="result-row"><span class="result-row-lbl">Сумма кредита</span><span class="result-row-val" id="loanAmount">—</span></div>
+      <div class="result-row"><span class="result-row-lbl">Всего выплат</span><span class="result-row-val" id="totalPayment">—</span></div>
+      <div class="result-row"><span class="result-row-lbl">Переплата</span><span class="result-row-val accent" id="overpayment">—</span></div>
+      <div class="result-row"><span class="result-row-lbl">Необходимый доход</span><span class="result-row-val" id="incomeNeeded">—</span></div>
+    </div>
+  </div>
 </div>
 <p class="legal-note">Расчёт является предварительным и не является предложением банка. Итоговые условия кредитования определяются банком после рассмотрения заявки.</p>
 </section>
@@ -337,8 +374,9 @@ function sendCalcResult(messenger) {
 <section class="section reviews" id="reviews"><div class="section-head"><h2>Отзывы клиентов</h2></div><div class="review-grid">
 <article><div class="stars">★★★★★</div><h3>Екатерина</h3><small>Сопровождение сделки</small><p>Хочу выразить искреннюю благодарность за профессионализм и помощь в проведении сделки. Особенно хочу отметить оперативное реагирование на запросы, внимательное отношение к деталям, терпение и готовность ответить на все вопросы.</p></article>
 <article><div class="stars">★★★★★</div><h3>Альбина</h3><small>Покупка квартиры</small><p>Олеся, огромное спасибо за помощь в покупке квартиры и оформлении всех документов. Максимально приятное общение, профессионализм высшего уровня.</p></article>
+<article><div class="stars">★★★★★</div><h3>Андрей</h3><small>Ипотечное сопровождение</small><p>Обратился за консультацией по ипотеке. Олеся спокойно объяснила условия, помогла сравнить варианты и разобраться, какие документы подготовить. Всё было понятно, без давления и лишних обещаний.</p></article>
 </div></section>
-<section class="section contact" id="contact"><div class="contact-card"><div><p class="eyebrow">Связаться со мной</p><h2>Обсудим вашу ситуацию</h2><p>Расскажите, какой вопрос нужно решить. Я уточню детали и предложу следующий шаг без обещаний невозможного.</p><div class="contact-actions"><button class="btn btn-red" type="button" onclick="openContactModal('Обсудить мою ситуацию')">Оставить заявку</button><a class="btn btn-outline" href="tel:+79128353555">+7 (912) 835-35-55</a><a class="btn btn-outline" href="https://t.me/ipotekaprostoru" rel="noopener" target="_blank">Telegram</a></div></div><div class="office"><h3>Офис для встреч</h3><p><strong>Союз Риэлторов «Полезные Люди»</strong><br/>г. Ижевск, ул. Удмуртская, 304е, ТЦ «Орион»</p><p>По предварительной записи.</p></div></div></section>
+<section class="section contact" id="contact"><div class="contact-card"><div><p class="eyebrow">Связаться со мной</p><h2>Обсудим вашу ситуацию</h2><p>Расскажите, какой вопрос нужно решить. Я уточню детали и предложу следующий шаг без обещаний невозможного.</p><div class="contact-actions"><button class="btn btn-red" type="button" onclick="openContactModal('Обсудить мою ситуацию')">Оставить заявку</button><a class="btn btn-outline" href="tel:+79120251055">+7 (912) 025-10-55</a><a class="btn btn-outline" href="https://t.me/ipotekaprostoru" rel="noopener" target="_blank">Telegram</a><a class="btn btn-outline" href="https://vk.ru/olesya_realestate" rel="noopener" target="_blank">ВКонтакте</a></div></div><div class="office"><h3>Офис для встреч</h3><p><strong>Союз Риэлторов «Полезные Люди»</strong><br/>г. Ижевск, ул. Удмуртская, 304е, ТЦ «Орион»</p><p>По предварительной записи.</p></div></div></section>
 </main>
 
 <div class="site-modal" id="eligibilityQuiz" aria-hidden="true">
@@ -392,8 +430,36 @@ function sendCalcResult(messenger) {
 const toggle=document.getElementById('menuToggle'), mobile=document.getElementById('mobileNav');
 toggle.addEventListener('click',()=>{const open=mobile.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
 mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobile.classList.remove('open')));
-function calc(){const p=+document.getElementById('price').value||0,d=+document.getElementById('down').value||0,y=+document.getElementById('term').value||0,r=+document.getElementById('rate').value||0;const loan=p*(1-d/100),n=y*12,m=r/1200;let pay=m?loan*m*Math.pow(1+m,n)/(Math.pow(1+m,n)-1):loan/n;document.getElementById('monthlyPayment').textContent=isFinite(pay)?Math.round(pay).toLocaleString('ru-RU')+' ₽/мес':'—';}
-document.getElementById('calcButton').addEventListener('click',calc);['price','down','term','rate'].forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();
+function updateRange(input){
+  const min=Number(input.min||0), max=Number(input.max||100), value=Number(input.value||0);
+  const pct=max===min?0:((value-min)/(max-min))*100;
+  input.style.setProperty('--pct',pct+'%');
+}
+function fmt(n){return Math.round(n).toLocaleString('ru-RU')+' ₽';}
+function fmtM(n){return Math.round(n).toLocaleString('ru-RU')+' ₽/мес';}
+function calcMortgage(){
+  const price=+document.getElementById('price').value||0;
+  const downPct=+document.getElementById('down').value||0;
+  const term=+document.getElementById('term').value||0;
+  const rate=parseFloat(document.getElementById('program').value)||0;
+  const hint=document.getElementById('downPaymentHint');
+  if(hint) hint.style.display=downPct===0?'block':'none';
+  const down=price*downPct/100, loan=price-down, months=term*12, r=rate/100/12;
+  const monthly=months>0?(r===0?loan/months:loan*r*Math.pow(1+r,months)/(Math.pow(1+r,months)-1)):0;
+  const total=monthly*months, over=total-loan;
+  document.getElementById('downVal').textContent=downPct+'%';
+  document.getElementById('termVal').textContent=term+(term===1?' год':term<5?' года':' лет');
+  document.getElementById('monthlyPayment').textContent=fmtM(monthly);
+  document.getElementById('rateInfo').textContent='ставка '+rate.toFixed(1).replace('.',',')+'% · '+term+' '+(term===1?'год':term<5?'года':'лет');
+  document.getElementById('priceVal').textContent=fmt(price);
+  document.getElementById('downValFull').textContent=downPct+'% — '+fmt(down);
+  document.getElementById('loanAmount').textContent=fmt(loan);
+  document.getElementById('totalPayment').textContent=fmt(total);
+  document.getElementById('overpayment').textContent=fmt(over);
+  document.getElementById('incomeNeeded').textContent=fmt(monthly*2.5);
+}
+document.querySelectorAll('#calculator input[type="range"]').forEach(updateRange);
+calcMortgage();
 
 const quizAnswers={};
 function showSiteModal(id){const m=document.getElementById(id);m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');}
