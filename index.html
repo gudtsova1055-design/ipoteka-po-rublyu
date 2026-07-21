@@ -268,7 +268,7 @@ function sendCalcResult(messenger) {
 <nav aria-label="Основная навигация" class="desktop-nav">
 <a href="#calculator">Калькулятор</a><a href="/lgotnaya-ipoteka.html">Льготная ипотека</a><a href="/ipoteka.html">Вторичное жильё</a><a href="/articles.html">Полезные материалы</a><a href="#about">Обо мне</a><a href="#contact">Контакты</a>
 </nav>
-<button class="btn btn-red header-cta" type="button" onclick="openContactModal('Консультация с главной страницы')">Получить консультацию</button>
+<button class="btn btn-red header-cta" onclick="openContactModal('Консультация с главной страницы')" type="button">Получить консультацию</button>
 <button aria-expanded="false" aria-label="Открыть меню" class="menu-toggle" id="menuToggle">☰</button>
 </header>
 <div class="mobile-nav" id="mobileNav">
@@ -281,7 +281,7 @@ function sendCalcResult(messenger) {
 <div class="hero-topics"><span>⌂ Покупка</span><span>🤝 Продажа</span><span>▦ Ипотека</span><span>▤ Юридические вопросы</span></div>
 <p class="hero-accent">Своевременная консультация часто помогает избежать лишних расходов и принять более взвешенное решение.</p>
 <p class="hero-text">Я объясню сложные вопросы простым языком и помогу подобрать решение, которое будет наиболее выгодным именно в вашей ситуации.</p>
-<div class="hero-actions"><button class="btn btn-red" type="button" onclick="openContactModal('Консультация с первого экрана')">Получить консультацию</button><a class="btn btn-outline" href="#calculator">Рассчитать ипотеку</a></div>
+<div class="hero-actions"><button class="btn btn-red" onclick="openContactModal('Консультация с первого экрана')" type="button">Получить консультацию</button><a class="btn btn-outline" href="#calculator">Рассчитать ипотеку</a></div>
 <div class="hero-meta"><span>⌖ Ижевск</span><span>◎ Онлайн-консультации по России</span></div>
 </div>
 <div class="hero-photo"><img alt="Олеся Юминова, специалист по недвижимости" height="900" src="images/olesya-hero.jpg" width="720"/></div>
@@ -300,74 +300,63 @@ function sendCalcResult(messenger) {
 </ul></article>
 </div>
 </section>
-
 <section class="section journey" id="start">
-  <div class="section-head">
-    <p class="eyebrow">Понятный путь к решению</p>
-    <h2>Не знаете, с чего начать?</h2>
-    <p>Пройдите путь по шагам — от предварительной проверки программы до консультации.</p>
-  </div>
-  <div class="journey-grid">
-    <article class="journey-card"><span class="journey-number">1</span><div><h3>Пройдите тест</h3><p>За несколько вопросов проверим, какие льготные программы стоит рассмотреть.</p><button class="journey-link" type="button" onclick="openEligibilityQuiz()">Пройти тест</button></div></article>
-    <article class="journey-card"><span class="journey-number">2</span><div><h3>Рассчитайте платёж</h3><p>Увидите примерный ежемесячный платёж и сможете оценить нагрузку на бюджет.</p><a class="journey-link" href="#calculator">Открыть калькулятор</a></div></article>
-    <article class="journey-card"><span class="journey-number">3</span><div><h3>Посмотрите квартиры</h3><p>Откройте отдельную подборку реальных планировок, доступных по специальной программе.</p><a class="journey-link" href="/podbor-kvartiry.html">Перейти к подборке</a></div></article>
-    <article class="journey-card"><span class="journey-number">4</span><div><h3>Получите консультацию</h3><p>Расскажите о своей ситуации — я помогу определить следующий шаг.</p><button class="journey-link" type="button" onclick="openContactModal('Консультация по недвижимости и ипотеке')">Оставить заявку</button></div></article>
-  </div>
+<div class="section-head">
+<p class="eyebrow">Понятный путь к решению</p>
+<h2>Не знаете, с чего начать?</h2>
+<p>Пройдите путь по шагам — от предварительной проверки программы до консультации.</p>
+</div>
+<div class="journey-grid">
+<article class="journey-card"><span class="journey-number">1</span><div><h3>Пройдите тест</h3><p>За несколько вопросов проверим, какие льготные программы стоит рассмотреть.</p><button class="journey-link" onclick="openEligibilityQuiz()" type="button">Пройти тест</button></div></article>
+<article class="journey-card"><span class="journey-number">2</span><div><h3>Рассчитайте платёж</h3><p>Увидите примерный ежемесячный платёж и сможете оценить нагрузку на бюджет.</p><a class="journey-link" href="#calculator">Открыть калькулятор</a></div></article>
+<article class="journey-card"><span class="journey-number">3</span><div><h3>Посмотрите квартиры</h3><p>Откройте отдельную подборку реальных планировок, доступных по специальной программе.</p><a class="journey-link" href="/podbor-kvartiry.html">Перейти к подборке</a></div></article>
+<article class="journey-card"><span class="journey-number">4</span><div><h3>Получите консультацию</h3><p>Расскажите о своей ситуации — я помогу определить следующий шаг.</p><button class="journey-link" onclick="openContactModal('Консультация по недвижимости и ипотеке')" type="button">Оставить заявку</button></div></article>
+</div>
 </section>
 <section class="section old-calculator-section" id="calculator">
 <div class="section-head left"><p class="eyebrow">Ипотечный калькулятор</p><h2>Рассчитайте примерные параметры ипотеки</h2></div>
 <div class="calc-wrap">
-  <div class="calc-form">
-    <div class="f-group">
-      <label>Стоимость квартиры, ₽</label>
-      <input id="price" max="50000000" min="500000" oninput="calcMortgage()" step="100000" type="number" value="5000000"/>
-    </div>
-    <div class="f-group">
-      <label>Первоначальный взнос — <span id="downVal" style="color:var(--gold)">20%</span></label>
-      <div class="range-wrap"><input id="down" max="80" min="0" oninput="calcMortgage();updateRange(this)" type="range" value="20"/></div>
-      <p id="downPaymentHint" class="down-payment-hint">ℹ️ Первоначальный взнос 0% возможен только по отдельным программам и доступен не для всех объектов недвижимости.</p>
-    </div>
-    <div class="f-group">
-      <label>Срок ипотеки — <span id="termVal" style="color:var(--gold)">30 лет</span></label>
-      <div class="range-wrap"><input id="term" max="30" min="5" oninput="calcMortgage();updateRange(this)" type="range" value="30"/></div>
-    </div>
-    <div class="f-group">
-      <label>Программа</label>
-      <select id="program" onchange="calcMortgage()">
-        <option value="2.2">Семейная ипотека — 2,2% (для отдельных объектов)</option>
-        <option value="3.5">Семейная ипотека — 3,5%</option>
-        <option value="4.5">Вторичное жильё — 4,5% (для отдельных объектов)</option>
-        <option value="4.6">Семейная / IT — 4,6%</option>
-        <option value="6">Семейная / IT — 6%</option>
-        <option value="11.9">Ипотека — 11,9%</option>
-        <option value="13.9">Ипотека — 13,9%</option>
-        <option value="17.89">Ипотека — 17,89%</option>
-        <option value="18.2">Ипотека — 18,2%</option>
-      </select>
-    </div>
-  </div>
-  <div class="calc-result">
-    <div class="result-hero">
-      <div class="result-lbl">Ежемесячный платёж</div>
-      <div class="result-num" id="monthlyPayment">—</div>
-      <div class="result-sub" id="rateInfo">—</div>
-    </div>
-    <div class="result-rows">
-      <div class="result-row"><span class="result-row-lbl">Стоимость квартиры</span><span class="result-row-val" id="priceVal">—</span></div>
-      <div class="result-row"><span class="result-row-lbl">Первоначальный взнос</span><span class="result-row-val" id="downValFull">—</span></div>
-      <div class="result-row"><span class="result-row-lbl">Сумма кредита</span><span class="result-row-val" id="loanAmount">—</span></div>
-      <div class="result-row"><span class="result-row-lbl">Всего выплат</span><span class="result-row-val" id="totalPayment">—</span></div>
-      <div class="result-row"><span class="result-row-lbl">Переплата</span><span class="result-row-val accent" id="overpayment">—</span></div>
-      <div class="result-row"><span class="result-row-lbl">Необходимый доход</span><span class="result-row-val" id="incomeNeeded">—</span></div>
-    </div>
-  </div>
+<div class="calc-form">
+<div class="f-group">
+<label>Стоимость квартиры, ₽</label>
+<input id="price" max="50000000" min="500000" oninput="calcMortgage()" step="100000" type="number" value="5000000"/>
+</div>
+<div class="f-group">
+<label>Первоначальный взнос — <span id="downVal" style="color:var(--gold)">20%</span></label>
+<div class="range-wrap"><input id="down" max="80" min="0" oninput="calcMortgage();updateRange(this)" type="range" value="20"/></div>
+<p class="down-payment-hint" id="downPaymentHint">ℹ️ Первоначальный взнос 0% возможен только по отдельным программам и доступен не для всех объектов недвижимости.</p>
+</div>
+<div class="f-group">
+<label>Срок ипотеки — <span id="termVal" style="color:var(--gold)">30 лет</span></label>
+<div class="range-wrap"><input id="term" max="30" min="5" oninput="calcMortgage();updateRange(this)" type="range" value="30"/></div>
+</div>
+<div class="f-group">
+<label>Программа</label>
+<select id="program" onchange="calcMortgage()"><option data-discount="2" selected="selected" value="4.6">Льготная программа — 4,6% (скидка 2%)</option><option data-discount="5" value="6">Семейная ипотека — 6% (скидка 5%)</option><option data-discount="0" value="11.9">Ипотека — 11,9%</option><option data-discount="0" value="13.9">Ипотека — 13,9%</option><option data-discount="0" value="17.89">Ипотека — 17,89%</option><option data-discount="0" value="18.2">Ипотека — 18,2%</option></select>
+</div>
+</div>
+<div class="calc-result">
+<div class="result-hero">
+<div class="result-lbl">Ежемесячный платёж</div>
+<div class="result-num" id="monthlyPayment">—</div>
+<div class="result-sub" id="rateInfo">—</div>
+</div>
+<div class="result-rows">
+<div class="result-row"><span class="result-row-lbl">Стоимость квартиры</span><span class="result-row-val" id="priceVal">—</span></div><div class="result-row"><span class="result-row-lbl">Скидка по программе</span><span class="result-row-val accent" id="discountVal">—</span></div><div class="result-row"><span class="result-row-lbl">Цена с учётом скидки</span><span class="result-row-val" id="effectivePriceVal">—</span></div>
+<div class="result-row"><span class="result-row-lbl">Первоначальный взнос</span><span class="result-row-val" id="downValFull">—</span></div>
+<div class="result-row"><span class="result-row-lbl">Сумма кредита</span><span class="result-row-val" id="loanAmount">—</span></div>
+<div class="result-row"><span class="result-row-lbl">Всего выплат</span><span class="result-row-val" id="totalPayment">—</span></div>
+<div class="result-row"><span class="result-row-lbl">Переплата</span><span class="result-row-val accent" id="overpayment">—</span></div>
+<div class="result-row"><span class="result-row-lbl">Необходимый доход</span><span class="result-row-val" id="incomeNeeded">—</span></div>
+</div>
+</div>
 </div>
 <p class="legal-note">Расчёт является предварительным и не является предложением банка. Итоговые условия кредитования определяются банком после рассмотрения заявки.</p>
 </section>
 <section aria-labelledby="topics-title" class="topic-strip"><div class="section compact"><h2 id="topics-title">Что вас интересует?</h2><div class="topic-tags">
 <a href="/ipoteka.html">Ипотека для всех</a><a href="/lgotnaya-ipoteka.html">Льготная ипотека</a><a href="/semejnaya-ipoteka.html">Семейная ипотека</a><a href="/it-ipoteka.html">IT-ипотека</a><a href="/ipoteka-dlya-ip-i-samozanyatyh.html">ИП и самозанятые</a><a href="/ipoteka-bez-pervonachalnogo-vznosa.html">Без первоначального взноса</a><a href="/refinansirovanie-ipoteki.html">Рефинансирование</a><a href="/articles.html#rassrochka">Рассрочка</a><a href="/podbor-kvartiry.html">Подбор квартир</a><a href="#calculator">Рассчитать ипотеку</a><a href="javascript:void(0)" onclick="openEligibilityQuiz()">Проверить льготную программу</a>
 </div></div></section>
-<section class="section about" id="about"><div class="about-card"><div class="about-photo"><img alt="Олеся Юминова за работой" src="images/olesya-about.png"/></div><div class="about-copy"><h2>Здравствуйте! Меня зовут Олеся Юминова.</h2><div class="about-points"><p><strong>Более 11 лет</strong><br/>помогаю решать вопросы покупки, продажи недвижимости и ипотеки.</p><p><strong>По образованию я юрист,</strong><br/>поэтому уделяю особое внимание проверке документов и безопасности сделок.</p><p><strong>Не навязываю решения.</strong><br/>Если покупку лучше отложить — честно скажу об этом.</p><p><strong>Работаю с покупателями и продавцами</strong><br/>и сопровождаю сделку до её завершения.</p></div><p>Проект <strong>«Ипотека-Просто»</strong> я создала, чтобы собрать в одном месте понятные инструкции, честную аналитику рынка недвижимости и ответы на вопросы, которые чаще всего задают мои клиенты.</p><button class="btn btn-red" type="button" onclick="openContactModal('Консультация после блока обо мне')">Получить консультацию</button></div></div></section>
+<section class="section about" id="about"><div class="about-card"><div class="about-photo"><img alt="Олеся Юминова за работой" src="images/olesya-about.png"/></div><div class="about-copy"><h2>Здравствуйте! Меня зовут Олеся Юминова.</h2><div class="about-points"><p><strong>Более 11 лет</strong><br/>помогаю решать вопросы покупки, продажи недвижимости и ипотеки.</p><p><strong>По образованию я юрист,</strong><br/>поэтому уделяю особое внимание проверке документов и безопасности сделок.</p><p><strong>Не навязываю решения.</strong><br/>Если покупку лучше отложить — честно скажу об этом.</p><p><strong>Работаю с покупателями и продавцами</strong><br/>и сопровождаю сделку до её завершения.</p></div><p>Проект <strong>«Ипотека-Просто»</strong> я создала, чтобы собрать в одном месте понятные инструкции, честную аналитику рынка недвижимости и ответы на вопросы, которые чаще всего задают мои клиенты.</p><button class="btn btn-red" onclick="openContactModal('Консультация после блока обо мне')" type="button">Получить консультацию</button></div></div></section>
 <section class="section popular" id="popular"><div class="section-head"><h2>Популярные вопросы</h2><p>Возможно, вы ищете именно это</p></div><div class="question-row">
 <a href="/ipoteka-bez-pervonachalnogo-vznosa.html"><span>▣</span>Можно ли купить квартиру без первоначального взноса?</a><a href="/articles.html#rassrochka"><span>%</span>Что выгоднее — ипотека или рассрочка?</a><a href="/refinansirovanie-ipoteki.html"><span>↻</span>Стоит ли сейчас рефинансировать ипотеку?</a><a href="/ipoteka-dlya-ip-i-samozanyatyh.html"><span>▤</span>Может ли ИП получить ипотеку?</a><a href="/semejnaya-ipoteka.html"><span>♧</span>Подходит ли мне семейная ипотека?</a><a href="/proverka-kvartiry-pered-pokupkoj.html"><span>⌾</span>Как проверить квартиру перед покупкой?</a>
 </div></section>
@@ -376,55 +365,52 @@ function sendCalcResult(messenger) {
 <article><div class="stars">★★★★★</div><h3>Альбина</h3><small>Покупка квартиры</small><p>Олеся, огромное спасибо за помощь в покупке квартиры и оформлении всех документов. Максимально приятное общение, профессионализм высшего уровня.</p></article>
 <article><div class="stars">★★★★★</div><h3>Андрей</h3><small>Ипотечное сопровождение</small><p>Обратился за консультацией по ипотеке. Олеся спокойно объяснила условия, помогла сравнить варианты и разобраться, какие документы подготовить. Всё было понятно, без давления и лишних обещаний.</p></article>
 </div></section>
-<section class="section contact" id="contact"><div class="contact-card"><div><p class="eyebrow">Связаться со мной</p><h2>Обсудим вашу ситуацию</h2><p>Расскажите, какой вопрос нужно решить. Я уточню детали и предложу следующий шаг без обещаний невозможного.</p><div class="contact-actions"><button class="btn btn-red" type="button" onclick="openContactModal('Обсудить мою ситуацию')">Оставить заявку</button><a class="btn btn-outline" href="tel:+79120251055">+7 (912) 025-10-55</a><a class="btn btn-outline" href="https://t.me/ipotekaprostoru" rel="noopener" target="_blank">Telegram</a><a class="btn btn-outline" href="https://vk.ru/olesya_realestate" rel="noopener" target="_blank">ВКонтакте</a></div></div><div class="office"><h3>Офис для встреч</h3><p><strong>Союз Риэлторов «Полезные Люди»</strong><br/>г. Ижевск, ул. Удмуртская, 304е, ТЦ «Орион»</p><p>По предварительной записи.</p></div></div></section>
+<section class="section contact" id="contact"><div class="contact-card"><div><p class="eyebrow">Связаться со мной</p><h2>Обсудим вашу ситуацию</h2><p>Расскажите, какой вопрос нужно решить. Я уточню детали и предложу следующий шаг без обещаний невозможного.</p><div class="contact-actions"><button class="btn btn-red" onclick="openContactModal('Обсудить мою ситуацию')" type="button">Оставить заявку</button><a class="btn btn-outline" href="tel:+79120251055">+7 (912) 025-10-55</a><a class="btn btn-outline" href="https://t.me/ipotekaprostoru" rel="noopener" target="_blank">Telegram</a><a class="btn btn-outline" href="https://vk.ru/olesya_realestate" rel="noopener" target="_blank">ВКонтакте</a></div></div><div class="office"><h3>Офис для встреч</h3><p><strong>Союз Риэлторов «Полезные Люди»</strong><br/>г. Ижевск, ул. Удмуртская, 304е, ТЦ «Орион»</p><p>По предварительной записи.</p></div></div></section>
 </main>
-
-<div class="site-modal" id="eligibilityQuiz" aria-hidden="true">
-  <div class="site-modal-backdrop" onclick="closeEligibilityQuiz()"></div>
-  <div class="site-modal-dialog quiz-dialog" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
-    <button class="modal-close" type="button" onclick="closeEligibilityQuiz()" aria-label="Закрыть">×</button>
-    <div id="quizIntro" class="quiz-panel active">
-      <p class="eyebrow">Предварительная проверка</p><h2 id="quizTitle">Какие льготные программы вам стоит рассмотреть?</h2>
-      <p>Ответьте на четыре вопроса. Результат будет предварительным: окончательные условия зависят от требований банка и конкретного объекта.</p>
-      <button class="btn btn-red" type="button" onclick="quizNext(1)">Начать тест</button>
-    </div>
-    <div class="quiz-panel" data-step="1"><div class="quiz-progress">Вопрос 1 из 4</div><h3>Есть ли у вас дети?</h3><div class="quiz-options">
-      <button type="button" onclick="quizAnswer(1,'Ребёнок до 7 лет')">Есть ребёнок до 7 лет</button>
-      <button type="button" onclick="quizAnswer(1,'Двое и более несовершеннолетних детей')">Двое и более несовершеннолетних детей</button>
-      <button type="button" onclick="quizAnswer(1,'Ребёнок с инвалидностью')">Есть ребёнок с инвалидностью</button>
-      <button type="button" onclick="quizAnswer(1,'Нет подходящего основания по детям')">Нет / другой возраст детей</button>
-    </div></div>
-    <div class="quiz-panel" data-step="2"><div class="quiz-progress">Вопрос 2 из 4</div><h3>Работаете ли вы в аккредитованной IT-компании?</h3><div class="quiz-options">
-      <button type="button" onclick="quizAnswer(2,'Да, работаю в аккредитованной IT-компании')">Да</button><button type="button" onclick="quizAnswer(2,'Нет')">Нет</button><button type="button" onclick="quizAnswer(2,'Не знаю статус работодателя')">Не знаю</button>
-    </div></div>
-    <div class="quiz-panel" data-step="3"><div class="quiz-progress">Вопрос 3 из 4</div><h3>Какой объект вы рассматриваете?</h3><div class="quiz-options">
-      <button type="button" onclick="quizAnswer(3,'Новостройка')">Квартиру в новостройке</button><button type="button" onclick="quizAnswer(3,'Вторичное жильё')">Вторичное жильё</button><button type="button" onclick="quizAnswer(3,'Частный дом')">Частный дом</button><button type="button" onclick="quizAnswer(3,'Пока не определился')">Пока не определился</button>
-    </div></div>
-    <div class="quiz-panel" data-step="4"><div class="quiz-progress">Вопрос 4 из 4</div><h3>Есть ли первоначальный взнос?</h3><div class="quiz-options">
-      <button type="button" onclick="quizAnswer(4,'Есть 20% и более')">Есть 20% и более</button><button type="button" onclick="quizAnswer(4,'Есть менее 20%')">Есть, но меньше 20%</button><button type="button" onclick="quizAnswer(4,'Только материнский капитал')">Только материнский капитал</button><button type="button" onclick="quizAnswer(4,'Первоначального взноса нет')">Нет первоначального взноса</button>
-    </div></div>
-    <div id="quizResult" class="quiz-panel"><p class="eyebrow">Предварительный результат</p><h2>Что можно рассмотреть</h2><div class="quiz-result-box" id="quizResultText"></div><p class="legal-note">Это не решение банка и не гарантия одобрения. Для точного ответа нужно проверить документы, доход, кредитную историю, условия программы и выбранный объект.</p><div class="modal-actions"><button class="btn btn-red" type="button" onclick="quizToContact()">Получить консультацию</button><button class="btn btn-outline" type="button" onclick="restartQuiz()">Пройти заново</button></div></div>
-  </div>
+<div aria-hidden="true" class="site-modal" id="eligibilityQuiz">
+<div class="site-modal-backdrop" onclick="closeEligibilityQuiz()"></div>
+<div aria-labelledby="quizTitle" aria-modal="true" class="site-modal-dialog quiz-dialog" role="dialog">
+<button aria-label="Закрыть" class="modal-close" onclick="closeEligibilityQuiz()" type="button">×</button>
+<div class="quiz-panel active" id="quizIntro">
+<p class="eyebrow">Предварительная проверка</p><h2 id="quizTitle">Какие льготные программы вам стоит рассмотреть?</h2>
+<p>Ответьте на четыре вопроса. Результат будет предварительным: окончательные условия зависят от требований банка и конкретного объекта.</p>
+<button class="btn btn-red" onclick="quizNext(1)" type="button">Начать тест</button>
 </div>
-
-<div class="site-modal" id="contactModal" aria-hidden="true">
-  <div class="site-modal-backdrop" onclick="closeContactModal()"></div>
-  <div class="site-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
-    <button class="modal-close" type="button" onclick="closeContactModal()" aria-label="Закрыть">×</button>
-    <p class="eyebrow">Заявка на консультацию</p><h2 id="contactModalTitle">Расскажите, как с вами связаться</h2>
-    <form id="consultationForm" class="consultation-form">
-      <label>Ваше имя<input name="name" autocomplete="name" required placeholder="Как к вам обращаться" /></label>
-      <label>Телефон<input name="phone" autocomplete="tel" required type="tel" placeholder="+7 (___) ___-__-__" /></label>
-      <label>Что вас интересует<select name="goal" id="consultationGoal"><option>Общая консультация</option><option>Льготная ипотека</option><option>Подбор квартиры</option><option>Покупка недвижимости</option><option>Продажа недвижимости</option><option>Проверка объекта и сопровождение сделки</option></select></label>
-      <label>Комментарий<textarea name="comment" rows="3" placeholder="Коротко опишите ситуацию"></textarea></label>
-      <label class="privacy-check"><input type="checkbox" required /> <span>Согласен(на) на обработку переданных данных для ответа на обращение.</span></label>
-      <button class="btn btn-red" type="submit">Отправить заявку</button>
-      <p class="form-status" id="consultationStatus" aria-live="polite"></p>
-    </form>
-  </div>
+<div class="quiz-panel" data-step="1"><div class="quiz-progress">Вопрос 1 из 4</div><h3>Есть ли у вас дети?</h3><div class="quiz-options">
+<button onclick="quizAnswer(1,'Ребёнок до 7 лет')" type="button">Есть ребёнок до 7 лет</button>
+<button onclick="quizAnswer(1,'Двое и более несовершеннолетних детей')" type="button">Двое и более несовершеннолетних детей</button>
+<button onclick="quizAnswer(1,'Ребёнок с инвалидностью')" type="button">Есть ребёнок с инвалидностью</button>
+<button onclick="quizAnswer(1,'Нет подходящего основания по детям')" type="button">Нет / другой возраст детей</button>
+</div></div>
+<div class="quiz-panel" data-step="2"><div class="quiz-progress">Вопрос 2 из 4</div><h3>Работаете ли вы в аккредитованной IT-компании?</h3><div class="quiz-options">
+<button onclick="quizAnswer(2,'Да, работаю в аккредитованной IT-компании')" type="button">Да</button><button onclick="quizAnswer(2,'Нет')" type="button">Нет</button><button onclick="quizAnswer(2,'Не знаю статус работодателя')" type="button">Не знаю</button>
+</div></div>
+<div class="quiz-panel" data-step="3"><div class="quiz-progress">Вопрос 3 из 4</div><h3>Какой объект вы рассматриваете?</h3><div class="quiz-options">
+<button onclick="quizAnswer(3,'Новостройка')" type="button">Квартиру в новостройке</button><button onclick="quizAnswer(3,'Вторичное жильё')" type="button">Вторичное жильё</button><button onclick="quizAnswer(3,'Частный дом')" type="button">Частный дом</button><button onclick="quizAnswer(3,'Пока не определился')" type="button">Пока не определился</button>
+</div></div>
+<div class="quiz-panel" data-step="4"><div class="quiz-progress">Вопрос 4 из 4</div><h3>Есть ли первоначальный взнос?</h3><div class="quiz-options">
+<button onclick="quizAnswer(4,'Есть 20% и более')" type="button">Есть 20% и более</button><button onclick="quizAnswer(4,'Есть менее 20%')" type="button">Есть, но меньше 20%</button><button onclick="quizAnswer(4,'Только материнский капитал')" type="button">Только материнский капитал</button><button onclick="quizAnswer(4,'Первоначального взноса нет')" type="button">Нет первоначального взноса</button>
+</div></div>
+<div class="quiz-panel" id="quizResult"><p class="eyebrow">Предварительный результат</p><h2>Что можно рассмотреть</h2><div class="quiz-result-box" id="quizResultText"></div><p class="legal-note">Это не решение банка и не гарантия одобрения. Для точного ответа нужно проверить документы, доход, кредитную историю, условия программы и выбранный объект.</p><div class="modal-actions"><button class="btn btn-red" onclick="quizToContact()" type="button">Получить консультацию</button><button class="btn btn-outline" onclick="restartQuiz()" type="button">Пройти заново</button></div></div>
 </div>
-<button class="sticky-help" type="button" onclick="openContactModal('Быстрая консультация')"><strong>ЖМИ</strong><span>получи консультацию</span></button>
-
+</div>
+<div aria-hidden="true" class="site-modal" id="contactModal">
+<div class="site-modal-backdrop" onclick="closeContactModal()"></div>
+<div aria-labelledby="contactModalTitle" aria-modal="true" class="site-modal-dialog" role="dialog">
+<button aria-label="Закрыть" class="modal-close" onclick="closeContactModal()" type="button">×</button>
+<p class="eyebrow">Заявка на консультацию</p><h2 id="contactModalTitle">Расскажите, как с вами связаться</h2>
+<form class="consultation-form" id="consultationForm">
+<label>Ваше имя<input autocomplete="name" name="name" placeholder="Как к вам обращаться" required=""/></label>
+<label>Телефон<input autocomplete="tel" name="phone" placeholder="+7 (___) ___-__-__" required="" type="tel"/></label>
+<label>Что вас интересует<select id="consultationGoal" name="goal"><option>Общая консультация</option><option>Льготная ипотека</option><option>Подбор квартиры</option><option>Покупка недвижимости</option><option>Продажа недвижимости</option><option>Проверка объекта и сопровождение сделки</option></select></label>
+<label>Комментарий<textarea name="comment" placeholder="Коротко опишите ситуацию" rows="3"></textarea></label>
+<label class="privacy-check"><input required="" type="checkbox"/> <span>Согласен(на) на обработку переданных данных для ответа на обращение.</span></label>
+<button class="btn btn-red" type="submit">Отправить заявку</button>
+<p aria-live="polite" class="form-status" id="consultationStatus"></p>
+</form>
+</div>
+</div>
+<button class="sticky-help" onclick="openContactModal('Быстрая консультация')" type="button"><strong>ЖМИ</strong><span>получи консультацию</span></button>
 <footer><div>© 2026 Олеся Юминова · Союз Риэлторов «Полезные Люди» · г. Ижевск</div><p>Информация на сайте носит исключительно информационный характер, не является публичной офертой, индивидуальной финансовой рекомендацией, гарантией получения кредита, приобретения недвижимости или достижения определённого финансового результата. Решения по ипотечным заявкам принимаются банками самостоятельно с учётом требований действующих программ и индивидуальных обстоятельств заёмщика.</p></footer>
 <script>
 const toggle=document.getElementById('menuToggle'), mobile=document.getElementById('mobileNav');
@@ -438,10 +424,13 @@ function updateRange(input){
 function fmt(n){return Math.round(n).toLocaleString('ru-RU')+' ₽';}
 function fmtM(n){return Math.round(n).toLocaleString('ru-RU')+' ₽/мес';}
 function calcMortgage(){
-  const price=+document.getElementById('price').value||0;
+  const basePrice=+document.getElementById('price').value||0;
   const downPct=+document.getElementById('down').value||0;
   const term=+document.getElementById('term').value||0;
-  const rate=parseFloat(document.getElementById('program').value)||0;
+  const program=document.getElementById('program');
+  const rate=parseFloat(program.value)||0;
+  const discount=parseFloat(program.options[program.selectedIndex].dataset.discount||'0');
+  const price=basePrice*(1-discount/100);
   const hint=document.getElementById('downPaymentHint');
   if(hint) hint.style.display=downPct===0?'block':'none';
   const down=price*downPct/100, loan=price-down, months=term*12, r=rate/100/12;
@@ -450,8 +439,10 @@ function calcMortgage(){
   document.getElementById('downVal').textContent=downPct+'%';
   document.getElementById('termVal').textContent=term+(term===1?' год':term<5?' года':' лет');
   document.getElementById('monthlyPayment').textContent=fmtM(monthly);
-  document.getElementById('rateInfo').textContent='ставка '+rate.toFixed(1).replace('.',',')+'% · '+term+' '+(term===1?'год':term<5?'года':'лет');
-  document.getElementById('priceVal').textContent=fmt(price);
+  document.getElementById('rateInfo').textContent='ставка '+rate.toFixed(rate%1?1:0).replace('.',',')+'% · скидка '+discount+'% · '+term+' '+(term===1?'год':term<5?'года':'лет');
+  document.getElementById('priceVal').textContent=fmt(basePrice);
+  document.getElementById('discountVal').textContent=discount?('− '+fmt(basePrice-price)):'без скидки';
+  document.getElementById('effectivePriceVal').textContent=fmt(price);
   document.getElementById('downValFull').textContent=downPct+'% — '+fmt(down);
   document.getElementById('loanAmount').textContent=fmt(loan);
   document.getElementById('totalPayment').textContent=fmt(total);

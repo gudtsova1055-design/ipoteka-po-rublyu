@@ -1,17 +1,68 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Подбор квартир по льготной ипотеке 2,2% | Ипотека-Просто</title><meta name="description" content="Реальные планировки квартир в Ижевске, доступные по специальной ипотечной программе. Цены, площади и примерные платежи."><link rel="icon" href="favicon.png"><link rel="stylesheet" href="css/style.css"><style>
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Подбор квартир с актуальными ценами и расчётом ипотеки | Ипотека-Просто</title><meta content="Реальные планировки квартир в жилых комплексах Ижевска: актуальные цены, условия скидок и расчёт ипотеки в калькуляторе." name="description"/><link href="favicon.png" rel="icon"/><link href="css/style.css" rel="stylesheet"/><style>
 :root{--accent:#c8102e;--gold:#a9782d;--text:#26312c;--muted:#68736e;--border:#dde3e0;--bg:#f6f8f7}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}.apt-header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}.apt-header-inner{max-width:1180px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}.apt-logo{font-weight:900;color:var(--text);text-decoration:none;font-size:1.2rem}.apt-nav{display:flex;gap:12px;align-items:center}.apt-btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;text-decoration:none;font-weight:800;border:1px solid var(--border);color:var(--text);background:#fff}.apt-btn.red{background:var(--accent);color:#fff;border-color:var(--accent)}
 #apartments{padding:64px 20px}#apartments .container{max-width:1180px;margin:auto}.s-label{text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:800;font-size:.78rem}.s-title{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:700;margin:10px 0}.s-divider{width:76px;height:4px;background:var(--accent);border-radius:9px;margin:16px 0 20px}.apt-subtitle{font-size:1.08rem;color:var(--muted)}.apt-notice{background:#fff5dd;border:1px solid #ead5a7;padding:16px 18px;border-radius:14px;margin:22px 0;line-height:1.55}.apt-filters{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.apt-filter{border:1px solid var(--border);background:#fff;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer}.apt-filter.active{background:var(--accent);color:#fff;border-color:var(--accent)}.apt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.apt-card{background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(32,49,41,.06)}.apt-plan{position:relative;background:#fff;min-height:250px;display:flex;align-items:center;justify-content:center;padding:20px}.apt-plan img{display:block;max-width:100%;height:270px;object-fit:contain;cursor:zoom-in}.apt-type-badge{position:absolute;left:14px;top:14px;background:rgba(38,49,44,.9);color:#fff;padding:7px 10px;border-radius:999px;font-size:.78rem;font-weight:800;z-index:2}.apt-info{padding:20px}.apt-name{font-weight:900;font-size:1.15rem;margin-bottom:8px}.apt-meta{color:var(--muted);font-size:.95rem;line-height:1.55}.apt-price{font-size:1.45rem;font-weight:900;color:var(--accent);margin:14px 0 6px}.apt-payment{font-weight:800}.apt-card a,.apt-card button{box-sizing:border-box}.apt-cta{display:inline-flex;margin-top:15px;padding:11px 16px;background:var(--accent);color:#fff;border-radius:10px;text-decoration:none;font-weight:800}.apt-footer{max-width:1180px;margin:0 auto 50px;padding:0 20px;color:var(--muted);font-size:.88rem;line-height:1.6}.plan-modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.78);align-items:center;justify-content:center;padding:20px}.plan-modal.open{display:flex}.plan-modal img{max-width:min(900px,95vw);max-height:90vh;background:#fff;border-radius:16px}.plan-close{position:fixed;right:20px;top:16px;color:#fff;background:none;border:0;font-size:38px;cursor:pointer}@media(max-width:900px){.apt-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.apt-grid{grid-template-columns:1fr}.apt-nav .apt-btn:first-child{display:none}#apartments{padding:40px 14px}}
+
+.planning-copy{max-width:930px;line-height:1.7}.planning-copy p{margin:0 0 12px}.planning-copy ul{margin:12px 0 16px;padding-left:0;list-style:none}.planning-copy li{margin:9px 0}.calc-page-wrap{margin:34px 0 44px}.calc-page-wrap .old-calculator-section{padding:34px 0}.calc-page-wrap .section-head{margin-bottom:22px}.calc-page-wrap .calc-wrap{margin-top:0}.apt-calc-hint{background:#eef7f1;border:1px solid #cfe3d5;border-radius:14px;padding:14px 18px;margin:0 0 24px;font-weight:700;line-height:1.5}
+@media(max-width:700px){.calc-page-wrap .old-calculator-section{padding:24px 0}.planning-copy{font-size:.98rem}}
 </style></head><body><header class="apt-header"><div class="apt-header-inner"><a class="apt-logo" href="/">Ипотека-Просто</a><nav class="apt-nav"><a class="apt-btn" href="/">На главную</a><a class="apt-btn red" href="/#contact">Получить консультацию</a></nav></div></header><main><section id="apartments">
 <div class="container">
 <div class="s-label">Подбор квартир</div>
-<div class="s-title">Реальные планировки квартир</div>
+<div class="s-title">Подбор квартир с актуальными ценами и расчётом ипотеки</div>
 <div class="s-divider"></div>
-<p class="apt-subtitle">Подобрала для Вас самые выгодные варианты от студий до 3+ комнатных квартир.</p>
-<div class="apt-notice">
-<span>В подборке сохранены реальные планировки и условия, которые были доступны по ставке 2,2% годовых. Перед бронированием уточните актуальность конкретной квартиры, ставки и требований программы.</span>
+<p class="apt-subtitle">На этой странице собраны реальные планировки квартир, расположенных в жилых комплексах города Ижевска.</p>
+<div class="apt-notice"><div class="planning-copy">
+<p>Для каждой квартиры указаны площадь, стоимость и пример расчёта ипотечного платежа.</p>
+<p>Цены актуальны на момент последнего обновления страницы и регулярно проверяются. Стоимость квартир и условия покупки могут изменяться, поэтому перед бронированием рекомендую уточнить наличие выбранной квартиры, её стоимость и действующие акции.</p>
+<p><strong>В настоящее время действуют следующие условия:</strong></p>
+<ul>
+<li>✅ При покупке за наличный расчёт предоставляется скидка <strong>5%</strong>.</li>
+<li>✅ При покупке по программе «Семейная ипотека» предоставляется скидка <strong>5%</strong>.</li>
+<li>✅ При покупке по льготной программе со ставкой <strong>4,6%</strong> предоставляется скидка <strong>2%</strong> от базовой стоимости квартиры.</li>
+</ul>
+<p>Используйте калькулятор ниже, чтобы сразу рассчитать первоначальный взнос, ежемесячный платёж и стоимость квартиры с учётом выбранной программы.</p>
+</div></div><div class="calc-page-wrap"><section class="section old-calculator-section" id="calculator">
+<div class="section-head left"><p class="eyebrow">Ипотечный калькулятор</p><h2>Рассчитайте примерные параметры ипотеки</h2></div>
+<div class="calc-wrap">
+<div class="calc-form">
+<div class="f-group">
+<label>Стоимость квартиры, ₽</label>
+<input id="price" max="50000000" min="500000" oninput="calcMortgage()" step="100000" type="number" value="5000000"/>
 </div>
-<div class="apt-filters">
+<div class="f-group">
+<label>Первоначальный взнос — <span id="downVal" style="color:var(--gold)">20%</span></label>
+<div class="range-wrap"><input id="down" max="80" min="0" oninput="calcMortgage();updateRange(this)" type="range" value="20"/></div>
+<p class="down-payment-hint" id="downPaymentHint">ℹ️ Первоначальный взнос 0% возможен только по отдельным программам и доступен не для всех объектов недвижимости.</p>
+</div>
+<div class="f-group">
+<label>Срок ипотеки — <span id="termVal" style="color:var(--gold)">30 лет</span></label>
+<div class="range-wrap"><input id="term" max="30" min="5" oninput="calcMortgage();updateRange(this)" type="range" value="30"/></div>
+</div>
+<div class="f-group">
+<label>Программа</label>
+<select id="program" onchange="calcMortgage()"><option data-discount="2" selected="selected" value="4.6">Льготная программа — 4,6% (скидка 2%)</option><option data-discount="5" value="6">Семейная ипотека — 6% (скидка 5%)</option><option data-discount="0" value="11.9">Ипотека — 11,9%</option><option data-discount="0" value="13.9">Ипотека — 13,9%</option><option data-discount="0" value="17.89">Ипотека — 17,89%</option><option data-discount="0" value="18.2">Ипотека — 18,2%</option></select>
+</div>
+</div>
+<div class="calc-result">
+<div class="result-hero">
+<div class="result-lbl">Ежемесячный платёж</div>
+<div class="result-num" id="monthlyPayment">—</div>
+<div class="result-sub" id="rateInfo">—</div>
+</div>
+<div class="result-rows">
+<div class="result-row"><span class="result-row-lbl">Стоимость квартиры</span><span class="result-row-val" id="priceVal">—</span></div><div class="result-row"><span class="result-row-lbl">Скидка по программе</span><span class="result-row-val accent" id="discountVal">—</span></div><div class="result-row"><span class="result-row-lbl">Цена с учётом скидки</span><span class="result-row-val" id="effectivePriceVal">—</span></div>
+<div class="result-row"><span class="result-row-lbl">Первоначальный взнос</span><span class="result-row-val" id="downValFull">—</span></div>
+<div class="result-row"><span class="result-row-lbl">Сумма кредита</span><span class="result-row-val" id="loanAmount">—</span></div>
+<div class="result-row"><span class="result-row-lbl">Всего выплат</span><span class="result-row-val" id="totalPayment">—</span></div>
+<div class="result-row"><span class="result-row-lbl">Переплата</span><span class="result-row-val accent" id="overpayment">—</span></div>
+<div class="result-row"><span class="result-row-lbl">Необходимый доход</span><span class="result-row-val" id="incomeNeeded">—</span></div>
+</div>
+</div>
+</div>
+<p class="legal-note">Расчёт является предварительным и не является предложением банка. Итоговые условия кредитования определяются банком после рассмотрения заявки.</p>
+</section></div>
+<div class="apt-calc-hint">✔ Стоимость с учётом скидки можно рассчитать в калькуляторе выше.</div><div class="apt-filters">
 <button class="apt-filter active" onclick="filterApt(this,'all')">Все</button>
 <button class="apt-filter" onclick="filterApt(this,'studio')">Студии</button>
 <button class="apt-filter" onclick="filterApt(this,'1k')">1-комнатные</button>
@@ -28,15 +79,15 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">Студия</div>
 <div class="apt-area">25,90 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">4 144 000 ₽</div>
-<div class="apt-payment"><div class="pay-lbl">платёж от</div><div class="pay-num">12 572 ₽/мес</div></div>
+<div class="apt-price">4 796 075 ₽</div>
+<div class="apt-payment">платёж от 19 276 ₽/мес</div>
 </div>
 <div class="apt-tags">
-<span class="apt-tag tag-green">Семейная 2,2%</span>
-<span class="apt-tag tag-orange">ПВ 832 900 ₽</span>
+<span class="apt-tag tag-green">Льготная программа</span>
+<span class="apt-tag tag-orange">ПВ 940 031 ₽</span>
 <span class="apt-tag" style="background:var(--green-dim);color:var(--green)">Предчистовая</span>
 </div>
-<button class="calc-btn" onclick="goCalc(4144000,2.2,30)">Рассчитать платёж →</button>
+<button class="calc-btn" onclick="goCalc(4796075)">Рассчитать платёж →</button>
 </div>
 </div>
 <div class="apt-card" data-type="studio" style="display: block;">
@@ -49,14 +100,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-area">31,2 м² · Предчистовая · Срок сдачи: 3 кв. 2027</div>
 <div class="apt-price-row">
 <div class="apt-price">4 352 400 ₽</div>
-<div class="apt-payment"><div class="pay-lbl">платёж от</div><div class="pay-num">13 204 ₽/мес</div></div>
+<div class="apt-payment">платёж от 17 493 ₽/мес</div>
 </div>
 <div class="apt-tags">
-<span class="apt-tag tag-green">Семейная 2,2%</span>
-<span class="apt-tag tag-orange">ПВ 874 800 ₽</span>
+<span class="apt-tag tag-green">Льготная программа</span>
+<span class="apt-tag tag-orange">ПВ 853 070 ₽</span>
 <span class="apt-tag" style="background:var(--green-dim);color:var(--green)">Предчистовая</span>
 </div>
-<button class="calc-btn" onclick="goCalc(4352400,2.2,30)">Рассчитать платёж →</button>
+<button class="calc-btn" onclick="goCalc(4352400)">Рассчитать платёж →</button>
 </div>
 </div>
 <div class="apt-card" data-type="1k" style="display: block;">
@@ -69,14 +120,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-area">35,2 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
 <div class="apt-price">4 949 500 ₽</div>
-<div class="apt-payment"><div class="pay-lbl">платёж от</div><div class="pay-num">15 016 ₽/мес</div></div>
+<div class="apt-payment">платёж от 19 893 ₽/мес</div>
 </div>
 <div class="apt-tags">
-<span class="apt-tag tag-green">Семейная 2,2%</span>
-<span class="apt-tag tag-orange">ПВ 994 800 ₽</span>
+<span class="apt-tag tag-green">Льготная программа</span>
+<span class="apt-tag tag-orange">ПВ 970 102 ₽</span>
 <span class="apt-tag" style="background:var(--green-dim);color:var(--green)">Предчистовая</span>
 </div>
-<button class="calc-btn" onclick="goCalc(4949500,2.2,30)">Рассчитать платёж →</button>
+<button class="calc-btn" onclick="goCalc(4949500)">Рассчитать платёж →</button>
 </div>
 </div>
 <div class="apt-card" data-type="1k" style="display: block;">
@@ -89,14 +140,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-area">40,3 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
 <div class="apt-price">5 521 100 ₽</div>
-<div class="apt-payment"><div class="pay-lbl">платёж от</div><div class="pay-num">16 750 ₽/мес</div></div>
+<div class="apt-payment">платёж от 22 190 ₽/мес</div>
 </div>
 <div class="apt-tags">
-<span class="apt-tag tag-green">Семейная 2,2%</span>
-<span class="apt-tag tag-orange">ПВ 1 109 700 ₽</span>
+<span class="apt-tag tag-green">Льготная программа</span>
+<span class="apt-tag tag-orange">ПВ 1 082 136 ₽</span>
 <span class="apt-tag" style="background:var(--green-dim);color:var(--green)">Предчистовая</span>
 </div>
-<button class="calc-btn" onclick="goCalc(5521100,2.2,30)">Рассчитать платёж →</button>
+<button class="calc-btn" onclick="goCalc(5521100)">Рассчитать платёж →</button>
 </div>
 </div>
 <div class="apt-card" data-type="1k" style="display: block;">
@@ -108,15 +159,15 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">1-комнатная квартира</div>
 <div class="apt-area">42,9 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">5 885 880 ₽</div>
-<div class="apt-payment"><div class="pay-lbl">платёж от</div><div class="pay-num">17 856 ₽/мес</div></div>
+<div class="apt-price">6 006 000 ₽</div>
+<div class="apt-payment">платёж от 24 139 ₽/мес</div>
 </div>
 <div class="apt-tags">
-<span class="apt-tag tag-green">Семейная 2,2%</span>
-<span class="apt-tag tag-orange">ПВ 1 183 100 ₽</span>
+<span class="apt-tag tag-green">Льготная программа</span>
+<span class="apt-tag tag-orange">ПВ 1 177 176 ₽</span>
 <span class="apt-tag" style="background:var(--green-dim);color:var(--green)">Предчистовая</span>
 </div>
-<button class="calc-btn" onclick="goCalc(5885880,2.2,30)">Рассчитать платёж →</button>
+<button class="calc-btn" onclick="goCalc(6006000)">Рассчитать платёж →</button>
 </div>
 </div>
 <div class="apt-card" data-type="2k" style="display: block;">
@@ -128,15 +179,15 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">2-комнатная квартира</div>
 <div class="apt-area">54,2 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">7 046 000 ₽</div>
-<div class="apt-payment"><div class="pay-lbl">платёж от</div><div class="pay-num">21 376 ₽/мес</div></div>
+<div class="apt-price">7 248 500 ₽</div>
+<div class="apt-payment">платёж от 29 133 ₽/мес</div>
 </div>
 <div class="apt-tags">
-<span class="apt-tag tag-green">Семейная 2,2%</span>
-<span class="apt-tag tag-orange">ПВ 1 416 200 ₽</span>
+<span class="apt-tag tag-green">Льготная программа</span>
+<span class="apt-tag tag-orange">ПВ 1 420 706 ₽</span>
 <span class="apt-tag" style="background:var(--green-dim);color:var(--green)">Предчистовая</span>
 </div>
-<button class="calc-btn" onclick="goCalc(7046000,2.2,30)">Рассчитать платёж →</button>
+<button class="calc-btn" onclick="goCalc(7248500)">Рассчитать платёж →</button>
 </div>
 </div>
 <div class="apt-card" data-type="2k" style="display: block;">
@@ -148,15 +199,15 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">2-комнатная квартира</div>
 <div class="apt-area">57,5 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">7 224 100 ₽</div>
-<div class="apt-payment"><div class="pay-lbl">платёж от</div><div class="pay-num">21 917 ₽/мес</div></div>
+<div class="apt-price">7 404 700 ₽</div>
+<div class="apt-payment">платёж от 29 760 ₽/мес</div>
 </div>
 <div class="apt-tags">
-<span class="apt-tag tag-green">Семейная 2,2%</span>
-<span class="apt-tag tag-orange">ПВ 1 452 000 ₽</span>
+<span class="apt-tag tag-green">Льготная программа</span>
+<span class="apt-tag tag-orange">ПВ 1 451 321 ₽</span>
 <span class="apt-tag" style="background:var(--green-dim);color:var(--green)">Предчистовая</span>
 </div>
-<button class="calc-btn" onclick="goCalc(7224100,2.2,30)">Рассчитать платёж →</button>
+<button class="calc-btn" onclick="goCalc(7404700)">Рассчитать платёж →</button>
 </div>
 </div>
 <div class="apt-card" data-type="2k" style="display: block;">
@@ -168,15 +219,15 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">2-комнатная квартира</div>
 <div class="apt-area">62,9 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">8 145 550 ₽</div>
-<div class="apt-payment"><div class="pay-lbl">платёж от</div><div class="pay-num">24 712 ₽/мес</div></div>
+<div class="apt-price">8 237 900 ₽</div>
+<div class="apt-payment">платёж от 33 109 ₽/мес</div>
 </div>
 <div class="apt-tags">
-<span class="apt-tag tag-green">Семейная 2,2%</span>
-<span class="apt-tag tag-orange">ПВ 1 637 300 ₽</span>
+<span class="apt-tag tag-green">Льготная программа</span>
+<span class="apt-tag tag-orange">ПВ 1 614 628 ₽</span>
 <span class="apt-tag" style="background:var(--green-dim);color:var(--green)">Предчистовая</span>
 </div>
-<button class="calc-btn" onclick="goCalc(8145550,2.2,30)">Рассчитать платёж →</button>
+<button class="calc-btn" onclick="goCalc(8237900)">Рассчитать платёж →</button>
 </div>
 </div>
 <div class="apt-card" data-type="2k" style="display: block;">
@@ -189,14 +240,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-area">65,8 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
 <div class="apt-price">8 146 800 ₽</div>
-<div class="apt-payment"><div class="pay-lbl">платёж от</div><div class="pay-num">24 716 ₽/мес</div></div>
+<div class="apt-payment">платёж от 32 743 ₽/мес</div>
 </div>
 <div class="apt-tags">
-<span class="apt-tag tag-green">Семейная 2,2%</span>
-<span class="apt-tag tag-orange">ПВ 1 637 500 ₽</span>
+<span class="apt-tag tag-green">Льготная программа</span>
+<span class="apt-tag tag-orange">ПВ 1 596 773 ₽</span>
 <span class="apt-tag" style="background:var(--green-dim);color:var(--green)">Предчистовая</span>
 </div>
-<button class="calc-btn" onclick="goCalc(8146800,2.2,30)">Рассчитать платёж →</button>
+<button class="calc-btn" onclick="goCalc(8146800)">Рассчитать платёж →</button>
 </div>
 </div>
 <div class="apt-card" data-type="3k" style="display: block;">
@@ -208,23 +259,34 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-seri
 <div class="apt-title">3-комнатная квартира</div>
 <div class="apt-area">71,6 м² · Предчистовая · Срок сдачи: 3 кв. 2028</div>
 <div class="apt-price-row">
-<div class="apt-price">9 129 000 ₽</div>
-<div class="apt-payment"><div class="pay-lbl">платёж от</div><div class="pay-num">27 696 ₽/мес</div></div>
+<div class="apt-price">9 451 200 ₽</div>
+<div class="apt-payment">платёж от 37 986 ₽/мес</div>
 </div>
 <div class="apt-tags">
-<span class="apt-tag tag-green">Семейная 2,2%</span>
-<span class="apt-tag tag-orange">ПВ 1 834 900 ₽</span>
+<span class="apt-tag tag-green">Льготная программа</span>
+<span class="apt-tag tag-orange">ПВ 1 852 435 ₽</span>
 <span class="apt-tag" style="background:var(--green-dim);color:var(--green)">Предчистовая</span>
 </div>
-<button class="calc-btn" onclick="goCalc(9129000,2.2,30)">Рассчитать платёж →</button>
+<button class="calc-btn" onclick="goCalc(9451200)">Рассчитать платёж →</button>
 </div>
 </div>
 </div>
 </div>
-</section></main><div class="apt-footer">Информация и расчёты на странице носят справочный характер и не являются публичной офертой. Наличие квартир, цена, ставка, размер первоначального взноса и платёж зависят от даты обращения, требований банка и условий застройщика.</div><div class="plan-modal" id="planModal" onclick="if(event.target===this)closePlanModal()"><button class="plan-close" onclick="closePlanModal()">×</button><img id="planModalImage" alt="Увеличенная планировка"></div><script>
-function goCalc(price){window.location.href='/?price='+encodeURIComponent(price||'')+'#calculator';}
-function filterApt(btn,type){document.querySelectorAll('.apt-filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.apt-card').forEach(card=>{card.style.display=(type==='all'||card.dataset.type===type)?'block':'none';});}
-function openPlanModal(img){document.getElementById('planModalImage').src=img.src;document.getElementById('planModal').classList.add('open');document.body.style.overflow='hidden';}
+</section></main><div class="apt-footer">Информация и расчёты на странице носят справочный характер и не являются публичной офертой. Наличие квартир, цена, скидка, ставка и условия программы уточняются перед бронированием.</div><div class="plan-modal" id="planModal" onclick="if(event.target===this)closePlanModal()"><button class="plan-close" onclick="closePlanModal()">×</button><img alt="Увеличенная планировка" id="planModalImage"/></div><script>
+function filterApt(btn,type){document.querySelectorAll('.apt-filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.apt-card').forEach(c=>c.style.display=(type==='all'||c.dataset.type===type)?'block':'none');}
+function openPlanModal(img){document.getElementById('planModalImg').src=img.src;document.getElementById('planModal').classList.add('open');document.body.style.overflow='hidden';}
 function closePlanModal(){document.getElementById('planModal').classList.remove('open');document.body.style.overflow='';}
+function updateRange(input){const min=Number(input.min||0),max=Number(input.max||100),value=Number(input.value||0);const pct=max===min?0:((value-min)/(max-min))*100;input.style.setProperty('--pct',pct+'%');}
+function fmt(n){return Math.round(n).toLocaleString('ru-RU')+' ₽';}
+function fmtM(n){return Math.round(n).toLocaleString('ru-RU')+' ₽/мес';}
+function calcMortgage(){
+ const basePrice=+document.getElementById('price').value||0,downPct=+document.getElementById('down').value||0,term=+document.getElementById('term').value||0;
+ const program=document.getElementById('program'),rate=parseFloat(program.value)||0,discount=parseFloat(program.options[program.selectedIndex].dataset.discount||'0');
+ const price=basePrice*(1-discount/100),hint=document.getElementById('downPaymentHint');if(hint)hint.style.display=downPct===0?'block':'none';
+ const down=price*downPct/100,loan=price-down,months=term*12,r=rate/100/12,monthly=months>0?(r===0?loan/months:loan*r*Math.pow(1+r,months)/(Math.pow(1+r,months)-1)):0,total=monthly*months,over=total-loan;
+ document.getElementById('downVal').textContent=downPct+'%';document.getElementById('termVal').textContent=term+(term===1?' год':term<5?' года':' лет');document.getElementById('monthlyPayment').textContent=fmtM(monthly);document.getElementById('rateInfo').textContent='ставка '+rate.toFixed(rate%1?1:0).replace('.',',')+'% · скидка '+discount+'% · '+term+' '+(term===1?'год':term<5?'года':'лет');document.getElementById('priceVal').textContent=fmt(basePrice);document.getElementById('discountVal').textContent=discount?('− '+fmt(basePrice-price)):'без скидки';document.getElementById('effectivePriceVal').textContent=fmt(price);document.getElementById('downValFull').textContent=downPct+'% — '+fmt(down);document.getElementById('loanAmount').textContent=fmt(loan);document.getElementById('totalPayment').textContent=fmt(total);document.getElementById('overpayment').textContent=fmt(over);document.getElementById('incomeNeeded').textContent=fmt(monthly*2.5);
+}
+function goCalc(price){document.getElementById('price').value=price||5000000;document.getElementById('program').value='4.6';calcMortgage();document.getElementById('calculator').scrollIntoView({behavior:'smooth',block:'start'});}
+document.querySelectorAll('#calculator input[type="range"]').forEach(updateRange);calcMortgage();
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlanModal();});
 </script></body></html>
