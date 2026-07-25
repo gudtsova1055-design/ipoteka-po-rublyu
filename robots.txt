@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ipoteka-prosto.ru/sitemap.xml
+Host: ipoteka-prosto.ru

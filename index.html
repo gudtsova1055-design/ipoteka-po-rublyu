@@ -1,13 +1,13 @@
 <!-- saved from url=(0026)https://ipoteka-prosto.ru/ -->
-<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta content="width=device-width,initial-scale=1.0" name="viewport"/><meta content="GjAPnxO45wOuiya8H0An4WxEgHsmqJAsjFs3UhomxkfMiEIkbgdpM68GlokoPDtw" name="zen-verification"/>
+<html lang="ru"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta content="width=device-width,initial-scale=1.0" name="viewport"/><meta content="GjAPnxO45wOuiya8H0An4WxEgHsmqJAsjFs3UhomxkfMiEIkbgdpM68GlokoPDtw" name="zen-verification"/>
 <title>Недвижимость и ипотека в Ижевске | Олеся Юминова</title>
 <meta content="Покупка и продажа недвижимости, ипотечные программы, проверка объектов и сопровождение сделок в Ижевске. Олеся Юминова, специалист по недвижимости." name="description"/>
 <meta content="одобрение ипотеки, ипотека Ижевск, семейная ипотека 2026, ипотека без первоначального взноса, какой процент по ипотеке, ипотечный калькулятор, льготная ипотека, ипотека для ИП, ипотека с плохой кредитной историей, ипотека на новостройку, какую ипотеку выбрать, рефинансирование ипотеки, ипотека на вторичку, сельская ипотека, ипотечный брокер Ижевск, как получить одобрение ипотеки" name="keywords"/>
 <meta content="Олеся Юминова" name="author"/>
 <meta content="Недвижимость и ипотека в Ижевске | Олеся Юминова" property="og:title"/>
-<meta content="Помогаю спокойно и понятно решать вопросы покупки, продажи недвижимости, ипотеки и юридической безопасности сделки." property="og:description"/>
+<meta content="Покупка и продажа недвижимости, ипотечные программы, проверка объектов и сопровождение сделок в Ижевске. Олеся Юминова, специалист по недвижимости." property="og:description"/>
 <meta content="website" property="og:type"/>
-<meta content="https://ipoteka-prosto.ru" property="og:url"/>
+<meta content="https://ipoteka-prosto.ru/" property="og:url"/>
 <link href="https://ipoteka-prosto.ru/" rel="canonical"/>
 <link href="favicon.png" rel="icon" type="image/png"/>
 <link href="favicon.png" rel="shortcut icon" type="image/png"/>
@@ -21,7 +21,7 @@
 
   const FORM_PROXY_URL = 'https://form-proxy.gudtsova1055.workers.dev/';
   const TURNSTILE_SITE_KEY = '0x4AAAAAAD49AP1yVcIeZ4hZ';
-  const OLD_MAKE_WEBHOOK_PREFIX = 'https://hook.us2.make.com/';
+  const PROTECTED_FORM_URI = 'form-proxy://submit';
   const nativeFetch = window.fetch.bind(window);
   let activeChallenge = null;
 
@@ -109,10 +109,10 @@
     return result;
   }
 
-  // Перехватываем старые вызовы Make и отправляем их только через защищённый Worker.
+  // Все формы отправляются только через защищённый Cloudflare Worker.
   window.fetch = function (resource, options) {
     const url = typeof resource === 'string' ? resource : (resource && resource.url) || '';
-    if (url.indexOf(OLD_MAKE_WEBHOOK_PREFIX) === 0) {
+    if (url === PROTECTED_FORM_URI) {
       let payload = {};
       try { payload = JSON.parse((options && options.body) || '{}'); }
       catch (_) { return Promise.reject(new Error('Некорректные данные формы.')); }
@@ -184,7 +184,7 @@ function sendCalcResult(messenger) {
 
     '⏰ ' + new Date().toLocaleString('ru-RU');
 
-  fetch('https://hook.us2.make.com/protected-by-cloudflare', {
+  fetch('form-proxy://submit', {
 
     method: 'POST',
 
@@ -260,9 +260,9 @@ function sendCalcResult(messenger) {
    });
 
 </script>
-<noscript><div><img alt="" src="https://mc.yandex.ru/watch/109774560" style="position:absolute; left:-9999px;"/></div></noscript>
+<noscript><div><img alt="" fetchpriority="high" loading="eager" src="https://mc.yandex.ru/watch/109774560" style="position:absolute; left:-9999px;"/></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<link href="css/home-v2.css" rel="stylesheet"/></head><body class="home-v2">
+<link href="css/home-v2.css" rel="stylesheet"/><meta content="index, follow" name="robots"/><meta content="summary_large_image" name="twitter:card"/></head><body class="home-v2">
 <header class="site-header">
 <a aria-label="На главную" class="brand" href="/"><strong>Олеся Юминова</strong><span>Специалист по недвижимости</span></a>
 <nav aria-label="Основная навигация" class="desktop-nav">
@@ -284,7 +284,7 @@ function sendCalcResult(messenger) {
 <div class="hero-actions"><button class="btn btn-red" onclick="openContactModal('Консультация с первого экрана')" type="button">Получить консультацию</button><a class="btn btn-outline" href="#calculator">Рассчитать ипотеку</a></div>
 <div class="hero-meta"><span>⌖ Ижевск</span><span>◎ Онлайн-консультации по России</span></div>
 </div>
-<div class="hero-photo"><img alt="Олеся Юминова, специалист по недвижимости" height="900" src="images/olesya-hero.jpg" width="720"/></div>
+<div class="hero-photo"><img alt="Олеся Юминова, специалист по недвижимости" decoding="async" height="1189" loading="lazy" src="images/olesya-hero.webp" width="1323"/></div>
 </section>
 <section class="section services" id="services">
 <div class="section-head"><h2>С чем ко мне обращаются чаще всего</h2></div>
@@ -356,7 +356,7 @@ function sendCalcResult(messenger) {
 <section aria-labelledby="topics-title" class="topic-strip"><div class="section compact"><h2 id="topics-title">Что вас интересует?</h2><div class="topic-tags">
 <a href="/ipoteka.html">Ипотека для всех</a><a href="/lgotnaya-ipoteka.html">Льготная ипотека</a><a href="/semejnaya-ipoteka.html">Семейная ипотека</a><a href="/it-ipoteka.html">IT-ипотека</a><a href="/ipoteka-dlya-ip-i-samozanyatyh.html">ИП и самозанятые</a><a href="/ipoteka-bez-pervonachalnogo-vznosa.html">Без первоначального взноса</a><a href="/refinansirovanie-ipoteki.html">Рефинансирование</a><a href="/articles.html#rassrochka">Рассрочка</a><a href="/podbor-kvartiry.html">Подбор квартир</a><a href="#calculator">Рассчитать ипотеку</a><a href="javascript:void(0)" onclick="openEligibilityQuiz()">Проверить льготную программу</a>
 </div></div></section>
-<section class="section about" id="about"><div class="about-card"><div class="about-photo"><img alt="Олеся Юминова за работой" src="images/olesya-about.png"/></div><div class="about-copy"><h2>Здравствуйте! Меня зовут Олеся Юминова.</h2><div class="about-points"><p><strong>Более 11 лет</strong><br/>помогаю решать вопросы покупки, продажи недвижимости и ипотеки.</p><p><strong>По образованию я юрист,</strong><br/>поэтому уделяю особое внимание проверке документов и безопасности сделок.</p><p><strong>Не навязываю решения.</strong><br/>Если покупку лучше отложить — честно скажу об этом.</p><p><strong>Работаю с покупателями и продавцами</strong><br/>и сопровождаю сделку до её завершения.</p></div><p>Проект <strong>«Ипотека-Просто»</strong> я создала, чтобы собрать в одном месте понятные инструкции, честную аналитику рынка недвижимости и ответы на вопросы, которые чаще всего задают мои клиенты.</p><button class="btn btn-red" onclick="openContactModal('Консультация после блока обо мне')" type="button">Получить консультацию</button></div></div></section>
+<section class="section about" id="about"><div class="about-card"><div class="about-photo"><img alt="Олеся Юминова за работой" decoding="async" height="536" loading="lazy" src="images/olesya-about.webp" width="445"/></div><div class="about-copy"><h2>Здравствуйте! Меня зовут Олеся Юминова.</h2><div class="about-points"><p><strong>Более 11 лет</strong><br/>помогаю решать вопросы покупки, продажи недвижимости и ипотеки.</p><p><strong>По образованию я юрист,</strong><br/>поэтому уделяю особое внимание проверке документов и безопасности сделок.</p><p><strong>Не навязываю решения.</strong><br/>Если покупку лучше отложить — честно скажу об этом.</p><p><strong>Работаю с покупателями и продавцами</strong><br/>и сопровождаю сделку до её завершения.</p></div><p>Проект <strong>«Ипотека-Просто»</strong> я создала, чтобы собрать в одном месте понятные инструкции, честную аналитику рынка недвижимости и ответы на вопросы, которые чаще всего задают мои клиенты.</p><button class="btn btn-red" onclick="openContactModal('Консультация после блока обо мне')" type="button">Получить консультацию</button></div></div></section>
 <section class="section popular" id="popular"><div class="section-head"><h2>Популярные вопросы</h2><p>Возможно, вы ищете именно это</p></div><div class="question-row">
 <a href="/ipoteka-bez-pervonachalnogo-vznosa.html"><span>▣</span>Можно ли купить квартиру без первоначального взноса?</a><a href="/articles.html#rassrochka"><span>%</span>Что выгоднее — ипотека или рассрочка?</a><a href="/refinansirovanie-ipoteki.html"><span>↻</span>Стоит ли сейчас рефинансировать ипотеку?</a><a href="/ipoteka-dlya-ip-i-samozanyatyh.html"><span>▤</span>Может ли ИП получить ипотеку?</a><a href="/semejnaya-ipoteka.html"><span>♧</span>Подходит ли мне семейная ипотека?</a><a href="/proverka-kvartiry-pered-pokupkoj.html"><span>⌾</span>Как проверить квартиру перед покупкой?</a>
 </div></section>
@@ -365,7 +365,7 @@ function sendCalcResult(messenger) {
 <article><div class="stars">★★★★★</div><h3>Альбина</h3><small>Покупка квартиры</small><p>Олеся, огромное спасибо за помощь в покупке квартиры и оформлении всех документов. Максимально приятное общение, профессионализм высшего уровня.</p></article>
 <article><div class="stars">★★★★★</div><h3>Андрей</h3><small>Ипотечное сопровождение</small><p>Обратился за консультацией по ипотеке. Олеся спокойно объяснила условия, помогла сравнить варианты и разобраться, какие документы подготовить. Всё было понятно, без давления и лишних обещаний.</p></article>
 </div></section>
-<section class="section contact" id="contact"><div class="contact-card"><div><p class="eyebrow">Связаться со мной</p><h2>Обсудим вашу ситуацию</h2><p>Расскажите, какой вопрос нужно решить. Я уточню детали и предложу следующий шаг без обещаний невозможного.</p><div class="contact-actions"><button class="btn btn-red" onclick="openContactModal('Обсудить мою ситуацию')" type="button">Оставить заявку</button><a class="btn btn-outline" href="tel:+79120251055">+7 (912) 025-10-55</a><a class="btn btn-outline" href="https://t.me/ipotekaprostoru" rel="noopener" target="_blank">Telegram</a><a class="btn btn-outline" href="https://vk.ru/olesya_realestate" rel="noopener" target="_blank">ВКонтакте</a></div></div><div class="office"><h3>Офис для встреч</h3><p><strong>Союз Риэлторов «Полезные Люди»</strong><br/>г. Ижевск, ул. Удмуртская, 304е, ТЦ «Орион»</p><p>По предварительной записи.</p></div></div></section>
+<section class="section contact" id="contact"><div class="contact-card"><div><p class="eyebrow">Связаться со мной</p><h2>Обсудим вашу ситуацию</h2><p>Расскажите, какой вопрос нужно решить. Я уточню детали и предложу следующий шаг без обещаний невозможного.</p><div class="contact-actions"><button class="btn btn-red" onclick="openContactModal('Обсудить мою ситуацию')" type="button">Оставить заявку</button><a class="btn btn-outline" href="tel:+79120251055">+7 (912) 025-10-55</a><a class="btn btn-outline" href="https://t.me/ipotekaprostoru" rel="noopener noreferrer" target="_blank">Telegram</a><a class="btn btn-outline" href="https://vk.ru/olesya_realestate" rel="noopener noreferrer" target="_blank">ВКонтакте</a></div></div><div class="office"><h3>Офис для встреч</h3><p><strong>Союз Риэлторов «Полезные Люди»</strong><br/>г. Ижевск, ул. Удмуртская, 304е, ТЦ «Орион»</p><p>По предварительной записи.</p></div></div></section>
 </main>
 <div aria-hidden="true" class="site-modal" id="eligibilityQuiz">
 <div class="site-modal-backdrop" onclick="closeEligibilityQuiz()"></div>
@@ -479,7 +479,7 @@ function openContactModal(goal){const select=document.getElementById('consultati
 function closeContactModal(){hideSiteModal('contactModal');}
 function formatPhoneValue(value){let d=value.replace(/\D/g,'').replace(/^8/,'7');if(!d.startsWith('7'))d='7'+d;d=d.slice(0,11);let out='+7';if(d.length>1)out+=' ('+d.slice(1,4);if(d.length>=4)out+=') '+d.slice(4,7);if(d.length>=7)out+='-'+d.slice(7,9);if(d.length>=9)out+='-'+d.slice(9,11);return out;}
 const phoneInput=document.querySelector('#consultationForm input[name="phone"]');phoneInput.addEventListener('input',e=>e.target.value=formatPhoneValue(e.target.value));
-document.getElementById('consultationForm').addEventListener('submit',async function(e){e.preventDefault();const status=document.getElementById('consultationStatus');const btn=this.querySelector('button[type="submit"]');const fd=new FormData(this);const phone=String(fd.get('phone')||'').replace(/\D/g,'');if(phone.length<11){status.textContent='Проверьте номер телефона.';status.className='form-status error';return;}btn.disabled=true;status.textContent='Отправляем заявку…';status.className='form-status';try{await fetch('https://hook.us2.make.com/protected-by-cloudflare',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:fd.get('name'),phone:'+'+phone,goal:fd.get('goal'),comment:fd.get('comment')||'',quiz_answers:Object.values(quizAnswers).join(' | '),source:'Главная страница',date:new Date().toLocaleString('ru-RU')})});status.textContent='Заявка отправлена. Я свяжусь с вами в ближайшее время.';status.className='form-status success';this.reset();}catch(err){status.textContent=err.message||'Не удалось отправить заявку. Позвоните или напишите в Telegram.';status.className='form-status error';}finally{btn.disabled=false;}});
+document.getElementById('consultationForm').addEventListener('submit',async function(e){e.preventDefault();const status=document.getElementById('consultationStatus');const btn=this.querySelector('button[type="submit"]');const fd=new FormData(this);const phone=String(fd.get('phone')||'').replace(/\D/g,'');if(phone.length<11){status.textContent='Проверьте номер телефона.';status.className='form-status error';return;}btn.disabled=true;status.textContent='Отправляем заявку…';status.className='form-status';try{await fetch('form-proxy://submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:fd.get('name'),phone:'+'+phone,goal:fd.get('goal'),comment:fd.get('comment')||'',quiz_answers:Object.values(quizAnswers).join(' | '),source:'Главная страница',date:new Date().toLocaleString('ru-RU')})});status.textContent='Заявка отправлена. Я свяжусь с вами в ближайшее время.';status.className='form-status success';this.reset();}catch(err){status.textContent=err.message||'Не удалось отправить заявку. Позвоните или напишите в Telegram.';status.className='form-status error';}finally{btn.disabled=false;}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeEligibilityQuiz();closeContactModal();}});
 
 </script>
