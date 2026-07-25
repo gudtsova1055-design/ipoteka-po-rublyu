@@ -1,0 +1,22 @@
+SEO-ревизия от 25.07.2026
+
+Сделано:
+- удалено устаревшее упоминание ставки 2,2%;
+- создана отдельная страница ipotechnyy-kalkulyator.html с рабочим калькулятором;
+- обновлены title и description основных страниц;
+- добавлены canonical, Open Graph, Twitter Card;
+- добавлена Schema.org JSON-LD: WebSite, ProfessionalService, Person, WebPage, Service/Article/WebApplication, BreadcrumbList;
+- обновлены внутренние ссылки на калькулятор;
+- добавлен блок базы знаний на главной;
+- пересобран sitemap.xml;
+- упрощён robots.txt;
+- выполнена автоматическая проверка внутренних ссылок, HTML-метаданных и JavaScript.
+
+После публикации отправить на переобход:
+https://ipoteka-prosto.ru/
+https://ipoteka-prosto.ru/ipotechnyy-kalkulyator.html
+https://ipoteka-prosto.ru/ipoteka-bez-pervonachalnogo-vznosa.html
+https://ipoteka-prosto.ru/articles.html
+https://ipoteka-prosto.ru/sitemap.xml
+
+Важно: поисковая система сама формирует сниппет. Обновлённые метаданные и удаление 2,2% дают ей новые данные, но замена сниппета произойдёт после переобхода и не гарантируется дословно.
